@@ -41,7 +41,8 @@ oneDNN API
 |		:ref:`PReLU<doxid-group__dnnl__api__prelu>`
 |		:ref:`LRN<doxid-group__dnnl__api__lrn>`
 |		:ref:`Batch Normalization<doxid-group__dnnl__api__batch__normalization>`
-|		:ref:`Layer Normalization<doxid-group__dnnl__api__layer__normalization>`
+|		:ref:`Dnnl_api_layer_normalization<doxid-group__dnnl__api__layer__normalization>`
+|		:ref:`Layer Normalization<doxid-group__dnnl__api__layer__normalization__v2>`
 |		:ref:`Inner Product<doxid-group__dnnl__api__inner__product>`
 |		:ref:`RNN<doxid-group__dnnl__api__rnn>`
 |		:ref:`Matrix Multiplication<doxid-group__dnnl__api__matmul>`

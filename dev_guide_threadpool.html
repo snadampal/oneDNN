@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Using oneDNN with Threadpool-Based Threading &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Using oneDNN with Threadpool-Based Threading &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2847,27 +2865,35 @@
 <p>The threadpool interface is defined in <code class="docutils literal notranslate"><span class="pre">include/oneapi/dnnl/dnnl_threadpool_iface.hpp</span></code>. Below is a sample implementation based on the Eigen threadpool that is also used for testing (see <code class="docutils literal notranslate"><span class="pre">tests/test_thread.cpp</span></code>).</p>
 <pre class="highlight literal-block"><span></span><span class="cp">#include</span> <span class="cpf">&quot;dnnl_threadpool_iface.hpp&quot;</span><span class="cp"></span>
 
-<span class="k">class</span> <span class="nl">threadpool</span> <span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface"><span class="std std-ref">dnnl::threadpool_interop::threadpool_iface</span></a><span></span> <span class="p">{</span>
+<span class="k">class</span> <span class="nl">threadpool_t</span> <span class="p">:</span> <span class="k">public</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface"><span class="std std-ref">dnnl::threadpool_interop::threadpool_iface</span></a><span></span> <span class="p">{</span>
 <span class="k">private</span><span class="o">:</span>
     <span class="c1">// Change to Eigen::NonBlockingThreadPool if using Eigen &lt;= 3.3.7</span>
     <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">ThreadPool</span><span class="o">&gt;</span> <span class="n">tp_</span><span class="p">;</span>
 
 <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">threadpool</span><span class="p">(</span><span class="kt">int</span> <span class="n">num_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">explicit</span> <span class="n">threadpool_t</span><span class="p">(</span><span class="kt">int</span> <span class="n">num_threads</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">num_threads</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
             <span class="n">num_threads</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="o">::</span><span class="n">hardware_concurrency</span><span class="p">();</span>
         <span class="n">tp_</span><span class="p">.</span><span class="n">reset</span><span class="p">(</span><span class="k">new</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">ThreadPool</span><span class="p">(</span><span class="n">num_threads</span><span class="p">));</span>
     <span class="p">}</span>
-    <span class="kt">int</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a1071371237ec5c98db140c1f1f1c0114"><span class="std std-ref">get_num_threads</span></a><span></span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="n">tp_</span><span class="o">-&gt;</span><span class="n">NumThreads</span><span class="p">();</span> <span class="p">}</span>
-    <span class="kt">bool</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a8279221c6e2f903a4c811688f7a033be"><span class="std std-ref">get_in_parallel</span></a><span></span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span>
+    <span class="kt">int</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a1071371237ec5c98db140c1f1f1c0114"><span class="std std-ref">get_num_threads</span></a><span></span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <span class="n">tp_</span><span class="o">-&gt;</span><span class="n">NumThreads</span><span class="p">();</span> <span class="p">}</span>
+    <span class="kt">bool</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a8279221c6e2f903a4c811688f7a033be"><span class="std std-ref">get_in_parallel</span></a><span></span><span class="p">()</span> <span class="k">const</span> <span class="k">override</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">tp_</span><span class="o">-&gt;</span><span class="n">CurrentThreadId</span><span class="p">()</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="kt">uint64_t</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a868267178f259cee5f1d5b33a8781a3e"><span class="std std-ref">get_flags</span></a><span></span><span class="p">()</span> <span class="k">override</span> <span class="p">{</span> <span class="k">return</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a9e6d861d659445fe5abcf302e464d9e5"><span class="std std-ref">ASYNCHRONOUS</span></a><span></span><span class="p">;</span> <span class="p">}</span>
-    <span class="kt">void</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1ac3d85ff935c11ec038ecabeeabd03ffb"><span class="std std-ref">parallel_for</span></a><span></span><span class="p">(</span>
-            <span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">fn</span><span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
-        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
-            <span class="n">tp_</span><span class="o">-&gt;</span><span class="n">Schedule</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">fn</span><span class="p">]()</span> <span class="p">{</span> <span class="n">fn</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span> <span class="p">});</span>
-    <span class="p">}</span>
+    <span class="kt">void</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1ac3d85ff935c11ec038ecabeeabd03ffb"><span class="std std-ref">parallel_for</span></a><span></span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">fn</span><span class="p">)</span> <span class="k">override</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">nthr</span> <span class="o">=</span> <a class="reference internal" href="struct_dnnl_threadpool_interop_threadpool_iface.html#doxid-structdnnl-1-1threadpool-interop-1-1threadpool-iface-1a1071371237ec5c98db140c1f1f1c0114"><span class="std std-ref">get_num_threads</span></a><span></span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">njobs</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">min</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">nthr</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">njobs</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">tp_</span><span class="o">-&gt;</span><span class="n">Schedule</span><span class="p">([</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">njobs</span><span class="p">,</span> <span class="n">fn</span><span class="p">]()</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">;</span>
+                <span class="n">impl</span><span class="o">::</span><span class="n">balance211</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">njobs</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">start</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="n">fn</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">n</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
 <span class="p">};</span></pre>
 </section>
 

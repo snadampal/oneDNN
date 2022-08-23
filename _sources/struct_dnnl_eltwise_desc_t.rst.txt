@@ -148,11 +148,11 @@ Accordance table:
 
 * :ref:`dnnl_eltwise_round <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23adda28cb0389d39c0c43967352b116d9d>` : ``alpha`` and ``beta`` ignored
 
-* :ref:`dnnl_eltwise_logsigmoid <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a0d83b3b9df42473195a58796f7bc8142>` ``alpha`` and ``beta`` ignored
+* :ref:`dnnl_eltwise_logsigmoid <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a0d83b3b9df42473195a58796f7bc8142>` : ``alpha`` and ``beta`` ignored
 
-* :ref:`dnnl_eltwise_mish <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23ae3b2cacb38f7aa0a115e631caa5d63d5>` ``alpha`` and ``beta`` ignored
+* :ref:`dnnl_eltwise_mish <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23ae3b2cacb38f7aa0a115e631caa5d63d5>` : ``alpha`` and ``beta`` ignored
 
-* :ref:`dnnl_eltwise_hardswish <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a9ee6277dfff509e9fde3d5329b8eacd9>` ``alpha`` and ``beta`` ignored
+* :ref:`dnnl_eltwise_hardswish <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a9ee6277dfff509e9fde3d5329b8eacd9>` : ``alpha`` and ``beta`` ignored
 
-* :ref:`dnnl_eltwise_hardsigmoid <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3>` ``alpha`` and ``beta`` ignored
+* :ref:`dnnl_eltwise_hardsigmoid <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3>` : ``alpha`` scale, ``beta`` shift
 

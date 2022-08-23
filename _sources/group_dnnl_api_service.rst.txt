@@ -202,7 +202,7 @@ Sets the floating-point math mode that will be used by default for all subsequen
 	*
 		- mode
 
-		- FP math mode. The possible values are: :ref:`dnnl_fpmath_mode_strict <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912ab062cd5c71803f26ab700073c8f18bd3>`, :ref:`dnnl_fpmath_mode_bf16 <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912ac7e140804cd26325c9c5563fa421b7f7>`, :ref:`dnnl_fpmath_mode_f16 <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912aa128d95a43cba562c8b90cd820d3faaf>`, :ref:`dnnl_fpmath_mode_f19 <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912a1acbedb6f3bf7d70b08a70d8cc038ca9>`, :ref:`dnnl_fpmath_mode_any <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912ad54e0a51f937a49dd4c2c3d50ca1b94c>`.
+		- FP math mode. The possible values are: :ref:`dnnl_fpmath_mode_strict <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912ab062cd5c71803f26ab700073c8f18bd3>`, :ref:`dnnl_fpmath_mode_bf16 <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912ac7e140804cd26325c9c5563fa421b7f7>`, :ref:`dnnl_fpmath_mode_f16 <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912aa128d95a43cba562c8b90cd820d3faaf>`, :ref:`dnnl_fpmath_mode_tf32 <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912a7c89cac55a7b6a6e4692a5805ba10edc>`, :ref:`dnnl_fpmath_mode_any <doxid-group__dnnl__api__attributes_1gga62f956692c5a70353f164e09ff524912ad54e0a51f937a49dd4c2c3d50ca1b94c>`.
 
 
 
@@ -360,7 +360,7 @@ This function overrides the DNNL_MAX_CPU_ISA environment variable. The environme
    
    * SSE41 < AVX < AVX2,
    
-   * AVX2 < AVX512_CORE < AVX512_CORE_VNNI < AVX512_CORE_BF16 < AVX512_CORE_AMX,
+   * AVX2 < AVX512_CORE < AVX512_CORE_VNNI < AVX512_CORE_BF16 < AVX512_CORE_FP16 < AVX512_CORE_AMX,
    
    * AVX2 < AVX2_VNNI.
 
@@ -693,7 +693,7 @@ This function overrides the DNNL_MAX_CPU_ISA environment variable. The environme
    
    * SSE41 < AVX < AVX2,
    
-   * AVX2 < AVX512_CORE < AVX512_CORE_VNNI < AVX512_CORE_BF16 < AVX512_CORE_AMX,
+   * AVX2 < AVX512_CORE < AVX512_CORE_VNNI < AVX512_CORE_BF16 < AVX512_CORE_FP16 < AVX512_CORE_AMX,
    
    * AVX2 < AVX2_VNNI.
 

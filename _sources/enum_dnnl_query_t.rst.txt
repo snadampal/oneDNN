@@ -16,7 +16,7 @@ Primitive descriptor query specification. :ref:`More...<details-group__dnnl__api
 
 	enum dnnl_query_t
 	{
-	    :ref:`dnnl_query_undef<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059aaa3009651cd11cc84f7a73ef88671b61>`                  = 0,
+	    :ref:`dnnl_query_undef<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059aaa3009651cd11cc84f7a73ef88671b61>`                    = 0,
 	    :ref:`dnnl_query_engine<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ad089d541f9a2e7c98ab889dc4bfaaad2>`,
 	    :ref:`dnnl_query_primitive_kind<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a43cbb3f840bd56f2fd1d5b8b20493b55>`,
 	    :ref:`dnnl_query_num_of_inputs_s32<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a1fe7a52f5934c92b0bd0330463549c0e>`,
@@ -30,7 +30,7 @@ Primitive descriptor query specification. :ref:`More...<details-group__dnnl__api
 	    :ref:`dnnl_query_prop_kind<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ab73dd19af163f8059de03d51898b3a1b>`,
 	    :ref:`dnnl_query_cache_blob_id_size_s64<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a31e8bf3af71e992a6bc44720016dced7>`,
 	    :ref:`dnnl_query_cache_blob_id<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a2b380a4f0c67079a4bba3a434cc83abb>`,
-	    :ref:`dnnl_query_some_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a51f7c4f1463995ba8e6addf95498960d>`                 = 64,
+	    :ref:`dnnl_query_some_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a51f7c4f1463995ba8e6addf95498960d>`                   = 64,
 	    :ref:`dnnl_query_op_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a218e433d8705845d71df3ebdc084da52>`,
 	    :ref:`dnnl_query_convolution_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a0c630599ffd92d1d8e452542f75c9b1f>`,
 	    :ref:`dnnl_query_deconvolution_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a3c07b67edb62a3bdc34a4f916485f252>`,
@@ -52,7 +52,8 @@ Primitive descriptor query specification. :ref:`More...<details-group__dnnl__api
 	    :ref:`dnnl_query_reduction_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a86bed243debcaf81549d4b11a5c6280a>`,
 	    :ref:`dnnl_query_prelu_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059af291654d3c28900b0c8cf1e5a5c87dc3>`,
 	    :ref:`dnnl_query_softmax_v2_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059af6d598dfbeecc87e2fe77199a29e061d>`,
-	    :ref:`dnnl_query_some_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336>`                = 128,
+	    :ref:`dnnl_query_layer_normalization_v2_d<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ab64c8cb57520479dd496750c028928e4>`,
+	    :ref:`dnnl_query_some_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336>`                  = 128,
 	    :ref:`dnnl_query_src_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a14a86faee7b85eeb60d0d7886756ffa5>`,
 	    :ref:`dnnl_query_diff_src_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a2367b043da6df5d691d6038693f363d6>`,
 	    :ref:`dnnl_query_weights_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a12ea0b4858b84889acab34e498323355>`,
@@ -61,8 +62,8 @@ Primitive descriptor query specification. :ref:`More...<details-group__dnnl__api
 	    :ref:`dnnl_query_diff_dst_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ae28e33688bf6c55edcf108bd24eb90de>`,
 	    :ref:`dnnl_query_workspace_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a1c465006660aabe46e644e6df7d36e8a>`,
 	    :ref:`dnnl_query_scratchpad_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a2ef0eedf44417ce40237f6f459347663>`,
-	    :ref:`dnnl_query_exec_arg_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ac7ecf09260d89d54ddd7f35c51a244da>`            = 255,
-	    :target:`dnnl_query_max<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a0c1f3b9e3113ee4ba2156c3e6cee4917>`                    = 0x7fff,
+	    :ref:`dnnl_query_exec_arg_md<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ac7ecf09260d89d54ddd7f35c51a244da>`              = 255,
+	    :target:`dnnl_query_max<doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a0c1f3b9e3113ee4ba2156c3e6cee4917>`                      = 0x7fff,
 	};
 
 .. _details-group__dnnl__api__primitives__common_1ga9e5235563cf7cfc10fa89f415de98059:
@@ -467,6 +468,16 @@ prelu descriptor
 	dnnl_query_softmax_v2_d
 
 softmax version 2 descriptor
+
+.. index:: pair: enumvalue; dnnl_query_layer_normalization_v2_d
+.. _doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059ab64c8cb57520479dd496750c028928e4:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	dnnl_query_layer_normalization_v2_d
+
+layer normalization version 2 descriptor
 
 .. index:: pair: enumvalue; dnnl_query_some_md
 .. _doxid-group__dnnl__api__primitives__common_1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336:

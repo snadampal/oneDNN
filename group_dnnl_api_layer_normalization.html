@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Layer Normalization &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Dnnl_api_layer_normalization &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 current active collapsible-parent">
       <a class="current reference internal" href="#">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2868,18 +2886,15 @@
         
               <div>
                 
-  <section id="layer-normalization">
-<span id="doxid-group-dnnl-api-layer-normalization"></span><span id="index-0"></span><h1>Layer Normalization<a class="headerlink" href="#layer-normalization" title="Permalink to this headline">¶</a></h1>
+  <section id="dnnl-api-layer-normalization">
+<span id="doxid-group-dnnl-api-layer-normalization"></span><span id="index-0"></span><h1>Dnnl_api_layer_normalization<a class="headerlink" href="#dnnl-api-layer-normalization" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>A primitive to perform layer normalization. <a class="reference internal" href="#details-group-dnnl-api-layer-normalization"><span class="std std-ref">More…</span></a></p>
 <pre class="highlight doxyrest-overview-code-block literal-block"><span></span><span class="c1">// structs</span>
 
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html#doxid-structdnnl-layer-normalization-desc-t"><span class="std std-ref">dnnl_layer_normalization_desc_t</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct_dnnl_layer_normalization_backward.html#doxid-structdnnl-1-1layer-normalization-backward"><span class="std std-ref">dnnl::layer_normalization_backward</span></a><span></span><span class="p">;</span>
-<span class="k">struct</span> <a class="reference internal" href="struct_dnnl_layer_normalization_forward.html#doxid-structdnnl-1-1layer-normalization-forward"><span class="std std-ref">dnnl::layer_normalization_forward</span></a><span></span><span class="p">;</span>
 
 <span class="c1">// global functions</span>
 
@@ -2904,12 +2919,6 @@
 </section>
 <section id="detailed-documentation">
 <span id="details-group-dnnl-api-layer-normalization"></span><h2>Detailed Documentation<a class="headerlink" href="#detailed-documentation" title="Permalink to this headline">¶</a></h2>
-<p>A primitive to perform layer normalization.</p>
-<p>Normalization is performed within the last logical dimension of data tensor.</p>
-<p>Both forward and backward propagation primitives support in-place operation; that is, src and dst can refer to the same memory for forward propagation, and diff_dst and diff_src can refer to the same memory for backward propagation.</p>
-<p>The layer normalization primitives computations can be controlled by specifying different <a class="reference internal" href="enum_dnnl_normalization_flags.html#doxid-group-dnnl-api-primitives-common-1gad8ef0fcbb7b10cae3d67dd46892002be"><span class="std std-ref">dnnl::normalization_flags</span></a> values. For example, layer normalization forward propagation can be configured to either compute the mean and variance or take them as arguments. It can either perform scaling and shifting using gamma and beta parameters or not.</p>
-<p class="rubric">See also:</p>
-<p><a class="reference internal" href="dev_guide_layer_normalization.html#doxid-dev-guide-layer-normalization"><span class="std std-ref">Layer Normalization</span></a> in developer guide</p>
 <section id="global-functions">
 <h3>Global Functions<a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h3>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-layer-normalization-1gafc38935e49742897454f5009ea9a10f1"><span id="index-1"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_layer_normalization_forward_desc_init</span><span class="p">(</span>

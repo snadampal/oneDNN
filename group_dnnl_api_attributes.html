@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Attributes &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Attributes &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3067,6 +3085,33 @@
     <span class="kt">float</span><span class="o">*</span> <span class="n">beta</span>
     <span class="p">);</span>
 
+<a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gae29a3c0c6b3d624cdcaea0196246ac38"><span class="std std-ref">dnnl_post_ops_append_dw</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">count</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">float</span><span class="o">*</span> <span class="n">scales</span>
+    <span class="p">);</span>
+
+<a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga63cec6b35b8dd473222bd4ddff38995e"><span class="std std-ref">dnnl_post_ops_get_params_dw</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">float</span><span class="o">**</span> <span class="n">scales</span>
+    <span class="p">);</span>
+
 <a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga60126f67fa1dd9df8cca16e2dd471184"><span class="std std-ref">dnnl_post_ops_append_dw_k3s1p1</span></a><span></span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
@@ -3350,7 +3395,7 @@
 <td><p>Primitive attributes.</p></td>
 </tr>
 <tr class="row-even"><td><p>mode</p></td>
-<td><p>FP math mode. The possible values are: <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912ab062cd5c71803f26ab700073c8f18bd3"><span class="std std-ref">dnnl_fpmath_mode_strict</span></a> (default), <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912ac7e140804cd26325c9c5563fa421b7f7"><span class="std std-ref">dnnl_fpmath_mode_bf16</span></a>, <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912aa128d95a43cba562c8b90cd820d3faaf"><span class="std std-ref">dnnl_fpmath_mode_f16</span></a>, <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912a1acbedb6f3bf7d70b08a70d8cc038ca9"><span class="std std-ref">dnnl_fpmath_mode_f19</span></a>, <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912ad54e0a51f937a49dd4c2c3d50ca1b94c"><span class="std std-ref">dnnl_fpmath_mode_any</span></a>.</p></td>
+<td><p>FP math mode. The possible values are: <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912ab062cd5c71803f26ab700073c8f18bd3"><span class="std std-ref">dnnl_fpmath_mode_strict</span></a> (default), <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912ac7e140804cd26325c9c5563fa421b7f7"><span class="std std-ref">dnnl_fpmath_mode_bf16</span></a>, <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912aa128d95a43cba562c8b90cd820d3faaf"><span class="std std-ref">dnnl_fpmath_mode_f16</span></a>, <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912a7c89cac55a7b6a6e4692a5805ba10edc"><span class="std std-ref">dnnl_fpmath_mode_tf32</span></a>, <a class="reference internal" href="enum_dnnl_fpmath_mode_t.html#doxid-group-dnnl-api-attributes-1gga62f956692c5a70353f164e09ff524912ad54e0a51f937a49dd4c2c3d50ca1b94c"><span class="std std-ref">dnnl_fpmath_mode_any</span></a>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3452,19 +3497,18 @@
 </ul>
 </div>
 <p>Example usage:</p>
-<pre class="highlight literal-block"><span></span><span class="o">*</span>      <span class="kt">int</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oh</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// convolution output params</span>
-<span class="o">*</span>      <span class="kt">float</span> <span class="n">scales</span><span class="p">[</span><span class="n">oc</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span> <span class="c1">// unique output scales per output channel</span>
-<span class="o">*</span>      <span class="kt">int</span> <span class="n">oc_dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// mb_dim = 0, channel_dim = 1, height_dim = 2, ...</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_convolution_desc_t.html#doxid-structdnnl-convolution-desc-t"><span class="std std-ref">dnnl_convolution_desc_t</span></a><span></span> <span class="n">conv_d</span><span class="p">;</span> <span class="c1">// create a convolution descriptor</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_attr.html#doxid-structdnnl-primitive-attr"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gaf630fdc0d8d0fd8522ec93852a559081"><span class="std std-ref">dnnl_primitive_attr_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">attr</span><span class="p">);</span> <span class="c1">// create primitive attributes</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gae3ff1fe9449f2d9b1cd02ad864b57057"><span class="std std-ref">dnnl_primitive_attr_set_output_scales</span></a><span></span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">oc</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">oc_dim</span><span class="p">,</span> <span class="n">scales</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_desc.html#doxid-structdnnl-primitive-desc"><span class="std std-ref">dnnl_primitive_desc_t</span></a><span></span> <span class="n">conv_pd</span><span class="p">;</span>
-<span class="o">*</span>      <a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1ga336dd467c36d8fe0d3311ddc73f239cb"><span class="std std-ref">dnnl_primitive_desc_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">conv_pd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">conv_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="o">*</span></pre>
+<pre class="highlight literal-block"><span></span><span class="kt">int</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oh</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// convolution output params</span>
+<span class="kt">float</span> <span class="n">scales</span><span class="p">[</span><span class="n">oc</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span> <span class="c1">// unique output scales per output channel</span>
+<span class="kt">int</span> <span class="n">oc_dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// mb_dim = 0, channel_dim = 1, height_dim = 2, ...</span>
+
+<a class="reference internal" href="struct_dnnl_convolution_desc_t.html#doxid-structdnnl-convolution-desc-t"><span class="std std-ref">dnnl_convolution_desc_t</span></a><span></span> <span class="n">conv_d</span><span class="p">;</span> <span class="c1">// create a convolution descriptor</span>
+
+<a class="reference internal" href="struct_dnnl_primitive_attr.html#doxid-structdnnl-primitive-attr"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
+<a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gaf630fdc0d8d0fd8522ec93852a559081"><span class="std std-ref">dnnl_primitive_attr_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">attr</span><span class="p">);</span> <span class="c1">// create primitive attributes</span>
+<a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gae3ff1fe9449f2d9b1cd02ad864b57057"><span class="std std-ref">dnnl_primitive_attr_set_output_scales</span></a><span></span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">oc</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">oc_dim</span><span class="p">,</span> <span class="n">scales</span><span class="p">);</span>
+
+<a class="reference internal" href="struct_dnnl_primitive_desc.html#doxid-structdnnl-primitive-desc"><span class="std std-ref">dnnl_primitive_desc_t</span></a><span></span> <span class="n">conv_pd</span><span class="p">;</span>
+<a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1ga336dd467c36d8fe0d3311ddc73f239cb"><span class="std std-ref">dnnl_primitive_desc_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">conv_pd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">conv_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span></pre>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given table">
 <colgroup>
@@ -4086,7 +4130,124 @@
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaecec97c787d74a33924abcf16ae4f51c"><span class="std std-ref">dnnl_invalid_arguments</span></a> if <code class="docutils literal notranslate"><span class="pre">index</span></code> does not refer to an elementwise post-op.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga60126f67fa1dd9df8cca16e2dd471184"><span id="index-37"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_dw_k3s1p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gae29a3c0c6b3d624cdcaea0196246ac38"><span id="index-37"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_dw</span><span class="p">(</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">count</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">float</span><span class="o">*</span> <span class="n">scales</span>
+    <span class="p">)</span></pre>
+<p>Appends a depthwise post-op convolution.</p>
+<p>This post-op can only be fused with a 2D 1x1 convolution (convolution with weights spatial dimensions equal to 1 i.e., kh=kw=1).</p>
+<p>The kind of this post-op is <a class="reference internal" href="enum_dnnl_primitive_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa402cfeaa257524d301bb73e770bc87f6"><span class="std std-ref">dnnl_convolution</span></a>.</p>
+<p>The number of outputs for primitive with fusion is one. The output spatial size can be derived as below:</p>
+<p>output_height = ceil(output_height_1x1_convolution, stride) output_width = ceil(output_width_1x1_convolution, stride)</p>
+<p>See <a class="reference internal" href="dev_guide_attributes_post_ops.html#doxid-dev-guide-attributes-post-ops-1dev-guide-attributes-post-ops-depthwise"><span class="std std-ref">dev_guide_attributes_post_ops_depthwise</span></a> and <a class="reference internal" href="dev_guide_attributes_post_ops.html#doxid-dev-guide-attributes-post-ops-1dev-guide-attributes-post-ops-depthwise-fusion"><span class="std std-ref">dev_guide_attributes_post_ops_depthwise_fusion</span></a> for more info.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>post_ops</p></td>
+<td><p>Post-ops.</p></td>
+</tr>
+<tr class="row-even"><td><p>weights_data_type</p></td>
+<td><p>Weights data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>bias_data_type</p></td>
+<td><p>Bias data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>dst_data_type</p></td>
+<td><p>Output data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernel_size</p></td>
+<td><p>Size of kernel of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>stride_size</p></td>
+<td><p>Size of stride of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>padding_l_size</p></td>
+<td><p>Size of left and top paddings of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>count</p></td>
+<td><p>Output length of the array of scaling factors <code class="docutils literal notranslate"><span class="pre">scales</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>mask</p></td>
+<td><p>Output scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> array. The set i-th bit indicates that a dedicated output scaling factor is used for each index along that dimension. The mask value of 0 implies a common scaling factor for the whole output tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p>scales</p></td>
+<td><p>Output pointer to a constant array of float scaling factors.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga63cec6b35b8dd473222bd4ddff38995e"><span id="index-38"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_dw</span><span class="p">(</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">float</span><span class="o">**</span> <span class="n">scales</span>
+    <span class="p">)</span></pre>
+<p>Returns the parameters of an depthwise post-op.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>post_ops</p></td>
+<td><p>Post-ops.</p></td>
+</tr>
+<tr class="row-even"><td><p>index</p></td>
+<td><p>Index of the elementwise post-op.</p></td>
+</tr>
+<tr class="row-odd"><td><p>weights_data_type</p></td>
+<td><p>Weights data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>bias_data_type</p></td>
+<td><p>Bias data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>dst_data_type</p></td>
+<td><p>Output data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>kernel_size</p></td>
+<td><p>Size of kernel of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>stride_size</p></td>
+<td><p>Size of stride of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>padding_l_size</p></td>
+<td><p>Size of left and top paddings of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>count</p></td>
+<td><p>Output length of the array of scaling factors <code class="docutils literal notranslate"><span class="pre">scales</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>mask</p></td>
+<td><p>Output scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> array. The set i-th bit indicates that a dedicated output scaling factor is used for each index along that dimension. The mask value of 0 implies a common scaling factor for the whole output tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scales</p></td>
+<td><p>Output pointer to a constant array of float scaling factors.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Returns:</p>
+<p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga60126f67fa1dd9df8cca16e2dd471184"><span id="index-39"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_dw_k3s1p1</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
@@ -4136,7 +4297,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gab7b3337bc132438f4dada22f6fe72a0f"><span id="index-38"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_dw_k3s1p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gab7b3337bc132438f4dada22f6fe72a0f"><span id="index-40"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_dw_k3s1p1</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">weights_data_type</span><span class="p">,</span>
@@ -4182,7 +4343,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gaa31670d933930b7c7940379bff0de326"><span id="index-39"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_dw_k3s2p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gaa31670d933930b7c7940379bff0de326"><span id="index-41"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_dw_k3s2p1</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
@@ -4233,7 +4394,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga0b82c6ac2d4bd5c8ddee4a807fd2e527"><span id="index-40"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_dw_k3s2p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga0b82c6ac2d4bd5c8ddee4a807fd2e527"><span id="index-42"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_dw_k3s2p1</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">weights_data_type</span><span class="p">,</span>
@@ -4279,7 +4440,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga9d6524a5808500e78138dd2125ac2cbe"><span id="index-41"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_binary</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga9d6524a5808500e78138dd2125ac2cbe"><span id="index-43"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_binary</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1ga96946c805f6c4922c38c37049ab95d23"><span class="std std-ref">dnnl_alg_kind_t</span></a><span></span> <span class="n">alg_kind</span><span class="p">,</span>
     <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">src1_desc</span>
@@ -4311,7 +4472,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gade0e47fd1f367bf5d8119b21751038ba"><span id="index-42"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_binary</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gade0e47fd1f367bf5d8119b21751038ba"><span id="index-44"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_binary</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1ga96946c805f6c4922c38c37049ab95d23"><span class="std std-ref">dnnl_alg_kind_t</span></a><span></span><span class="o">*</span> <span class="n">alg_kind</span><span class="p">,</span>
@@ -4342,7 +4503,7 @@
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaecec97c787d74a33924abcf16ae4f51c"><span class="std std-ref">dnnl_invalid_arguments</span></a> if <code class="docutils literal notranslate"><span class="pre">index</span></code> does not refer to a binary post-op.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga833465b0aac349988b29245e1112656f"><span id="index-43"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_prelu</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga833465b0aac349988b29245e1112656f"><span id="index-45"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_append_prelu</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">mask</span>
     <span class="p">)</span></pre>
@@ -4382,7 +4543,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga5207e88213978239909da6e9f346cda7"><span id="index-44"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_prelu</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga5207e88213978239909da6e9f346cda7"><span id="index-46"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_post_ops_get_params_prelu</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">mask</span>
@@ -4408,7 +4569,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga0067a4b6e5dd2fe7578cd4a25dddfe39"><span id="index-45"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_set_rnn_data_qparams</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga0067a4b6e5dd2fe7578cd4a25dddfe39"><span id="index-47"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_set_rnn_data_qparams</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga06d701a25b82d4c8a93aaabb93e03dc3"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">float</span> <span class="n">scale</span><span class="p">,</span>
     <span class="k">const</span> <span class="kt">float</span> <span class="n">shift</span>
@@ -4421,23 +4582,22 @@
 <p>Quantization scale and shift are common for src_layer, src_iter, dst_iter, and dst_layer.</p>
 </div>
 <p>Example usage:</p>
-<pre class="highlight literal-block"><span></span><span class="o">*</span>      <span class="c1">// RNN parameters</span>
-<span class="o">*</span>      <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">sic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">slc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dlc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
-<span class="o">*</span>      <span class="c1">// Activations quantization parameters</span>
-<span class="o">*</span>      <span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">63.f</span><span class="p">,</span> <span class="n">shift</span> <span class="o">=</span> <span class="mf">64.f</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_attr.html#doxid-structdnnl-primitive-attr"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">rnn_attr</span><span class="p">;</span>
-<span class="o">*</span>      <span class="c1">// Create default attributes</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gaf630fdc0d8d0fd8522ec93852a559081"><span class="std std-ref">dnnl_primitive_attr_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">rnn_attr</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="c1">// Set scale and shift for int8 quantization of activation</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga0067a4b6e5dd2fe7578cd4a25dddfe39"><span class="std std-ref">dnnl_primitive_attr_set_rnn_data_qparams</span></a><span></span><span class="p">(</span><span class="n">rnn_attr</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">shift</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="c1">// Create and configure rnn op_desc</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_rnn_desc_t.html#doxid-structdnnl-rnn-desc-t"><span class="std std-ref">dnnl_rnn_desc_t</span></a><span></span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">;</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_desc.html#doxid-structdnnl-primitive-desc"><span class="std std-ref">dnnl_primitive_desc_t</span></a><span></span> <span class="n">rnn_pd</span><span class="p">;</span>
-<span class="o">*</span>      <a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1ga336dd467c36d8fe0d3311ddc73f239cb"><span class="std std-ref">dnnl_primitive_desc_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">rnn_pd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rnn_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="o">*</span></pre>
+<pre class="highlight literal-block"><span></span><span class="c1">// RNN parameters</span>
+<span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">sic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">slc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dlc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="c1">// Activations quantization parameters</span>
+<span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">63.f</span><span class="p">,</span> <span class="n">shift</span> <span class="o">=</span> <span class="mf">64.f</span><span class="p">;</span>
+
+<a class="reference internal" href="struct_dnnl_primitive_attr.html#doxid-structdnnl-primitive-attr"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">rnn_attr</span><span class="p">;</span>
+<span class="c1">// Create default attributes</span>
+<a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gaf630fdc0d8d0fd8522ec93852a559081"><span class="std std-ref">dnnl_primitive_attr_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">rnn_attr</span><span class="p">);</span>
+
+<span class="c1">// Set scale and shift for int8 quantization of activation</span>
+<a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga0067a4b6e5dd2fe7578cd4a25dddfe39"><span class="std std-ref">dnnl_primitive_attr_set_rnn_data_qparams</span></a><span></span><span class="p">(</span><span class="n">rnn_attr</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">shift</span><span class="p">);</span>
+
+<span class="c1">// Create and configure rnn op_desc</span>
+<a class="reference internal" href="struct_dnnl_rnn_desc_t.html#doxid-structdnnl-rnn-desc-t"><span class="std std-ref">dnnl_rnn_desc_t</span></a><span></span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">;</span>
+<a class="reference internal" href="struct_dnnl_primitive_desc.html#doxid-structdnnl-primitive-desc"><span class="std std-ref">dnnl_primitive_desc_t</span></a><span></span> <span class="n">rnn_pd</span><span class="p">;</span>
+<a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1ga336dd467c36d8fe0d3311ddc73f239cb"><span class="std std-ref">dnnl_primitive_desc_create</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">rnn_pd</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rnn_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span></pre>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given table">
 <colgroup>
@@ -4458,7 +4618,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gae04744b95cdabcbcda1087229759be04"><span id="index-46"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_get_rnn_data_qparams</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gae04744b95cdabcbcda1087229759be04"><span id="index-48"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_get_rnn_data_qparams</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gab7ba17dbb2692c0f5ee2a3e102c707d9"><span class="std std-ref">const_dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">,</span>
     <span class="kt">float</span><span class="o">*</span> <span class="n">scale</span><span class="p">,</span>
     <span class="kt">float</span><span class="o">*</span> <span class="n">shift</span>
@@ -4488,7 +4648,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga815dbfe548cfcb70076fe091888e5466"><span id="index-47"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_set_rnn_weights_qparams</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga815dbfe548cfcb70076fe091888e5466"><span id="index-49"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_set_rnn_weights_qparams</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga06d701a25b82d4c8a93aaabb93e03dc3"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">,</span>
     <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">count</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
@@ -4528,7 +4688,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga5bb88cfe42454f01884ddcdb906f6f7c"><span id="index-48"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_get_rnn_weights_qparams</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1ga5bb88cfe42454f01884ddcdb906f6f7c"><span id="index-50"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_get_rnn_weights_qparams</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gab7ba17dbb2692c0f5ee2a3e102c707d9"><span class="std std-ref">const_dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">,</span>
     <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">count</span><span class="p">,</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span>
@@ -4561,7 +4721,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gac7973cc7b4c62eb6766e9ac96c51d49d"><span id="index-49"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_set_rnn_weights_projection_qparams</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gac7973cc7b4c62eb6766e9ac96c51d49d"><span id="index-51"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_set_rnn_weights_projection_qparams</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1ga06d701a25b82d4c8a93aaabb93e03dc3"><span class="std std-ref">dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">,</span>
     <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">count</span><span class="p">,</span>
     <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
@@ -4600,7 +4760,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gaa33206be6e7a0b7de2341041da75cc90"><span id="index-50"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_get_rnn_weights_projection_qparams</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gaa33206be6e7a0b7de2341041da75cc90"><span id="index-52"></span><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <span class="n">dnnl_primitive_attr_get_rnn_weights_projection_qparams</span><span class="p">(</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gab7ba17dbb2692c0f5ee2a3e102c707d9"><span class="std std-ref">const_dnnl_primitive_attr_t</span></a><span></span> <span class="n">attr</span><span class="p">,</span>
     <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">count</span><span class="p">,</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span>

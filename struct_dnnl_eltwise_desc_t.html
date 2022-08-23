@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>struct dnnl_eltwise_desc_t &#8212; oneDNN v2.6.0 documentation</title>
+    <title>struct dnnl_eltwise_desc_t &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2932,10 +2950,10 @@
 <li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23aa1d0f7a69b7dfbfbd817623552558054"><span class="std std-ref">dnnl_eltwise_pow</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> scale, <code class="docutils literal notranslate"><span class="pre">beta</span></code> exponent</p></li>
 <li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a676e7d4e899ab2bbddc72f73a54c7779"><span class="std std-ref">dnnl_eltwise_gelu_erf</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
 <li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23adda28cb0389d39c0c43967352b116d9d"><span class="std std-ref">dnnl_eltwise_round</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
-<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a0d83b3b9df42473195a58796f7bc8142"><span class="std std-ref">dnnl_eltwise_logsigmoid</span></a> <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
-<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23ae3b2cacb38f7aa0a115e631caa5d63d5"><span class="std std-ref">dnnl_eltwise_mish</span></a> <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
-<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a9ee6277dfff509e9fde3d5329b8eacd9"><span class="std std-ref">dnnl_eltwise_hardswish</span></a> <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
-<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3"><span class="std std-ref">dnnl_eltwise_hardsigmoid</span></a> <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
+<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a0d83b3b9df42473195a58796f7bc8142"><span class="std std-ref">dnnl_eltwise_logsigmoid</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
+<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23ae3b2cacb38f7aa0a115e631caa5d63d5"><span class="std std-ref">dnnl_eltwise_mish</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
+<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a9ee6277dfff509e9fde3d5329b8eacd9"><span class="std std-ref">dnnl_eltwise_hardswish</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> and <code class="docutils literal notranslate"><span class="pre">beta</span></code> ignored</p></li>
+<li><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3"><span class="std std-ref">dnnl_eltwise_hardsigmoid</span></a> : <code class="docutils literal notranslate"><span class="pre">alpha</span></code> scale, <code class="docutils literal notranslate"><span class="pre">beta</span></code> shift</p></li>
 </ul>
 </section>
 </section>

@@ -16,12 +16,13 @@ Flags for normalization primitives. :ref:`More...<details-group__dnnl__api__prim
 
 	enum normalization_flags
 	{
-	    :ref:`none<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea334c4a4c42fdb79d7ebc3e73b517e6f8>`             = dnnl_normalization_flags_none,
-	    :ref:`use_global_stats<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea95768ff8afb8ee75dc24be0d307627f8>` = dnnl_use_global_stats,
-	    :ref:`use_scale_shift<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea0cbad8a346551ec47da7ff1afb1e1f76>`  = dnnl_use_scaleshift,
-	    :ref:`fuse_norm_relu<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea898ce555425ee54271096bc9c8e0400c>`   = dnnl_fuse_norm_relu,
-	    :ref:`use_scale<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002beab989b02160429ba2696a658ec7a0f8e1>`        = dnnl_use_scale,
-	    :ref:`use_shift<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002beac5d8386f67a826c8ea1c1ae59a39586f>`        = dnnl_use_shift,
+	    :ref:`none<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea334c4a4c42fdb79d7ebc3e73b517e6f8>`               = dnnl_normalization_flags_none,
+	    :ref:`use_global_stats<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea95768ff8afb8ee75dc24be0d307627f8>`   = dnnl_use_global_stats,
+	    :ref:`use_scale_shift<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea0cbad8a346551ec47da7ff1afb1e1f76>`    = dnnl_use_scaleshift,
+	    :ref:`fuse_norm_relu<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea898ce555425ee54271096bc9c8e0400c>`     = dnnl_fuse_norm_relu,
+	    :ref:`fuse_norm_add_relu<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea6983328cc15d696e9f2756c8e8940370>` = dnnl_fuse_norm_add_relu,
+	    :ref:`use_scale<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002beab989b02160429ba2696a658ec7a0f8e1>`          = dnnl_use_scale,
+	    :ref:`use_shift<doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002beac5d8386f67a826c8ea1c1ae59a39586f>`          = dnnl_use_shift,
 	};
 
 .. _details-group__dnnl__api__primitives__common_1gad8ef0fcbb7b10cae3d67dd46892002be:
@@ -81,6 +82,18 @@ If specified, the user is expected to pass scale and shift as inputs on forward 
 Fuse normalization with ReLU.
 
 On training, normalization will require the workspace to implement backward propagation. On inference, the workspace is not required and behavior is the same as when normalization is fused with ReLU using the post-ops API.
+
+.. index:: pair: enumvalue; fuse_norm_add_relu
+.. _doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002bea6983328cc15d696e9f2756c8e8940370:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	fuse_norm_add_relu
+
+Fuse normalization with elementwise binary Add and then fuse with ReLU.
+
+On training, normalization will require the workspace to implement backward propagation. On inference, the workspace is not required.
 
 .. index:: pair: enumvalue; use_scale
 .. _doxid-group__dnnl__api__primitives__common_1ggad8ef0fcbb7b10cae3d67dd46892002beab989b02160429ba2696a658ec7a0f8e1:

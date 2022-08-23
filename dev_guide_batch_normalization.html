@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Batch Normalization &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Batch Normalization &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2964,7 +2982,11 @@
 <li><p><span class="math notranslate nohighlight">\(\sigma^2(c) = \frac{1}{NHW} \sum\limits_{nhw} {}_{} (\src(n, c, h, w) - \mu(c))^2\)</span>.</p></li>
 </ul>
 <p>The <span class="math notranslate nohighlight">\(\gamma(c)\)</span> and <span class="math notranslate nohighlight">\(\beta(c)\)</span> tensors are considered learnable.</p>
-<p>In training mode, the primitive also optionally supports fusion with ReLU activation with zero negative slope applied to the result (see <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a> flag).</p>
+<p>In training mode, the primitive also optionally supports:</p>
+<ul class="simple">
+<li><p>fusion with ReLU activation with zero negative slope applied to the result (see <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a> flag).</p></li>
+<li><p>fusion with binary addition and ReLU activation with zero negative slope applied to the result (see <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a> flag).</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -2979,7 +3001,7 @@
 <h4>Difference Between Forward Training and Forward Inference<a class="headerlink" href="#difference-between-forward-training-and-forward-inference" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>If mean and variance are computed at runtime (i.e., <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3aec04425c28af752c0f8b4dc5ae11fb19"><span class="std std-ref">dnnl_use_global_stats</span></a> is not set), they become outputs for the propagation kind <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0"><span class="std std-ref">dnnl_forward_training</span></a> (because they would be required during the backward propagation) and are not exposed for the propagation kind <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d"><span class="std std-ref">dnnl_forward_inference</span></a>.</p></li>
-<li><p>If batch normalization is created with ReLU fusion (i.e., <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a> is set), for the propagation kind <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0"><span class="std std-ref">dnnl_forward_training</span></a> the primitive would produce a <code class="docutils literal notranslate"><span class="pre">workspace</span></code> memory as one extra output. This memory is required to compute the backward propagation. When the primitive is executed with propagation kind <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d"><span class="std std-ref">dnnl_forward_inference</span></a>, the workspace is not produced. Behavior would be the same as creating a batch normalization primitive with ReLU as a post-op (see section below).</p></li>
+<li><p>If batch normalization is created with ReLU fusion (i.e., <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a> or <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a> are set), for the propagation kind <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0"><span class="std std-ref">dnnl_forward_training</span></a> the primitive would produce a <code class="docutils literal notranslate"><span class="pre">workspace</span></code> memory as one extra output. This memory is required to compute the backward propagation. When the primitive is executed with propagation kind <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d"><span class="std std-ref">dnnl_forward_inference</span></a>, the workspace is not produced. Behavior would be the same as creating a batch normalization primitive with ReLU as a post-op (see section below).</p></li>
 </ul>
 </section>
 </section>
@@ -2994,18 +3016,18 @@
 <p>Depending on the <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1ga301f673522a400c7c1e75f518431c9a3"><span class="std std-ref">flags</span></a> and <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1gae3c1f22ae55645782923fbfd8b07d0c4"><span class="std std-ref">propagation kind</span></a>, the batch normalization primitive requires different inputs and outputs. For clarity, a summary is shown below.</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%" />
-<col style="width: 13%" />
-<col style="width: 16%" />
-<col style="width: 16%" />
-<col style="width: 30%" />
+<col style="width: 23%" />
+<col style="width: 12%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 28%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
+<tr class="row-odd"><th class="head"><p>Flags</p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d"><span class="std std-ref">dnnl_forward_inference</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0"><span class="std std-ref">dnnl_forward_training</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10"><span class="std std-ref">dnnl_backward</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a524dd6cb2ed9680bbd170ba15261d218"><span class="std std-ref">dnnl_backward_data</span></a></p></th>
 </tr>
 </thead>
 <tbody>
@@ -3051,6 +3073,12 @@
 <td><p><em>Inputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code> , <a class="reference internal" href="dev_guide_inference_and_training_aspects.html#doxid-dev-guide-inference-and-training-aspects-1dev-guide-inference-and-training-aspects-workspace"><span class="std std-ref">Workspace</span></a> <em>Outputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code></p></td>
 <td><p>Same as for <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10"><span class="std std-ref">dnnl_backward</span></a> if <code class="docutils literal notranslate"><span class="pre">flags</span></code> do not contain <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3aeba5189d91e23448d706fb027867ae55"><span class="std std-ref">dnnl_use_scaleshift</span></a> ; not supported otherwise</p></td>
 </tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">flags</span></code> | <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a></p></td>
+<td><p><em>Inputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code> and <span class="math notranslate nohighlight">\(\src_1\)</span> for fused binary addition <em>Outputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code></p></td>
+<td><p><em>Inputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code> and <span class="math notranslate nohighlight">\(\src_1\)</span> for fused binary addition <em>Outputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code> , <a class="reference internal" href="dev_guide_inference_and_training_aspects.html#doxid-dev-guide-inference-and-training-aspects-1dev-guide-inference-and-training-aspects-workspace"><span class="std std-ref">Workspace</span></a></p></td>
+<td><p><em>Inputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code> , <a class="reference internal" href="dev_guide_inference_and_training_aspects.html#doxid-dev-guide-inference-and-training-aspects-1dev-guide-inference-and-training-aspects-workspace"><span class="std std-ref">Workspace</span></a> <em>Outputs</em> : same as with <code class="docutils literal notranslate"><span class="pre">flags</span></code> and <span class="math notranslate nohighlight">\(\diffsrc_1\)</span> for fused binary addition</p></td>
+<td><p>Same as for <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10"><span class="std std-ref">dnnl_backward</span></a> if <code class="docutils literal notranslate"><span class="pre">flags</span></code> do not contain <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3aeba5189d91e23448d706fb027867ae55"><span class="std std-ref">dnnl_use_scaleshift</span></a> ; not supported otherwise</p></td>
+</tr>
 </tbody>
 </table>
 <p>When executed, the inputs and outputs should be mapped to an execution argument index as specified by the following table.</p>
@@ -3068,32 +3096,38 @@
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\src\)</span></p></td>
 <td><p>DNNL_ARG_SRC</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\gamma, \beta\)</span></p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\src_1\)</span></p></td>
+<td><p>DNNL_ARG_SRC_1</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\gamma, \beta\)</span></p></td>
 <td><p>DNNL_ARG_SCALE_SHIFT</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\gamma\)</span></p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\gamma\)</span></p></td>
 <td><p>DNNL_ARG_SCALE</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\beta\)</span></p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\beta\)</span></p></td>
 <td><p>DNNL_ARG_SHIFT</p></td>
 </tr>
-<tr class="row-even"><td><p>mean ( <span class="math notranslate nohighlight">\(\mu\)</span> )</p></td>
+<tr class="row-odd"><td><p>mean ( <span class="math notranslate nohighlight">\(\mu\)</span> )</p></td>
 <td><p>DNNL_ARG_MEAN</p></td>
 </tr>
-<tr class="row-odd"><td><p>variance ( <span class="math notranslate nohighlight">\(\sigma^2\)</span> )</p></td>
+<tr class="row-even"><td><p>variance ( <span class="math notranslate nohighlight">\(\sigma^2\)</span> )</p></td>
 <td><p>DNNL_ARG_VARIANCE</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\dst\)</span></p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\dst\)</span></p></td>
 <td><p>DNNL_ARG_DST</p></td>
 </tr>
-<tr class="row-odd"><td><p>workspace</p></td>
+<tr class="row-even"><td><p>workspace</p></td>
 <td><p>DNNL_ARG_WORKSPACE</p></td>
 </tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\diffdst\)</span></p></td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\diffdst\)</span></p></td>
 <td><p>DNNL_ARG_DIFF_DST</p></td>
 </tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\diffsrc\)</span></p></td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\diffsrc\)</span></p></td>
 <td><p>DNNL_ARG_DIFF_SRC</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\diffsrc_1\)</span></p></td>
+<td><p>DNNL_ARG_DIFF_SRC_1</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\diffgamma, \diffbeta\)</span></p></td>
 <td><p>DNNL_ARG_DIFF_SCALE_SHIFT</p></td>
@@ -3116,7 +3150,13 @@
 <li><p>For forward propagation, the mean and variance might be either computed at runtime (in which case they are outputs of the primitive) or provided by a user (in which case they are inputs). In the latter case, a user must set the <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3aec04425c28af752c0f8b4dc5ae11fb19"><span class="std std-ref">dnnl_use_global_stats</span></a> flag. For the backward propagation, the mean and variance are always input parameters.</p></li>
 <li><p>The memory format and data type for <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">dst</span></code> are assumed to be the same, and in the API they are typically referred to as <code class="docutils literal notranslate"><span class="pre">data</span></code> (e.g., see <code class="docutils literal notranslate"><span class="pre">data_desc</span></code> in <a class="reference internal" href="struct_dnnl_batch_normalization_forward_desc.html#doxid-structdnnl-1-1batch-normalization-forward-1-1desc-1a93769b0a95b08e31ace5fe9d3e3ac974"><span class="std std-ref">dnnl::batch_normalization_forward::desc::desc()</span></a>). The same is true for <code class="docutils literal notranslate"><span class="pre">diff_src</span></code> and <code class="docutils literal notranslate"><span class="pre">diff_dst</span></code>. The corresponding memory descriptors are referred to as <code class="docutils literal notranslate"><span class="pre">diff_data_desc</span></code>.</p></li>
 <li><p>Both forward and backward propagation support in-place operations, meaning that <span class="math notranslate nohighlight">\(\src\)</span> can be used as input and output for forward propagation, and <span class="math notranslate nohighlight">\(\diffdst\)</span> can be used as input and output for backward propagation. In case of an in-place operation, the original data will be overwritten. Note, however, that backward propagation requires original <span class="math notranslate nohighlight">\(\src\)</span>, hence the corresponding forward propagation should not be performed in-place.</p></li>
-<li><p>As mentioned above, the batch normalization primitive can be fused with ReLU activation even in the training mode. In this case, on the forward propagation the primitive has one additional output, <code class="docutils literal notranslate"><span class="pre">workspace</span></code>, that should be passed during the backward propagation.</p></li>
+<li><p>As mentioned above, the batch normalization primitive can be fused with binary addition and ReLU activation (<a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a>). In this case:</p>
+<ul class="simple">
+<li><p>on the forward propagation the primitive has one additional input, <code class="docutils literal notranslate"><span class="pre">src_1</span></code>, that should have memory descriptor equal to primitive <code class="docutils literal notranslate"><span class="pre">data_desc</span></code> memory descriptor.</p></li>
+<li><p>on the backward propagation the primitive has one additional output, <code class="docutils literal notranslate"><span class="pre">diffsrc_1</span></code>, that should have memory descriptor equal to primitive <code class="docutils literal notranslate"><span class="pre">diff_data_desc</span></code> memory descriptor.</p></li>
+</ul>
+</li>
+<li><p>As mentioned above, the batch normalization primitive can be fused with ReLU activation (<a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a>) or binary addition and ReLU activation (<a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a>) even in the training mode. In this case, on the forward propagation the primitive has one additional output, <code class="docutils literal notranslate"><span class="pre">workspace</span></code>, that should be passed during the backward propagation.</p></li>
 </ol>
 </section>
 <section id="data-type-support">
@@ -3232,7 +3272,7 @@
 </table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>As mentioned in <a class="reference internal" href="dev_guide_attributes.html#doxid-dev-guide-attributes"><span class="std std-ref">Primitive Attributes</span></a>, the post-ops should be used for inference only. For instance, using ReLU as a post-op would not produce the additional output <code class="docutils literal notranslate"><span class="pre">workspace</span></code> that is required to compute backward propagation correctly. Hence, in case of training one should use the <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a> directly.</p>
+<p>As mentioned in <a class="reference internal" href="dev_guide_attributes.html#doxid-dev-guide-attributes"><span class="std std-ref">Primitive Attributes</span></a>, the post-ops should be used for inference only. For instance, using ReLU as a post-op would not produce the additional output <code class="docutils literal notranslate"><span class="pre">workspace</span></code> that is required to compute backward propagation correctly. Hence, in case of training one should use the <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a> or <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a> directly.</p>
 </div>
 <p><span class="target" id="doxid-dev-guide-batch-normalization-1dg-bnorm-impl-limits"></span></p>
 </section>
@@ -3247,6 +3287,7 @@
 <li><p>ReLU eltwise post-op doesn’t support non-zero <span class="math notranslate nohighlight">\(\alpha\)</span> parameter.</p></li>
 </ul>
 </li>
+<li><p>CPU implementations do not support the fusion with binary addition and ReLU activation (<a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a>).</p></li>
 </ol>
 </section>
 <section id="performance-tips">

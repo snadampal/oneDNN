@@ -512,21 +512,20 @@ Example:
 
 .. ref-code-block:: cpp
 
-	*      :ref:`dnnl_memory_desc_t <doxid-structdnnl__memory__desc__t>` in_md, out_md, expect_out_md;
-	* 
-	*      const int permutation[] = {1, 0}; // swap the first and the second axes
-	* 
-	*      :ref:`dnnl_dims_t <doxid-group__dnnl__api__memory_1ga8331e1160e52a5d4babe96736464095a>` in_dims = {2, 3}, out_dims = {3, 2};
-	*      :ref:`dnnl_format_tag_t <doxid-group__dnnl__api__memory_1ga395e42b594683adb25ed2d842bb3091d>` in_tag = :ref:`dnnl_ab <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da1bd907fc29344dfe7ba88336960dcf53>`, out_tag = :ref:`dnnl_ba <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da6a6dbc0b30468d92e32a9cb3f6615c43>`;
-	* 
-	*      :ref:`dnnl_memory_desc_init_by_tag <doxid-group__dnnl__api__memory_1gaff696e368aeefb3036a0419c508dc6be>`(
-	*              &in_md, 2, in_dims, data_type, in_tag);
-	*      :ref:`dnnl_memory_desc_init_by_tag <doxid-group__dnnl__api__memory_1gaff696e368aeefb3036a0419c508dc6be>`(
-	*              &expect_out_md, 2, out_dims, data_type, out_tag);
-	* 
-	*      :ref:`dnnl_memory_desc_permute_axes <doxid-group__dnnl__api__memory_1ga415adf7b7053b88886431e949211e810>`(&out_md, in_md, permutation);
-	*      assert(:ref:`dnnl_memory_desc_equal <doxid-group__dnnl__api__memory_1gaa734e01591b567ed6378df1f404058e2>`(&out_md, &expect_out_md));
-	*
+	:ref:`dnnl_memory_desc_t <doxid-structdnnl__memory__desc__t>` in_md, out_md, expect_out_md;
+	
+	const int permutation[] = {1, 0}; // swap the first and the second axes
+	
+	:ref:`dnnl_dims_t <doxid-group__dnnl__api__memory_1ga8331e1160e52a5d4babe96736464095a>` in_dims = {2, 3}, out_dims = {3, 2};
+	:ref:`dnnl_format_tag_t <doxid-group__dnnl__api__memory_1ga395e42b594683adb25ed2d842bb3091d>` in_tag = :ref:`dnnl_ab <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da1bd907fc29344dfe7ba88336960dcf53>`, out_tag = :ref:`dnnl_ba <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da6a6dbc0b30468d92e32a9cb3f6615c43>`;
+	
+	:ref:`dnnl_memory_desc_init_by_tag <doxid-group__dnnl__api__memory_1gaff696e368aeefb3036a0419c508dc6be>`(
+	        &in_md, 2, in_dims, data_type, in_tag);
+	:ref:`dnnl_memory_desc_init_by_tag <doxid-group__dnnl__api__memory_1gaff696e368aeefb3036a0419c508dc6be>`(
+	        &expect_out_md, 2, out_dims, data_type, out_tag);
+	
+	:ref:`dnnl_memory_desc_permute_axes <doxid-group__dnnl__api__memory_1ga415adf7b7053b88886431e949211e810>`(&out_md, in_md, permutation);
+	assert(:ref:`dnnl_memory_desc_equal <doxid-group__dnnl__api__memory_1gaa734e01591b567ed6378df1f404058e2>`(&out_md, &expect_out_md));
 
 
 

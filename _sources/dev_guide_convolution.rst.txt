@@ -394,8 +394,6 @@ Implementation Limitations
 
 #. CPU
    
-   * Run-time output scales are not supported
-   
    * Integer :math:`\dst` is not supported for floating point :math:`\src` and :math:`\weights`
    
    * Backward by data convolution with bias is not supported

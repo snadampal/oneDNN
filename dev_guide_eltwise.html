@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Eltwise &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Eltwise &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3010,8 +3028,8 @@
 </tr>
 <tr class="row-even"><td><p>hardsigmoid</p></td>
 <td><p><a class="reference internal" href="enum_dnnl_alg_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3"><span class="std std-ref">dnnl_eltwise_hardsigmoid</span></a></p></td>
-<td><p><span class="math notranslate nohighlight">\(d = \begin{cases} 1 &amp; \text{if}\ s &gt; 3 \\ \frac{s + 3}{6} &amp; \text{if}\ -3 &lt; s \leq 3 \\ 0 &amp; \text{otherwise} \end{cases}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(ds = \begin{cases} \frac{dd}{6} &amp; \text{if}\ -3 &lt; s \leq 3 \\ 0 &amp; \text{otherwise}\ \end{cases}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(d = \text{max}(0, \text{min}(1, \alpha s + \beta))\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(ds = \begin{cases} dd \cdot \alpha &amp; \text{if}\ 0 &lt; \alpha s + \beta &lt; 1 \\ 0 &amp; \text{otherwise}\ \end{cases}\)</span></p></td>
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>hardswish</p></td>
@@ -3113,7 +3131,6 @@
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(soft\_relu(s) = soft\_relu\_v2(s, 1)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(logsigmoid(s) = soft\_relu\_v2(s, -1)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(hardswish(s) = s \cdot hardsigmoid(s)\)</span></p></li>
 </ul>
 <section id="difference-between-forward-training-and-forward-inference">
 <h4>Difference Between Forward Training and Forward Inference<a class="headerlink" href="#difference-between-forward-training-and-forward-inference" title="Permalink to this headline">¶</a></h4>
@@ -3199,7 +3216,7 @@
 </tr>
 <tr class="row-odd"><td><p>forward</p></td>
 <td><p>f16</p></td>
-<td><p>f16</p></td>
+<td><p>f32</p></td>
 </tr>
 <tr class="row-even"><td><p>forward</p></td>
 <td><p>s32 / s8 / u8</p></td>
@@ -3251,6 +3268,11 @@
 <h2>Implementation Limitations<a class="headerlink" href="#implementation-limitations" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Refer to <a class="reference internal" href="dev_guide_data_types.html#doxid-dev-guide-data-types"><span class="std std-ref">Data Types</span></a> for limitations related to data types support.</p></li>
+<li><p>GPU</p>
+<ul class="simple">
+<li><p>Only tensors of 6 or fewer dimensions are supported.</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <section id="performance-tips">

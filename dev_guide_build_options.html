@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Build Options &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Build Options &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3018,59 +3036,63 @@
 <td><p><strong>ON</strong> , OFF</p></td>
 <td><p>Enables <a class="reference internal" href="dev_guide_profilers.html#doxid-dev-guide-profilers"><span class="std std-ref">integration with performance profilers</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_ENABLE_PRIMITIVE_CACHE</p></td>
+<tr class="row-even"><td><p>ONEDNN_ENABLE_ITT_TASKS</p></td>
+<td><p><strong>ON</strong> , OFF</p></td>
+<td><p>Enables <a class="reference internal" href="dev_guide_profilers.html#doxid-dev-guide-profilers"><span class="std std-ref">integration with performance profilers</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>ONEDNN_ENABLE_PRIMITIVE_CACHE</p></td>
 <td><p><strong>ON</strong> , OFF</p></td>
 <td><p>Enables <a class="reference internal" href="dev_guide_primitive_cache.html#doxid-dev-guide-primitive-cache"><span class="std std-ref">primitive cache</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_ENABLE_MAX_CPU_ISA</p></td>
+<tr class="row-even"><td><p>ONEDNN_ENABLE_MAX_CPU_ISA</p></td>
 <td><p><strong>ON</strong> , OFF</p></td>
 <td><p>Enables <a class="reference internal" href="dev_guide_cpu_dispatcher_control.html#doxid-dev-guide-cpu-dispatcher-control"><span class="std std-ref">CPU dispatcher controls</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_ENABLE_CPU_ISA_HINTS</p></td>
+<tr class="row-odd"><td><p>ONEDNN_ENABLE_CPU_ISA_HINTS</p></td>
 <td><p><strong>ON</strong> , OFF</p></td>
 <td><p>Enables <a class="reference internal" href="dev_guide_cpu_isa_hints.html#doxid-dev-guide-cpu-isa-hints"><span class="std std-ref">CPU ISA hints</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_ENABLE_WORKLOAD</p></td>
+<tr class="row-even"><td><p>ONEDNN_ENABLE_WORKLOAD</p></td>
 <td><p><strong>TRAINING</strong> , INFERENCE</p></td>
 <td><p>Specifies a set of functionality to be available based on workload</p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_ENABLE_PRIMITIVE</p></td>
+<tr class="row-odd"><td><p>ONEDNN_ENABLE_PRIMITIVE</p></td>
 <td><p><strong>ALL</strong> , PRIMITIVE_NAME</p></td>
 <td><p>Specifies a set of functionality to be available based on primitives</p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_ENABLE_PRIMITIVE_CPU_ISA</p></td>
+<tr class="row-even"><td><p>ONEDNN_ENABLE_PRIMITIVE_CPU_ISA</p></td>
 <td><p><strong>ALL</strong> , CPU_ISA_NAME</p></td>
 <td><p>Specifies a set of functionality to be available for CPU backend based on CPU ISA</p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_ENABLE_PRIMITIVE_GPU_ISA</p></td>
+<tr class="row-odd"><td><p>ONEDNN_ENABLE_PRIMITIVE_GPU_ISA</p></td>
 <td><p><strong>ALL</strong> , GPU_ISA_NAME</p></td>
 <td><p>Specifies a set of functionality to be available for GPU backend based on GPU ISA</p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_EXPERIMENTAL</p></td>
+<tr class="row-even"><td><p>ONEDNN_EXPERIMENTAL</p></td>
 <td><p>ON, <strong>OFF</strong></p></td>
 <td><p>Enables <a class="reference internal" href="dev_guide_experimental.html#doxid-dev-guide-experimental"><span class="std std-ref">experimental features</span></a></p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_VERBOSE</p></td>
+<tr class="row-odd"><td><p>ONEDNN_VERBOSE</p></td>
 <td><p><strong>ON</strong> , OFF</p></td>
 <td><p>Enables <a class="reference internal" href="dev_guide_verbose.html#doxid-dev-guide-verbose"><span class="std std-ref">verbose mode</span></a></p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_AARCH64_USE_ACL</p></td>
+<tr class="row-even"><td><p>ONEDNN_AARCH64_USE_ACL</p></td>
 <td><p>ON, <strong>OFF</strong></p></td>
 <td><p>Enables integration with Arm Compute Library for AArch64 builds</p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_BLAS_VENDOR</p></td>
+<tr class="row-odd"><td><p>ONEDNN_BLAS_VENDOR</p></td>
 <td><p><strong>NONE</strong> , ARMPL</p></td>
 <td><p>Defines an external BLAS library to link to for GEMM-like operations</p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_GPU_VENDOR</p></td>
+<tr class="row-even"><td><p>ONEDNN_GPU_VENDOR</p></td>
 <td><p><strong>INTEL</strong> , NVIDIA</p></td>
 <td><p>Defines GPU vendor for GPU engines</p></td>
 </tr>
-<tr class="row-even"><td><p>ONEDNN_DPCPP_HOST_COMPILER</p></td>
+<tr class="row-odd"><td><p>ONEDNN_DPCPP_HOST_COMPILER</p></td>
 <td><p><strong>DEFAULT</strong> , <em>GNU C++ compiler executable</em></p></td>
 <td><p>Specifies host compiler executable for DPCPP runtimes</p></td>
 </tr>
-<tr class="row-odd"><td><p>ONEDNN_LIBRARY_NAME</p></td>
+<tr class="row-even"><td><p>ONEDNN_LIBRARY_NAME</p></td>
 <td><p><strong>dnnl</strong> , <em>library name</em></p></td>
 <td><p>Specifies name of the library</p></td>
 </tr>
@@ -3206,7 +3228,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>For a debug build of oneDNN it is advisable to specify a Compute Library build which has also been built with debug enabled.</p>
-<p>oneDNN is only compatible with Compute Library builds v22.02 or later.</p>
+<p>oneDNN only supports builds with Compute Library v22.05 or later.</p>
 </div>
 </section>
 <section id="vendor-blas-libraries">

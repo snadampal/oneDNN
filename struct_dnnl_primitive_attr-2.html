@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>struct dnnl::primitive_attr &#8212; oneDNN v2.6.0 documentation</title>
+    <title>struct dnnl::primitive_attr &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3011,20 +3029,19 @@
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1primitive-attr-1a4b81acc8e48886313154f75c1708ae02"><span id="index-8"></span><span></span><span class="kt">void</span> <span class="n">set_output_scales</span><span class="p">(</span><span class="kt">int</span> <span class="n">mask</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&amp;</span> <span class="n">scales</span><span class="p">)</span></pre>
 <p>Sets output scaling factors correspondence mask and values.</p>
 <p>Example usage:</p>
-<pre class="highlight literal-block"><span></span><span class="o">*</span>      <span class="kt">int</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
-<span class="o">*</span>          <span class="n">oh</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// convolution output params</span>
-<span class="o">*</span>      <span class="c1">// unique output scales per output channel</span>
-<span class="o">*</span>      <span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">scales</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
-<span class="o">*</span>      <span class="kt">int</span> <span class="n">oc_dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// mb_dim = 0, channel_dim = 1, height_dim = 2, ...</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="c1">// construct a convolution descriptor</span>
-<span class="o">*</span>      <span class="n">dnnl</span><span class="o">::</span><span class="n">convolution</span><span class="o">::</span><span class="n">desc</span> <span class="n">conv_d</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr"><span class="std std-ref">dnnl::primitive_attr</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
-<span class="o">*</span>      <span class="n">attr</span><span class="p">.</span><a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr-1a4b81acc8e48886313154f75c1708ae02"><span class="std std-ref">set_output_scales</span></a><span></span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">oc</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">oc_dim</span><span class="p">,</span> <span class="n">scales</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_desc-2.html#doxid-structdnnl-1-1primitive-desc"><span class="std std-ref">dnnl::primitive_desc</span></a><span></span> <span class="n">conv_pd</span><span class="p">(</span><span class="n">conv_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7"><span class="std std-ref">engine</span></a><span></span><span class="p">);</span>
-<span class="o">*</span></pre>
+<pre class="highlight literal-block"><span></span><span class="kt">int</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">oh</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// convolution output params</span>
+<span class="c1">// unique output scales per output channel</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">scales</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">oc_dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// mb_dim = 0, channel_dim = 1, height_dim = 2, ...</span>
+
+<span class="c1">// construct a convolution descriptor</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">convolution</span><span class="o">::</span><span class="n">desc</span> <span class="n">conv_d</span><span class="p">;</span>
+
+<a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr"><span class="std std-ref">dnnl::primitive_attr</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
+<span class="n">attr</span><span class="p">.</span><a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr-1a4b81acc8e48886313154f75c1708ae02"><span class="std std-ref">set_output_scales</span></a><span></span><span class="p">(</span><span class="n">attr</span><span class="p">,</span> <span class="n">oc</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">oc_dim</span><span class="p">,</span> <span class="n">scales</span><span class="p">);</span>
+
+<a class="reference internal" href="struct_dnnl_primitive_desc-2.html#doxid-structdnnl-1-1primitive-desc"><span class="std std-ref">dnnl::primitive_desc</span></a><span></span> <span class="n">conv_pd</span><span class="p">(</span><span class="n">conv_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7"><span class="std std-ref">engine</span></a><span></span><span class="p">);</span></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The order of dimensions does not depend on how elements are laid out in memory. For example:</p>
@@ -3162,20 +3179,19 @@
 <p>For performance reasons, the low-precision configuration of the RNN primitives expect input activations to have the unsigned 8-bit integer data type. The scale and shift parameters are used to quantize floating-point data to unsigned integer and must be passed to the RNN primitive using attributes.</p>
 <p>The quantization formula is <code class="docutils literal notranslate"><span class="pre">scale</span> <span class="pre">*</span> <span class="pre">data</span> <span class="pre">+</span> <span class="pre">shift</span></code>.</p>
 <p>Example usage:</p>
-<pre class="highlight literal-block"><span></span><span class="o">*</span>      <span class="c1">// RNN parameters</span>
-<span class="o">*</span>      <span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">sic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">slc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dlc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
-<span class="o">*</span>      <span class="c1">// Activations quantization parameters</span>
-<span class="o">*</span>      <span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">63.f</span><span class="p">,</span> <span class="n">shift</span> <span class="o">=</span> <span class="mf">64.f</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr-1acfbfd85b7ca82bf97e2b07c2427427de"><span class="std std-ref">primitive_attr</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="c1">// Set scale and shift for int8 quantization of activation</span>
-<span class="o">*</span>      <span class="n">attr</span><span class="p">.</span><a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr-1a39ce5aa8b06ed331d8e2158108cc8324"><span class="std std-ref">set_rnn_data_qparams</span></a><span></span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">shift</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="c1">// Create and configure rnn op_desc</span>
-<span class="o">*</span>      <span class="n">vanilla_rnn_forward</span><span class="o">::</span><span class="n">desc</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">(</span><span class="cm">/* arguments */</span><span class="p">);</span>
-<span class="o">*</span>      <span class="n">vanilla_rnn_forward</span><span class="o">::</span><span class="n">primitive_desc</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">(</span><a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7"><span class="std std-ref">engine</span></a><span></span><span class="p">);</span>
-<span class="o">*</span></pre>
+<pre class="highlight literal-block"><span></span><span class="c1">// RNN parameters</span>
+<span class="kt">int</span> <span class="n">l</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">sic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">slc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dic</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">dlc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="c1">// Activations quantization parameters</span>
+<span class="kt">float</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">63.f</span><span class="p">,</span> <span class="n">shift</span> <span class="o">=</span> <span class="mf">64.f</span><span class="p">;</span>
+
+<a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr-1acfbfd85b7ca82bf97e2b07c2427427de"><span class="std std-ref">primitive_attr</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
+
+<span class="c1">// Set scale and shift for int8 quantization of activation</span>
+<span class="n">attr</span><span class="p">.</span><a class="reference internal" href="#doxid-structdnnl-1-1primitive-attr-1a39ce5aa8b06ed331d8e2158108cc8324"><span class="std std-ref">set_rnn_data_qparams</span></a><span></span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">shift</span><span class="p">);</span>
+
+<span class="c1">// Create and configure rnn op_desc</span>
+<span class="n">vanilla_rnn_forward</span><span class="o">::</span><span class="n">desc</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">(</span><span class="cm">/* arguments */</span><span class="p">);</span>
+<span class="n">vanilla_rnn_forward</span><span class="o">::</span><span class="n">primitive_desc</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">(</span><a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52"><span class="std std-ref">rnn_d</span></a><span></span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7"><span class="std std-ref">engine</span></a><span></span><span class="p">);</span></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Quantization scale and shift are common for src_layer, src_iter, dst_iter, and dst_layer.</p>

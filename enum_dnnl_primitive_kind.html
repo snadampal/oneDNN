@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl::primitive::kind &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl::primitive::kind &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2877,29 +2895,30 @@
 
 <span class="k">enum</span> <span class="n">kind</span>
 <span class="p">{</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169af31ee5e3824f1f5e5d206bdf3029f22b"><span class="std std-ref">undef</span></a><span></span>               <span class="o">=</span> <span class="n">dnnl_undefined_primitive</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a8dbc5523c131d7900138d32d1dcbf093"><span class="std std-ref">reorder</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_reorder</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a644c45fc2b003bf415a3fb655412508d"><span class="std std-ref">shuffle</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_shuffle</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a414e7c8ede73a0c2c3d17699134f4080"><span class="std std-ref">concat</span></a><span></span>              <span class="o">=</span> <span class="n">dnnl_concat</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a1d623b89683f9ce4e074de1676d12416"><span class="std std-ref">sum</span></a><span></span>                 <span class="o">=</span> <span class="n">dnnl_sum</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169aa9595c1c24c33b16056d2ad07e71682d"><span class="std std-ref">convolution</span></a><span></span>         <span class="o">=</span> <span class="n">dnnl_convolution</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a2294014fceafa2f8ca8d16ad35f25875"><span class="std std-ref">deconvolution</span></a><span></span>       <span class="o">=</span> <span class="n">dnnl_deconvolution</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a98b908c7d0339bb6a4832db44fc2c8da"><span class="std std-ref">eltwise</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_eltwise</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169ace2f1fbd249d24aabc07ac4488ab5b8c"><span class="std std-ref">softmax</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_softmax</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a4abcef116566139e94c82bb1bb37583f"><span class="std std-ref">pooling</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_pooling</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a7d9c7d1747abfac2c3c3ff337712f575"><span class="std std-ref">lrn</span></a><span></span>                 <span class="o">=</span> <span class="n">dnnl_lrn</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a780789647a31acedb6477412a99154bb"><span class="std std-ref">batch_normalization</span></a><span></span> <span class="o">=</span> <span class="n">dnnl_batch_normalization</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a40f3d68401fd64071877b5263c3d8706"><span class="std std-ref">layer_normalization</span></a><span></span> <span class="o">=</span> <span class="n">dnnl_layer_normalization</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a30813812e3beef3eefcc2b97dc2e0783"><span class="std std-ref">inner_product</span></a><span></span>       <span class="o">=</span> <span class="n">dnnl_inner_product</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a6eed45b9327120cabad6916919a9a600"><span class="std std-ref">rnn</span></a><span></span>                 <span class="o">=</span> <span class="n">dnnl_rnn</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a9d7183f16acce70658f686ae7f1a4d20"><span class="std std-ref">binary</span></a><span></span>              <span class="o">=</span> <span class="n">dnnl_binary</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a3e392964a863f0168f631708934c2acf"><span class="std std-ref">logsoftmax</span></a><span></span>          <span class="o">=</span> <span class="n">dnnl_logsoftmax</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a0f2e1c85f0064ca22d3ac468c44b0327"><span class="std std-ref">matmul</span></a><span></span>              <span class="o">=</span> <span class="n">dnnl_matmul</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a4f9776b23053c32400f732de532df397"><span class="std std-ref">resampling</span></a><span></span>          <span class="o">=</span> <span class="n">dnnl_resampling</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a253e250591ab0d87c37df9b1a4042be4"><span class="std std-ref">pooling_v2</span></a><span></span>          <span class="o">=</span> <span class="n">dnnl_pooling_v2</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a9477e24c78f1ca8ee9b03111f6227fc2"><span class="std std-ref">reduction</span></a><span></span>           <span class="o">=</span> <span class="n">dnnl_reduction</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a837c39f77d473b24eb27c0758d5c7c1b"><span class="std std-ref">prelu</span></a><span></span>               <span class="o">=</span> <span class="n">dnnl_prelu</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a98878d114e65ba8a564ed87c42e62f17"><span class="std std-ref">softmax_v2</span></a><span></span>          <span class="o">=</span> <span class="n">dnnl_softmax_v2</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169af31ee5e3824f1f5e5d206bdf3029f22b"><span class="std std-ref">undef</span></a><span></span>                  <span class="o">=</span> <span class="n">dnnl_undefined_primitive</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a8dbc5523c131d7900138d32d1dcbf093"><span class="std std-ref">reorder</span></a><span></span>                <span class="o">=</span> <span class="n">dnnl_reorder</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a644c45fc2b003bf415a3fb655412508d"><span class="std std-ref">shuffle</span></a><span></span>                <span class="o">=</span> <span class="n">dnnl_shuffle</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a414e7c8ede73a0c2c3d17699134f4080"><span class="std std-ref">concat</span></a><span></span>                 <span class="o">=</span> <span class="n">dnnl_concat</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a1d623b89683f9ce4e074de1676d12416"><span class="std std-ref">sum</span></a><span></span>                    <span class="o">=</span> <span class="n">dnnl_sum</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169aa9595c1c24c33b16056d2ad07e71682d"><span class="std std-ref">convolution</span></a><span></span>            <span class="o">=</span> <span class="n">dnnl_convolution</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a2294014fceafa2f8ca8d16ad35f25875"><span class="std std-ref">deconvolution</span></a><span></span>          <span class="o">=</span> <span class="n">dnnl_deconvolution</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a98b908c7d0339bb6a4832db44fc2c8da"><span class="std std-ref">eltwise</span></a><span></span>                <span class="o">=</span> <span class="n">dnnl_eltwise</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169ace2f1fbd249d24aabc07ac4488ab5b8c"><span class="std std-ref">softmax</span></a><span></span>                <span class="o">=</span> <span class="n">dnnl_softmax</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a4abcef116566139e94c82bb1bb37583f"><span class="std std-ref">pooling</span></a><span></span>                <span class="o">=</span> <span class="n">dnnl_pooling</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a7d9c7d1747abfac2c3c3ff337712f575"><span class="std std-ref">lrn</span></a><span></span>                    <span class="o">=</span> <span class="n">dnnl_lrn</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a780789647a31acedb6477412a99154bb"><span class="std std-ref">batch_normalization</span></a><span></span>    <span class="o">=</span> <span class="n">dnnl_batch_normalization</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a40f3d68401fd64071877b5263c3d8706"><span class="std std-ref">layer_normalization</span></a><span></span>    <span class="o">=</span> <span class="n">dnnl_layer_normalization</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a30813812e3beef3eefcc2b97dc2e0783"><span class="std std-ref">inner_product</span></a><span></span>          <span class="o">=</span> <span class="n">dnnl_inner_product</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a6eed45b9327120cabad6916919a9a600"><span class="std std-ref">rnn</span></a><span></span>                    <span class="o">=</span> <span class="n">dnnl_rnn</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a9d7183f16acce70658f686ae7f1a4d20"><span class="std std-ref">binary</span></a><span></span>                 <span class="o">=</span> <span class="n">dnnl_binary</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a3e392964a863f0168f631708934c2acf"><span class="std std-ref">logsoftmax</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_logsoftmax</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a0f2e1c85f0064ca22d3ac468c44b0327"><span class="std std-ref">matmul</span></a><span></span>                 <span class="o">=</span> <span class="n">dnnl_matmul</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a4f9776b23053c32400f732de532df397"><span class="std std-ref">resampling</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_resampling</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a253e250591ab0d87c37df9b1a4042be4"><span class="std std-ref">pooling_v2</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_pooling_v2</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a9477e24c78f1ca8ee9b03111f6227fc2"><span class="std std-ref">reduction</span></a><span></span>              <span class="o">=</span> <span class="n">dnnl_reduction</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a837c39f77d473b24eb27c0758d5c7c1b"><span class="std std-ref">prelu</span></a><span></span>                  <span class="o">=</span> <span class="n">dnnl_prelu</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a98878d114e65ba8a564ed87c42e62f17"><span class="std std-ref">softmax_v2</span></a><span></span>             <span class="o">=</span> <span class="n">dnnl_softmax_v2</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a2cb0349d37a9a37ee76bbd2c35695be6"><span class="std std-ref">layer_normalization_v2</span></a><span></span> <span class="o">=</span> <span class="n">dnnl_layer_normalization_v2</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -2953,6 +2972,8 @@
 <p>A PReLU primitive.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a98878d114e65ba8a564ed87c42e62f17"><span id="index-23"></span><span></span><span class="n">softmax_v2</span></pre>
 <p>A softmax version 2 primitive.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a2cb0349d37a9a37ee76bbd2c35695be6"><span id="index-24"></span><span></span><span class="n">layer_normalization_v2</span></pre>
+<p>A layer normalization version 2 primitive.</p>
 </section>
 </section>
 </section>

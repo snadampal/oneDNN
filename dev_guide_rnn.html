@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>RNN &#8212; oneDNN v2.6.0 documentation</title>
+    <title>RNN &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3094,24 +3112,24 @@
 <h3>AUGRU<a class="headerlink" href="#augru" title="Permalink to this headline">¶</a></h3>
 <p>A three-gate gated recurrent unit cell, initialized with <a class="reference internal" href="struct_dnnl_augru_forward_desc.html#doxid-structdnnl-1-1augru-forward-1-1desc-1a76fb85c339959edaf6186619926f5997"><span class="std std-ref">dnnl::augru_forward::desc::desc()</span></a> or <a class="reference internal" href="struct_dnnl_augru_backward_desc.html#doxid-structdnnl-1-1augru-backward-1-1desc-1a6da4d60893a29f5a4359cb463bbd209b"><span class="std std-ref">dnnl::augru_backward::desc::desc()</span></a> as in the following example.</p>
 <pre class="highlight literal-block"><span></span><span class="k">auto</span> <span class="n">augru_desc</span> <span class="o">=</span> <a class="reference internal" href="struct_dnnl_augru_forward_desc.html#doxid-structdnnl-1-1augru-forward-1-1desc"><span class="std std-ref">dnnl::augru_forward::desc</span></a><span></span><span class="p">(</span>
-    <span class="n">aprop</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">src_layer_desc</span><span class="p">,</span> <span class="n">src_iter_desc</span><span class="p">,</span>
+    <span class="n">aprop</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">src_layer_desc</span><span class="p">,</span> <span class="n">src_iter_desc</span><span class="p">,</span> <span class="n">attention_desc</span><span class="p">,</span>
     <span class="n">weights_layer_desc</span><span class="p">,</span> <span class="n">weights_iter_desc</span><span class="p">,</span> <span class="n">bias_desc</span><span class="p">,</span>
     <span class="n">dst_layer_desc</span><span class="p">,</span> <span class="n">dst_iter_desc</span><span class="p">);</span></pre>
 <p>Note that for all tensors with a dimension depending on the gate number, we implicitly require the order of these gates to be <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, and <code class="docutils literal notranslate"><span class="pre">o</span></code>. The following equation gives the mathematical definition of these gates.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align} u_t &amp;= \sigma(W_u \cdot h_{t,l-1} + U_u \cdot h_{t-1, l} + B_u) \\ r_t &amp;= \sigma(W_r \cdot h_{t,l-1} + U_r \cdot h_{t-1, l} + B_r) \\ o_t &amp;= \tanh(W_o \cdot h_{t,l-1} + U_o \cdot (r_t * h_{t-1, l}) + B_o) \\ \tilde u_t &amp;= 1 - a_t * u_t \\ h_t &amp;= \tilde u_t * h_{t-1, l} + (1 - \tilde u_t) * o_t \end{align}\end{split}\]</div>
+\[\begin{split}\begin{align} u_t &amp;= \sigma(W_u \cdot h_{t,l-1} + U_u \cdot h_{t-1, l} + B_u) \\ r_t &amp;= \sigma(W_r \cdot h_{t,l-1} + U_r \cdot h_{t-1, l} + B_r) \\ o_t &amp;= \tanh(W_o \cdot h_{t,l-1} + U_o \cdot (r_t * h_{t-1, l}) + B_o) \\ \tilde u_t &amp;= (1 - a_t) * u_t \\ h_t &amp;= \tilde u_t * h_{t-1, l} + (1 - \tilde u_t) * o_t \end{align}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(W_*\)</span> are in <span class="math notranslate nohighlight">\(\weightslayer\)</span>, <span class="math notranslate nohighlight">\(U_*\)</span> are in <span class="math notranslate nohighlight">\(\weightsiter\)</span>, and <span class="math notranslate nohighlight">\(B_*\)</span> are stored in <span class="math notranslate nohighlight">\(\bias\)</span>.</p>
 </section>
 <section id="linear-before-reset-augru">
 <h3>Linear-Before-Reset AUGRU<a class="headerlink" href="#linear-before-reset-augru" title="Permalink to this headline">¶</a></h3>
 <p>A three-gate gated recurrent unit cell with linear layer applied before the reset gate, initialized with <a class="reference internal" href="struct_dnnl_lbr_augru_forward_desc.html#doxid-structdnnl-1-1lbr-augru-forward-1-1desc-1a6a6e94d50f49364b4d845e47b95b9308"><span class="std std-ref">dnnl::lbr_augru_forward::desc::desc()</span></a> or <a class="reference internal" href="struct_dnnl_lbr_augru_backward_desc.html#doxid-structdnnl-1-1lbr-augru-backward-1-1desc-1a0893b5e4c46544b2930d57d80ce04c7e"><span class="std std-ref">dnnl::lbr_augru_backward::desc::desc()</span></a> as in the following example.</p>
 <pre class="highlight literal-block"><span></span><span class="k">auto</span> <span class="n">lbr_augru_desc</span> <span class="o">=</span> <a class="reference internal" href="struct_dnnl_lbr_augru_forward_desc.html#doxid-structdnnl-1-1lbr-augru-forward-1-1desc"><span class="std std-ref">dnnl::lbr_augru_forward::desc</span></a><span></span><span class="p">(</span>
-    <span class="n">aprop</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">src_layer_desc</span><span class="p">,</span> <span class="n">src_iter_desc</span><span class="p">,</span>
+    <span class="n">aprop</span><span class="p">,</span> <span class="n">direction</span><span class="p">,</span> <span class="n">src_layer_desc</span><span class="p">,</span> <span class="n">src_iter_desc</span><span class="p">,</span> <span class="n">attention_desc</span><span class="p">,</span>
     <span class="n">weights_layer_desc</span><span class="p">,</span> <span class="n">weights_iter_desc</span><span class="p">,</span> <span class="n">bias_desc</span><span class="p">,</span>
     <span class="n">dst_layer_desc</span><span class="p">,</span> <span class="n">dst_iter_desc</span><span class="p">);</span></pre>
 <p>The following equation describes the mathematical behavior of the Linear-Before-Reset AUGRU cell.</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{align} u_t &amp;= \sigma(W_u \cdot h_{t,l-1} + U_u \cdot h_{t-1, l} + B_u) \\ r_t &amp;= \sigma(W_r \cdot h_{t,l-1} + U_r \cdot h_{t-1, l} + B_r) \\ o_t &amp;= \tanh(W_o \cdot h_{t,l-1} + r_t *(U_o \cdot h_{t-1, l} + B_{u'}) + B_o) \\ \tilde u_t &amp;= 1 - a_t * u_t \\ h_t &amp;= \tilde u_t * h_{t-1, l} + (1 - \tilde u_t) * o_t \end{align}\end{split}\]</div>
+\[\begin{split}\begin{align} u_t &amp;= \sigma(W_u \cdot h_{t,l-1} + U_u \cdot h_{t-1, l} + B_u) \\ r_t &amp;= \sigma(W_r \cdot h_{t,l-1} + U_r \cdot h_{t-1, l} + B_r) \\ o_t &amp;= \tanh(W_o \cdot h_{t,l-1} + r_t *(U_o \cdot h_{t-1, l} + B_{u'}) + B_o) \\ \tilde u_t &amp;= (1 - a_t) * u_t \\ h_t &amp;= \tilde u_t * h_{t-1, l} + (1 - \tilde u_t) * o_t \end{align}\end{split}\]</div>
 <p>Note that for all tensors with a dimension depending on the gate number, except the bias, we implicitly require the order of these gates to be <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, and <code class="docutils literal notranslate"><span class="pre">o</span></code>. For the <span class="math notranslate nohighlight">\(\bias\)</span> tensor, we implicitly require the order of the gates to be <code class="docutils literal notranslate"><span class="pre">u</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code>, <code class="docutils literal notranslate"><span class="pre">o</span></code>, and <code class="docutils literal notranslate"><span class="pre">u'</span></code>.</p>
 </section>
 </section>

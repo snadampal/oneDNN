@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Memory &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Memory &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3227,21 +3245,20 @@
 <p>The new memory descriptor inherits the data type. This operation is valid only for memory descriptors that have format_kind set to <a class="reference internal" href="enum_dnnl_format_kind_t.html#doxid-group-dnnl-api-memory-1ggaa75cad747fa467d9dc527d943ba3367da30498f5adbc7d8017979a2201725ff16"><span class="std std-ref">dnnl_blocked</span></a> or <a class="reference internal" href="enum_dnnl_format_kind_t.html#doxid-group-dnnl-api-memory-1ggaa75cad747fa467d9dc527d943ba3367da77ae35388e04dc3e98d90675a7110c83"><span class="std std-ref">dnnl_format_kind_any</span></a>.</p>
 <p>The logical axes will be permuted in the following manner: <code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">for</span> <span class="pre">(i:</span> <span class="pre">0</span> <span class="pre">..</span> <span class="pre">in_memory_desc-&gt;ndims)</span> <span class="pre">out_memory_desc-&gt;dims[permutation[i]]</span> <span class="pre">=</span> <span class="pre">in_memory_desc-&gt;dims[i];</span> <span class="pre">`</span></code></p>
 <p>Example:</p>
-<pre class="highlight literal-block"><span></span><span class="o">*</span>      <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span> <span class="n">in_md</span><span class="p">,</span> <span class="n">out_md</span><span class="p">,</span> <span class="n">expect_out_md</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="k">const</span> <span class="kt">int</span> <span class="n">permutation</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span> <span class="c1">// swap the first and the second axes</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-memory-1ga8331e1160e52a5d4babe96736464095a"><span class="std std-ref">dnnl_dims_t</span></a><span></span> <span class="n">in_dims</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n">out_dims</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
-<span class="o">*</span>      <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1ga395e42b594683adb25ed2d842bb3091d"><span class="std std-ref">dnnl_format_tag_t</span></a><span></span> <span class="n">in_tag</span> <span class="o">=</span> <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da1bd907fc29344dfe7ba88336960dcf53"><span class="std std-ref">dnnl_ab</span></a><span></span><span class="p">,</span> <span class="n">out_tag</span> <span class="o">=</span> <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da6a6dbc0b30468d92e32a9cb3f6615c43"><span class="std std-ref">dnnl_ba</span></a><span></span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-memory-1gaff696e368aeefb3036a0419c508dc6be"><span class="std std-ref">dnnl_memory_desc_init_by_tag</span></a><span></span><span class="p">(</span>
-<span class="o">*</span>              <span class="o">&amp;</span><span class="n">in_md</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">in_dims</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">in_tag</span><span class="p">);</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-memory-1gaff696e368aeefb3036a0419c508dc6be"><span class="std std-ref">dnnl_memory_desc_init_by_tag</span></a><span></span><span class="p">(</span>
-<span class="o">*</span>              <span class="o">&amp;</span><span class="n">expect_out_md</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">out_dims</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">out_tag</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="#doxid-group-dnnl-api-memory-1ga415adf7b7053b88886431e949211e810"><span class="std std-ref">dnnl_memory_desc_permute_axes</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_md</span><span class="p">,</span> <span class="n">in_md</span><span class="p">,</span> <span class="n">permutation</span><span class="p">);</span>
-<span class="o">*</span>      <span class="n">assert</span><span class="p">(</span><a class="reference internal" href="#doxid-group-dnnl-api-memory-1gaa734e01591b567ed6378df1f404058e2"><span class="std std-ref">dnnl_memory_desc_equal</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_md</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">expect_out_md</span><span class="p">));</span>
-<span class="o">*</span></pre>
+<pre class="highlight literal-block"><a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span> <span class="n">in_md</span><span class="p">,</span> <span class="n">out_md</span><span class="p">,</span> <span class="n">expect_out_md</span><span class="p">;</span>
+
+<span class="k">const</span> <span class="kt">int</span> <span class="n">permutation</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span> <span class="c1">// swap the first and the second axes</span>
+
+<a class="reference internal" href="#doxid-group-dnnl-api-memory-1ga8331e1160e52a5d4babe96736464095a"><span class="std std-ref">dnnl_dims_t</span></a><span></span> <span class="n">in_dims</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="n">out_dims</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+<a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1ga395e42b594683adb25ed2d842bb3091d"><span class="std std-ref">dnnl_format_tag_t</span></a><span></span> <span class="n">in_tag</span> <span class="o">=</span> <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da1bd907fc29344dfe7ba88336960dcf53"><span class="std std-ref">dnnl_ab</span></a><span></span><span class="p">,</span> <span class="n">out_tag</span> <span class="o">=</span> <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da6a6dbc0b30468d92e32a9cb3f6615c43"><span class="std std-ref">dnnl_ba</span></a><span></span><span class="p">;</span>
+
+<a class="reference internal" href="#doxid-group-dnnl-api-memory-1gaff696e368aeefb3036a0419c508dc6be"><span class="std std-ref">dnnl_memory_desc_init_by_tag</span></a><span></span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="n">in_md</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">in_dims</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">in_tag</span><span class="p">);</span>
+<a class="reference internal" href="#doxid-group-dnnl-api-memory-1gaff696e368aeefb3036a0419c508dc6be"><span class="std std-ref">dnnl_memory_desc_init_by_tag</span></a><span></span><span class="p">(</span>
+        <span class="o">&amp;</span><span class="n">expect_out_md</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">out_dims</span><span class="p">,</span> <span class="n">data_type</span><span class="p">,</span> <span class="n">out_tag</span><span class="p">);</span>
+
+<a class="reference internal" href="#doxid-group-dnnl-api-memory-1ga415adf7b7053b88886431e949211e810"><span class="std std-ref">dnnl_memory_desc_permute_axes</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_md</span><span class="p">,</span> <span class="n">in_md</span><span class="p">,</span> <span class="n">permutation</span><span class="p">);</span>
+<span class="n">assert</span><span class="p">(</span><a class="reference internal" href="#doxid-group-dnnl-api-memory-1gaa734e01591b567ed6378df1f404058e2"><span class="std std-ref">dnnl_memory_desc_equal</span></a><span></span><span class="p">(</span><span class="o">&amp;</span><span class="n">out_md</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">expect_out_md</span><span class="p">));</span></pre>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given table">
 <colgroup>

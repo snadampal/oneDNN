@@ -22,6 +22,7 @@ Flags for normalization primitives. :ref:`More...<details-group__dnnl__api__prim
 	    :ref:`dnnl_fuse_norm_relu<doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada>`           = 0x4U,
 	    :ref:`dnnl_use_scale<doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3a01bf8edab9d40fd6a1f8827ee485dc65>`                = 0x8U,
 	    :ref:`dnnl_use_shift<doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3afeb8455811d27d7835503a3740679df0>`                = 0x10U,
+	    :ref:`dnnl_fuse_norm_add_relu<doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4>`       = 0x20U,
 	};
 
 .. _details-group__dnnl__api__primitives__common_1ga301f673522a400c7c1e75f518431c9a3:
@@ -143,4 +144,22 @@ If specified:
 * on forward propagation use shift (aka bias) for the normalization results
 
 * on backward propagation (for prop_kind == :ref:`dnnl_backward <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10>`) compute diff wrt shift (hence one extra output used)
+
+.. index:: pair: enumvalue; dnnl_fuse_norm_add_relu
+.. _doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	dnnl_fuse_norm_add_relu
+
+Fuse with Add and then fuse with ReLU.
+
+If specified:
+
+* on forward propagation apply element-wise binary Add operation to to the normalization results with an additional input tensor and then apply ReLU with negative slope being 0.
+
+* on training primitive requires workspace (required to be able to perform backward pass).
+
+* on backward propagation save the result of backward ReLU operation with input tensor and workspace from forward pass to extra output tensor and then perform backward normalization.
 

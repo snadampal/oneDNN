@@ -19,7 +19,7 @@ Floating-point math mode. :ref:`More...<details-group__dnnl__api__attributes_1ga
 	    :ref:`strict<doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725a2133fd717402a7966ee88d06f9e0b792>` = dnnl_fpmath_mode_strict,
 	    :ref:`bf16<doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725afe2904d9fb3b0f4a81c92b03dec11424>`   = dnnl_fpmath_mode_bf16,
 	    :ref:`f16<doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725aa2449b6477c1fef79be4202906486876>`    = dnnl_fpmath_mode_f16,
-	    :ref:`f19<doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725a599f127bd63e32d6fd5457f9f1fa1e14>`    = dnnl_fpmath_mode_f19,
+	    :ref:`tf32<doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725ae00ad49f2e4f0fda1539ae29b2aaef57>`   = dnnl_fpmath_mode_tf32,
 	    :ref:`any<doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725a100b8cad7cf2a56f6df78f171f97a1ec>`    = dnnl_fpmath_mode_any,
 	};
 
@@ -63,15 +63,15 @@ Implicit f32->bf16 conversions allowed.
 
 Implicit f32->f16 conversions allowed.
 
-.. index:: pair: enumvalue; f19
-.. _doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725a599f127bd63e32d6fd5457f9f1fa1e14:
+.. index:: pair: enumvalue; tf32
+.. _doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725ae00ad49f2e4f0fda1539ae29b2aaef57:
 
 .. ref-code-block:: cpp
 	:class: doxyrest-title-code-block
 
-	f19
+	tf32
 
-Implicit f32->f19 conversions allowed.
+Implicit f32->tf32 conversions allowed.
 
 .. index:: pair: enumvalue; any
 .. _doxid-group__dnnl__api__attributes_1gga0ad94cbef13dce222933422bfdcfa725a100b8cad7cf2a56f6df78f171f97a1ec:

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl::cpu_isa &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl::cpu_isa &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2888,6 +2906,7 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83af9b353b49d5aa4dfe76e22337b5a02cf"><span class="std std-ref">avx512_core_bf16</span></a><span></span> <span class="o">=</span> <span class="n">dnnl_cpu_isa_avx512_core_bf16</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83ad49189665b06a3259b3bf3603319fd0d"><span class="std std-ref">avx512_core_amx</span></a><span></span>  <span class="o">=</span> <span class="n">dnnl_cpu_isa_avx512_core_amx</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83a59548f83cb32f5f6272186734a9a711d"><span class="std std-ref">avx2_vnni</span></a><span></span>        <span class="o">=</span> <span class="n">dnnl_cpu_isa_avx2_vnni</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83ae715ea1a784388f3588ed5434a333e93"><span class="std std-ref">avx512_core_fp16</span></a><span></span> <span class="o">=</span> <span class="n">dnnl_cpu_isa_avx512_core_fp16</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -2914,9 +2933,11 @@
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83af9b353b49d5aa4dfe76e22337b5a02cf"><span id="index-9"></span><span></span><span class="n">avx512_core_bf16</span></pre>
 <p>Intel AVX-512, Intel DL Boost and bfloat16 support for Intel Xeon Scalable processor family and Intel Core processor family.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83ad49189665b06a3259b3bf3603319fd0d"><span id="index-10"></span><span></span><span class="n">avx512_core_amx</span></pre>
-<p>Intel AVX-512, Intel DL Boost and bfloat16 support and Intel AMX with 8-bit integer and bfloat16 support.</p>
+<p>Intel AVX-512 with float16, Intel DL Boost and bfloat16 support and Intel AMX with 8-bit integer and bfloat16 support.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83a59548f83cb32f5f6272186734a9a711d"><span id="index-11"></span><span></span><span class="n">avx2_vnni</span></pre>
 <p>Intel AVX2 and Intel Deep Learning Boost (Intel DL Boost) support.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1ggabad017feb1850634bf3babdb68234f83ae715ea1a784388f3588ed5434a333e93"><span id="index-12"></span><span></span><span class="n">avx512_core_fp16</span></pre>
+<p>Intel AVX-512 with float16, Intel DL Boost and bfloat16 support for Intel Xeon Scalable processor family and Intel Core processor family.</p>
 </section>
 </section>
 </section>

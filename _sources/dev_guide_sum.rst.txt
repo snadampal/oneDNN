@@ -64,7 +64,11 @@ The sum primitive works with arbitrary data tensors. There is no special meaning
 Implementation Limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. No primitive specific limitations. Refer to :ref:`Data Types <doxid-dev_guide_data_types>` for limitations related to data types support.
+#. Refer to :ref:`Data Types <doxid-dev_guide_data_types>` for limitations related to data types support.
+
+#. GPU
+   
+   * Only tensors of 6 or fewer dimensions are supported.
 
 Performance Tips
 ~~~~~~~~~~~~~~~~

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sum &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Sum &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2974,7 +2992,12 @@
 <section id="implementation-limitations">
 <h2>Implementation Limitations<a class="headerlink" href="#implementation-limitations" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>No primitive specific limitations. Refer to <a class="reference internal" href="dev_guide_data_types.html#doxid-dev-guide-data-types"><span class="std std-ref">Data Types</span></a> for limitations related to data types support.</p></li>
+<li><p>Refer to <a class="reference internal" href="dev_guide_data_types.html#doxid-dev-guide-data-types"><span class="std std-ref">Data Types</span></a> for limitations related to data types support.</p></li>
+<li><p>GPU</p>
+<ul class="simple">
+<li><p>Only tensors of 6 or fewer dimensions are supported.</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <section id="performance-tips">

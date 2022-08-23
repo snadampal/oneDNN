@@ -33,7 +33,7 @@ elu            :ref:`dnnl_eltwise_elu <doxid-group__dnnl__api__primitives__commo
 exp            :ref:`dnnl_eltwise_exp <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a4859f1326783a273500ef294bb7c7d5c>` :ref:`dnnl_eltwise_exp_use_dst_for_bwd <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23ae7f15ca067ce527eb66a35767d253e81>`             :math:`d = e^s`                                                                                                                                               :math:`ds = dd \cdot e^s`                                                                                                                      :math:`ds = dd \cdot d`                                                                                                  
 gelu_erf       :ref:`dnnl_eltwise_gelu_erf <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a676e7d4e899ab2bbddc72f73a54c7779>`                                                                                                                                                                   :math:`d = 0.5 s (1 + \operatorname{erf}[\frac{s}{\sqrt{2}}])`                                                                                                :math:`ds = dd \cdot \left(0.5 + 0.5 \, \operatorname{erf}\left({\frac{s}{\sqrt{2}}}\right) + \frac{s}{\sqrt{2\pi}}e^{-0.5s^{2}}\right)`                                                                                                                                
 gelu_tanh      :ref:`dnnl_eltwise_gelu_tanh <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a18c14d6904040bff94bce8a43c039c62>`                                                                                                                                                                  :math:`d = 0.5 s (1 + \tanh[\sqrt{\frac{2}{\pi}} (s + 0.044715 s^3)])`                                                                                        :math:`See\ (1).`                                                                                                                                                                                                                                                       
-hardsigmoid    :ref:`dnnl_eltwise_hardsigmoid <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3>`                                                                                                                                                                :math:`d = \begin{cases} 1 & \text{if}\ s > 3 \\ \frac{s + 3}{6} & \text{if}\ -3 < s \leq 3 \\ 0 & \text{otherwise} \end{cases}`                              :math:`ds = \begin{cases} \frac{dd}{6} & \text{if}\ -3 < s \leq 3 \\ 0 & \text{otherwise}\ \end{cases}`                                                                                                                                                                 
+hardsigmoid    :ref:`dnnl_eltwise_hardsigmoid <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a19381a5adcfa6889394eab43c3fc4ee3>`                                                                                                                                                                :math:`d = \text{max}(0, \text{min}(1, \alpha s + \beta))`                                                                                                    :math:`ds = \begin{cases} dd \cdot \alpha & \text{if}\ 0 < \alpha s + \beta < 1 \\ 0 & \text{otherwise}\ \end{cases}`                                                                                                                                                   
 hardswish      :ref:`dnnl_eltwise_hardswish <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a9ee6277dfff509e9fde3d5329b8eacd9>`                                                                                                                                                                  :math:`d = \begin{cases} s & \text{if}\ s > 3 \\ s \cdot \frac{s + 3}{6} & \text{if}\ -3 < s \leq 3 \\ 0 & \text{otherwise} \end{cases}`                      :math:`ds = \begin{cases} dd & \text{if}\ s > 3 \\ dd \cdot \frac{2s + 3}{6} & \text{if}\ -3 < s \leq 3 \\ 0 & \text{otherwise} \end{cases}`                                                                                                                            
 linear         :ref:`dnnl_eltwise_linear <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23aed5eec69000ddfe6ac96e161b0d723b4>`                                                                                                                                                                     :math:`d = \alpha s + \beta`                                                                                                                                  :math:`ds = \alpha \cdot dd`                                                                                                                                                                                                                                            
 log            :ref:`dnnl_eltwise_log <doxid-group__dnnl__api__primitives__common_1gga96946c805f6c4922c38c37049ab95d23a8ea10785816fd41353b49445852e0b74>`                                                                                                                                                                        :math:`d = \log_{e}{s}`                                                                                                                                       :math:`ds = \frac{dd}{s}`                                                                                                                                                                                                                                               
@@ -62,8 +62,6 @@ Note that following equations hold:
 * :math:`soft\_relu(s) = soft\_relu\_v2(s, 1)`
 
 * :math:`logsigmoid(s) = soft\_relu\_v2(s, -1)`
-
-* :math:`hardswish(s) = s \cdot hardsigmoid(s)`
 
 Difference Between Forward Training and Forward Inference
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -129,7 +127,7 @@ The eltwise primitive supports the following combinations of data types:
 Propagation          Source / Destination   Intermediate data type   
 ===================  =====================  =======================  
 forward / backward   f32, bf16              f32                      
-forward              f16                    f16                      
+forward              f16                    f32                      
 forward              s32 / s8 / u8          f32                      
 ===================  =====================  =======================  
 
@@ -161,6 +159,10 @@ Implementation Limitations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Refer to :ref:`Data Types <doxid-dev_guide_data_types>` for limitations related to data types support.
+
+#. GPU
+   
+   * Only tensors of 6 or fewer dimensions are supported.
 
 Performance Tips
 ~~~~~~~~~~~~~~~~

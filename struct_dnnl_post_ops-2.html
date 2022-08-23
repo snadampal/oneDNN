@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>struct dnnl::post_ops &#8212; oneDNN v2.6.0 documentation</title>
+    <title>struct dnnl::post_ops &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2924,6 +2942,29 @@
         <span class="kt">float</span><span class="o">&amp;</span> <span class="n">beta</span>
         <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
 
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-structdnnl-1-1post-ops-1af23e9740652372dad32a34b64601de1c"><span class="std std-ref">append_dw</span></a><span></span><span class="p">(</span>
+        <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
+        <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
+        <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
+        <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span> <span class="n">kernel_size</span><span class="p">,</span>
+        <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span> <span class="n">stride_size</span><span class="p">,</span>
+        <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span> <span class="n">padding_l_size</span><span class="p">,</span>
+        <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
+        <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&amp;</span> <span class="n">scales</span>
+        <span class="p">);</span>
+
+    <span class="kt">void</span> <a class="reference internal" href="#doxid-structdnnl-1-1post-ops-1a206ef7671be8727eba7d65a2e454e601"><span class="std std-ref">get_params_dw</span></a><span></span><span class="p">(</span>
+        <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
+        <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">weights_data_type</span><span class="p">,</span>
+        <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">bias_data_type</span><span class="p">,</span>
+        <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">dst_data_type</span><span class="p">,</span>
+        <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span><span class="o">&amp;</span> <span class="n">kernel_size</span><span class="p">,</span>
+        <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span><span class="o">&amp;</span> <span class="n">stride_size</span><span class="p">,</span>
+        <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span><span class="o">&amp;</span> <span class="n">padding_l_size</span><span class="p">,</span>
+        <span class="kt">int</span><span class="o">&amp;</span> <span class="n">mask</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&amp;</span> <span class="n">scales</span>
+        <span class="p">)</span> <span class="k">const</span><span class="p">;</span>
+
     <span class="kt">void</span> <a class="reference internal" href="#doxid-structdnnl-1-1post-ops-1a4229db0e1e1eab273ed0e2b3e18402de"><span class="std std-ref">append_dw_k3s1p1</span></a><span></span><span class="p">(</span>
         <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
         <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
@@ -3215,7 +3256,104 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a4229db0e1e1eab273ed0e2b3e18402de"><span id="index-12"></span><span></span><span class="kt">void</span> <span class="n">append_dw_k3s1p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1af23e9740652372dad32a34b64601de1c"><span id="index-12"></span><span></span><span class="kt">void</span> <span class="n">append_dw</span><span class="p">(</span>
+    <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&amp;</span> <span class="n">scales</span>
+    <span class="p">)</span></pre>
+<p>Appends a depthwise post-op convolution.</p>
+<p>This post-op can only be fused with a 2D 1x1 convolution (convolution with weights spatial dimension equal to 1 i.e., kh=kw=1).</p>
+<p>The kind of this post-op is <a class="reference internal" href="enum_dnnl_primitive_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa402cfeaa257524d301bb73e770bc87f6"><span class="std std-ref">dnnl_convolution</span></a>.</p>
+<p>The number of outputs for primitive remain same as before. The output spatial size can be derived as below:</p>
+<p>output_height = ceil(output_height_1x1_convolution, stride) output_width = ceil(output_width_1x1_convolution, stride)</p>
+<p>See <a class="reference internal" href="dev_guide_attributes_post_ops.html#doxid-dev-guide-attributes-post-ops-1dev-guide-attributes-post-ops-depthwise"><span class="std std-ref">dev_guide_attributes_post_ops_depthwise</span></a> and <a class="reference internal" href="dev_guide_attributes_post_ops.html#doxid-dev-guide-attributes-post-ops-1dev-guide-attributes-post-ops-depthwise-fusion"><span class="std std-ref">dev_guide_attributes_post_ops_depthwise_fusion</span></a> for more info.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>weights_data_type</p></td>
+<td><p>Weights data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>bias_data_type</p></td>
+<td><p>Bias data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>dst_data_type</p></td>
+<td><p>Output data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>kernel_size</p></td>
+<td><p>Size of kernel of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>stride_size</p></td>
+<td><p>Size of stride of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>padding_l_size</p></td>
+<td><p>Size of left and top paddings of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>mask</p></td>
+<td><p>Output scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> array. The set i-th bit indicates that a dedicated output scaling factor is used for each index along that dimension. The mask value of 0 implies a common scaling factor for the whole output tensor.</p></td>
+</tr>
+<tr class="row-even"><td><p>scales</p></td>
+<td><p>Output pointer to a constant array of float scaling factors.</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a206ef7671be8727eba7d65a2e454e601"><span id="index-13"></span><span></span><span class="kt">void</span> <span class="n">get_params_dw</span><span class="p">(</span>
+    <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span><span class="o">&amp;</span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span><span class="o">&amp;</span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="struct_dnnl_memory-2.html#doxid-structdnnl-1-1memory-1a6ad818e4699872cc913474fa5f122cd5"><span class="std std-ref">memory::dim</span></a><span></span><span class="o">&amp;</span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;&amp;</span> <span class="n">scales</span>
+    <span class="p">)</span> <span class="k">const</span></pre>
+<p>Returns the parameters of an depthwise post-op.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>index</p></td>
+<td><p>Index of the elementwise post-op.</p></td>
+</tr>
+<tr class="row-even"><td><p>weights_data_type</p></td>
+<td><p>Weights data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>bias_data_type</p></td>
+<td><p>Bias data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>dst_data_type</p></td>
+<td><p>Output data type of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>kernel_size</p></td>
+<td><p>Size of kernel of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>stride_size</p></td>
+<td><p>Size of stride of depthwise post-op</p></td>
+</tr>
+<tr class="row-odd"><td><p>padding_l_size</p></td>
+<td><p>Size of left and top paddings of depthwise post-op</p></td>
+</tr>
+<tr class="row-even"><td><p>mask</p></td>
+<td><p>Output scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the <code class="docutils literal notranslate"><span class="pre">scales</span></code> array. The set i-th bit indicates that a dedicated output scaling factor is used for each index along that dimension. The mask value of 0 implies a common scaling factor for the whole output tensor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>scales</p></td>
+<td><p>Output pointer to a constant array of float scaling factors.</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a4229db0e1e1eab273ed0e2b3e18402de"><span id="index-14"></span><span></span><span class="kt">void</span> <span class="n">append_dw_k3s1p1</span><span class="p">(</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
@@ -3255,7 +3393,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1aefb536724307912fdfd1439383679501"><span id="index-13"></span><span></span><span class="kt">void</span> <span class="n">get_params_dw_k3s1p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1aefb536724307912fdfd1439383679501"><span id="index-15"></span><span></span><span class="kt">void</span> <span class="n">get_params_dw_k3s1p1</span><span class="p">(</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">weights_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">bias_data_type</span><span class="p">,</span>
@@ -3291,7 +3429,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a88ed886c27b4df4667431ed48d29f4c1"><span id="index-14"></span><span></span><span class="kt">void</span> <span class="n">append_dw_k3s2p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a88ed886c27b4df4667431ed48d29f4c1"><span id="index-16"></span><span></span><span class="kt">void</span> <span class="n">append_dw_k3s2p1</span><span class="p">(</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
@@ -3334,7 +3472,7 @@
 </table>
 <p class="rubric">Returns:</p>
 <p><a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1ggad24f9ded06e34d3ee71e7fc4b408d57aaa31395e9dccc103cf166cf7b38fc5b9c"><span class="std std-ref">dnnl_success</span></a> on success and a status describing the error otherwise</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a128429160104654adcfb651e9ee02905"><span id="index-15"></span><span></span><span class="kt">void</span> <span class="n">get_params_dw_k3s2p1</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a128429160104654adcfb651e9ee02905"><span id="index-17"></span><span></span><span class="kt">void</span> <span class="n">get_params_dw_k3s2p1</span><span class="p">(</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">weights_data_type</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_memory_data_type.html#doxid-structdnnl-1-1memory-1a8e83474ec3a50e08e37af76c8c075dce"><span class="std std-ref">memory::data_type</span></a><span></span><span class="o">&amp;</span> <span class="n">bias_data_type</span><span class="p">,</span>
@@ -3370,7 +3508,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a40bb2b39a685726ac54873b203be41b5"><span id="index-16"></span><span></span><span class="kt">void</span> <span class="n">append_binary</span><span class="p">(</span><a class="reference internal" href="enum_dnnl_algorithm.html#doxid-group-dnnl-api-attributes-1ga00377dd4982333e42e8ae1d09a309640"><span class="std std-ref">algorithm</span></a><span></span> <span class="n">aalgorithm</span><span class="p">,</span> <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">src1_desc</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a40bb2b39a685726ac54873b203be41b5"><span id="index-18"></span><span></span><span class="kt">void</span> <span class="n">append_binary</span><span class="p">(</span><a class="reference internal" href="enum_dnnl_algorithm.html#doxid-group-dnnl-api-attributes-1ga00377dd4982333e42e8ae1d09a309640"><span class="std std-ref">algorithm</span></a><span></span> <span class="n">aalgorithm</span><span class="p">,</span> <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">src1_desc</span><span class="p">)</span></pre>
 <p>Appends a binary post-op.</p>
 <p>The kind of this post operation is <a class="reference internal" href="enum_dnnl_primitive_kind_t.html#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa1d51705e2642ce2ce19a3e163bb25f93"><span class="std std-ref">dnnl_binary</span></a>.</p>
 <p>In the simplest case when the binary is the only post operation, the computations would be:</p>
@@ -3393,7 +3531,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a726a64a5cd160a51b2f93d33f482670f"><span id="index-17"></span><span></span><span class="kt">void</span> <span class="n">get_params_binary</span><span class="p">(</span>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a726a64a5cd160a51b2f93d33f482670f"><span id="index-19"></span><span></span><span class="kt">void</span> <span class="n">get_params_binary</span><span class="p">(</span>
     <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_algorithm.html#doxid-group-dnnl-api-attributes-1ga00377dd4982333e42e8ae1d09a309640"><span class="std std-ref">algorithm</span></a><span></span><span class="o">&amp;</span> <span class="n">aalgorithm</span><span class="p">,</span>
     <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">src1_desc</span>
@@ -3417,7 +3555,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a1e538118474ac643c6da726a8a658b70"><span id="index-18"></span><span></span><span class="kt">void</span> <span class="n">append_prelu</span><span class="p">(</span><span class="kt">int</span> <span class="n">mask</span><span class="p">)</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a1e538118474ac643c6da726a8a658b70"><span id="index-20"></span><span></span><span class="kt">void</span> <span class="n">append_prelu</span><span class="p">(</span><span class="kt">int</span> <span class="n">mask</span><span class="p">)</span></pre>
 <p>Appends a prelu forward post-op.</p>
 <p>The kind of this post-op is <a class="reference internal" href="enum_dnnl_primitive_kind.html#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169a837c39f77d473b24eb27c0758d5c7c1b"><span class="std std-ref">dnnl::primitive::kind::prelu</span></a>.</p>
 <p>The post-op can be defined as:</p>
@@ -3428,26 +3566,25 @@
 </pre></div>
 </div>
 <p>Example usage:</p>
-<pre class="highlight literal-block"><span></span><span class="o">*</span>      <span class="kt">int</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
-<span class="o">*</span>          <span class="n">oh</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// convolution output params</span>
-<span class="o">*</span>      <span class="c1">// unique weights per output channel</span>
-<span class="o">*</span>      <span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
-<span class="o">*</span>      <span class="kt">int</span> <span class="n">oc_dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// mb_dim = 0, channel_dim = 1, height_dim = 2, ...</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="c1">// construct a convolution descriptor</span>
-<span class="o">*</span>      <span class="n">dnnl</span><span class="o">::</span><span class="n">convolution</span><span class="o">::</span><span class="n">desc</span> <span class="n">conv_d</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_attr-2.html#doxid-structdnnl-1-1primitive-attr"><span class="std std-ref">dnnl::primitive_attr</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
-<span class="o">*</span>      <span class="n">attr</span><span class="p">.</span><span class="n">append_prelu</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">oc_dim</span><span class="p">);</span>
-<span class="o">*</span>
-<span class="o">*</span>      <a class="reference internal" href="struct_dnnl_primitive_desc-2.html#doxid-structdnnl-1-1primitive-desc"><span class="std std-ref">dnnl::primitive_desc</span></a><span></span> <span class="n">conv_pd</span><span class="p">(</span><span class="n">conv_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7"><span class="std std-ref">engine</span></a><span></span><span class="p">);</span>
-<span class="o">*</span>      <span class="n">memory</span> <span class="nf">prelu_weights</span><span class="p">({{</span><span class="mi">1</span><span class="p">},</span> <span class="n">dt</span><span class="o">::</span><span class="n">f32</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">}},</span> <span class="n">eng</span><span class="p">,</span> <span class="n">weights</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">memory</span><span class="o">&gt;</span> <span class="n">conv_args</span><span class="p">;</span>
-<span class="o">*</span>
-<span class="o">*</span>      <span class="n">conv_args</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span>
-<span class="o">*</span>       <span class="p">{</span><a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1ga30839136bbf81b03a173e0842ae015e1"><span class="std std-ref">DNNL_ARG_ATTR_MULTIPLE_POST_OP</span></a><span></span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1gaf279f28c59a807e71a70c719db56c5b3"><span class="std std-ref">DNNL_ARG_WEIGHTS</span></a><span></span><span class="p">,</span> <span class="n">prelu_weights</span><span class="p">})</span>
-<span class="o">*</span></pre>
+<pre class="highlight literal-block"><span></span><span class="kt">int</span> <span class="n">mb</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">oc</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">oh</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span> <span class="n">ow</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="c1">// convolution output params</span>
+<span class="c1">// unique weights per output channel</span>
+<span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">weights</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">oc_dim</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// mb_dim = 0, channel_dim = 1, height_dim = 2, ...</span>
+
+<span class="c1">// construct a convolution descriptor</span>
+<span class="n">dnnl</span><span class="o">::</span><span class="n">convolution</span><span class="o">::</span><span class="n">desc</span> <span class="n">conv_d</span><span class="p">;</span>
+
+<a class="reference internal" href="struct_dnnl_primitive_attr-2.html#doxid-structdnnl-1-1primitive-attr"><span class="std std-ref">dnnl::primitive_attr</span></a><span></span> <span class="n">attr</span><span class="p">;</span>
+<span class="n">attr</span><span class="p">.</span><span class="n">append_prelu</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">oc_dim</span><span class="p">);</span>
+
+<a class="reference internal" href="struct_dnnl_primitive_desc-2.html#doxid-structdnnl-1-1primitive-desc"><span class="std std-ref">dnnl::primitive_desc</span></a><span></span> <span class="n">conv_pd</span><span class="p">(</span><span class="n">conv_d</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <a class="reference internal" href="enum_dnnl_query.html#doxid-group-dnnl-api-primitives-common-1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7"><span class="std std-ref">engine</span></a><span></span><span class="p">);</span>
+<span class="n">memory</span> <span class="nf">prelu_weights</span><span class="p">({{</span><span class="mi">1</span><span class="p">},</span> <span class="n">dt</span><span class="o">::</span><span class="n">f32</span><span class="p">,</span> <span class="p">{</span><span class="mi">1</span><span class="p">}},</span> <span class="n">eng</span><span class="p">,</span> <span class="n">weights</span><span class="p">.</span><span class="n">data</span><span class="p">());</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">memory</span><span class="o">&gt;</span> <span class="n">conv_args</span><span class="p">;</span>
+
+<span class="n">conv_args</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span>
+ <span class="p">{</span><a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1ga30839136bbf81b03a173e0842ae015e1"><span class="std std-ref">DNNL_ARG_ATTR_MULTIPLE_POST_OP</span></a><span></span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <a class="reference internal" href="group_dnnl_api_primitives_common.html#doxid-group-dnnl-api-primitives-common-1gaf279f28c59a807e71a70c719db56c5b3"><span class="std std-ref">DNNL_ARG_WEIGHTS</span></a><span></span><span class="p">,</span> <span class="n">prelu_weights</span><span class="p">})</span></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The order of dimensions does not depend on how elements are laid out in memory. For example:</p>
@@ -3470,7 +3607,7 @@
 </tr>
 </tbody>
 </table>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a666aab3eab78f9501a6139dba60a86bf"><span id="index-19"></span><span></span><span class="kt">void</span> <span class="n">get_params_prelu</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="k">const</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1post-ops-1a666aab3eab78f9501a6139dba60a86bf"><span id="index-21"></span><span></span><span class="kt">void</span> <span class="n">get_params_prelu</span><span class="p">(</span><span class="kt">int</span> <span class="n">index</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">mask</span><span class="p">)</span> <span class="k">const</span></pre>
 <p>Returns the parameters of a prelu post-op.</p>
 <p class="rubric">Parameters:</p>
 <table class="colwidths-given table">

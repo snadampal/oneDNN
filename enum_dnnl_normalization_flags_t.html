@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl_normalization_flags_t &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl_normalization_flags_t &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2883,6 +2901,7 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a7150bdb66ef194e6ee11fbaa85a34ada"><span class="std std-ref">dnnl_fuse_norm_relu</span></a><span></span>           <span class="o">=</span> <span class="mh">0x4U</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a01bf8edab9d40fd6a1f8827ee485dc65"><span class="std std-ref">dnnl_use_scale</span></a><span></span>                <span class="o">=</span> <span class="mh">0x8U</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3afeb8455811d27d7835503a3740679df0"><span class="std std-ref">dnnl_use_shift</span></a><span></span>                <span class="o">=</span> <span class="mh">0x10U</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span class="std std-ref">dnnl_fuse_norm_add_relu</span></a><span></span>       <span class="o">=</span> <span class="mh">0x20U</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -2942,6 +2961,14 @@
 <ul class="simple">
 <li><p>on forward propagation use shift (aka bias) for the normalization results</p></li>
 <li><p>on backward propagation (for prop_kind == <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10"><span class="std std-ref">dnnl_backward</span></a>) compute diff wrt shift (hence one extra output used)</p></li>
+</ul>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3af324d9603806aae4ca3044e1e25534b4"><span id="index-7"></span><span></span><span class="n">dnnl_fuse_norm_add_relu</span></pre>
+<p>Fuse with Add and then fuse with ReLU.</p>
+<p>If specified:</p>
+<ul class="simple">
+<li><p>on forward propagation apply element-wise binary Add operation to to the normalization results with an additional input tensor and then apply ReLU with negative slope being 0.</p></li>
+<li><p>on training primitive requires workspace (required to be able to perform backward pass).</p></li>
+<li><p>on backward propagation save the result of backward ReLU operation with input tensor and workspace from forward pass to extra output tensor and then perform backward normalization.</p></li>
 </ul>
 </section>
 </section>

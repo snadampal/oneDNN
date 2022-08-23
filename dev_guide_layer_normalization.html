@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Layer Normalization &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Layer Normalization &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2881,6 +2899,11 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#post-ops-and-attributes">
+     Post-ops and Attributes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#data-type-support">
      Data Type Support
     </a>
@@ -2910,6 +2933,11 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#implementation-limitations">
+   Implementation Limitations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#performance-tips">
    Performance Tips
   </a>
@@ -2933,7 +2961,7 @@
                 
   <section id="layer-normalization">
 <span id="doxid-dev-guide-layer-normalization"></span><span id="index-0"></span><h1>Layer Normalization<a class="headerlink" href="#layer-normalization" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="group_dnnl_api_layer_normalization.html#doxid-group-dnnl-api-layer-normalization"><span class="std std-ref">API Reference</span></a></p>
+<p><a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html#doxid-group-dnnl-api-layer-normalization-v2"><span class="std std-ref">API Reference</span></a></p>
 <section id="general">
 <h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <p>The layer normalization primitive performs a forward or backward layer normalization operation on a 2-5D data tensor.</p>
@@ -2979,11 +3007,11 @@
 <col style="width: 16%" />
 </colgroup>
 <thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
-<th class="head"></th>
+<tr class="row-odd"><th class="head"><p>Flags</p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d"><span class="std std-ref">dnnl_forward_inference</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0"><span class="std std-ref">dnnl_forward_training</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10"><span class="std std-ref">dnnl_backward</span></a></p></th>
+<th class="head"><p><a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1ggae3c1f22ae55645782923fbfd8b07d0c4a524dd6cb2ed9680bbd170ba15261d218"><span class="std std-ref">dnnl_backward_data</span></a></p></th>
 </tr>
 </thead>
 <tbody>
@@ -3083,36 +3111,65 @@
 <ol class="arabic simple">
 <li><p>The different flavors of the primitive are partially controlled by the <code class="docutils literal notranslate"><span class="pre">flags</span></code> parameter that is passed to the operation descriptor initialization function (e.g., <a class="reference internal" href="struct_dnnl_layer_normalization_forward_desc.html#doxid-structdnnl-1-1layer-normalization-forward-1-1desc-1a4a7cdc2f605d5be0ab33d5ec2d8a7339"><span class="std std-ref">dnnl::layer_normalization_forward::desc::desc()</span></a>). Multiple flags can be set using the bitwise OR operator (<code class="docutils literal notranslate"><span class="pre">|</span></code>). Flag <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3aeba5189d91e23448d706fb027867ae55"><span class="std std-ref">dnnl_use_scaleshift</span></a> cannot be mixed with <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3a01bf8edab9d40fd6a1f8827ee485dc65"><span class="std std-ref">dnnl_use_scale</span></a> or <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3afeb8455811d27d7835503a3740679df0"><span class="std std-ref">dnnl_use_shift</span></a>.</p></li>
 <li><p>For forward propagation, the mean and variance might be either computed at runtime (in which case they are outputs of the primitive) or provided by a user (in which case they are inputs). In the latter case, a user must set the <a class="reference internal" href="enum_dnnl_normalization_flags_t.html#doxid-group-dnnl-api-primitives-common-1gga301f673522a400c7c1e75f518431c9a3aec04425c28af752c0f8b4dc5ae11fb19"><span class="std std-ref">dnnl_use_global_stats</span></a> flag. For the backward propagation, the mean and variance are always input parameters.</p></li>
-<li><p>The memory format and data type for <code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">dst</span></code> are assumed to be the same, and in the API they are typically referred to as <code class="docutils literal notranslate"><span class="pre">data</span></code> (e.g., see <code class="docutils literal notranslate"><span class="pre">data_desc</span></code> in <a class="reference internal" href="struct_dnnl_layer_normalization_forward_desc.html#doxid-structdnnl-1-1layer-normalization-forward-1-1desc-1a4a7cdc2f605d5be0ab33d5ec2d8a7339"><span class="std std-ref">dnnl::layer_normalization_forward::desc::desc()</span></a>). The same is true for <code class="docutils literal notranslate"><span class="pre">diff_src</span></code> and <code class="docutils literal notranslate"><span class="pre">diff_dst</span></code>. The corresponding memory descriptors are referred to as <code class="docutils literal notranslate"><span class="pre">diff_data_desc</span></code>.</p></li>
-<li><p>Both forward and backward propagation support in-place operations, meaning that <span class="math notranslate nohighlight">\(\src\)</span> can be used as input and output for forward propagation, and <span class="math notranslate nohighlight">\(\diffdst\)</span> can be used as input and output for backward propagation. In case of an in-place operation, the original data will be overwritten. Note, however, that backward propagation requires original <span class="math notranslate nohighlight">\(\src\)</span>, hence the corresponding forward propagation should not be performed in-place.</p></li>
+<li><p>Both forward and backward propagation support in-place operations, meaning that <span class="math notranslate nohighlight">\(\src\)</span> can be used as input and output for forward propagation, and <span class="math notranslate nohighlight">\(\diffdst\)</span> can be used as input and output for backward propagation. In case of an in-place operation, the original data will be overwritten. This support is limited to cases when data types of <span class="math notranslate nohighlight">\(\src\)</span> and <span class="math notranslate nohighlight">\(\dst\)</span> or <span class="math notranslate nohighlight">\(\diffsrc\)</span> and <span class="math notranslate nohighlight">\(\diffdst\)</span> are identical. Note, however, that backward propagation requires original <span class="math notranslate nohighlight">\(\src\)</span>, hence the corresponding forward propagation should not be performed in-place.</p></li>
 </ol>
+</section>
+<section id="post-ops-and-attributes">
+<h3>Post-ops and Attributes<a class="headerlink" href="#post-ops-and-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Attributes enable you to modify the behavior of the layer normalization primitive. The following attributes are supported by the layer normalization primitive:</p>
+<table class="table">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 4%" />
+<col style="width: 42%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Propagation</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Operation</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Restrictions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>forward</p></td>
+<td><p>attribute</p></td>
+<td><p><a class="reference internal" href="struct_dnnl_primitive_attr-2.html#doxid-structdnnl-1-1primitive-attr-1a4b81acc8e48886313154f75c1708ae02"><span class="std std-ref">Output scale</span></a></p></td>
+<td><p>Scales the result of layer normalization by given scale factor</p></td>
+<td><p>int8 layer normalization only, zero mask only</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="data-type-support">
 <h3>Data Type Support<a class="headerlink" href="#data-type-support" title="Permalink to this headline">¶</a></h3>
 <p>The operation supports the following combinations of data types:</p>
 <table class="table">
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 30%" />
-<col style="width: 42%" />
+<col style="width: 21%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Propagation</p></th>
-<th class="head"><p>Source / Destination</p></th>
-<th class="head"><p>Mean / Variance / ScaleShift</p></th>
+<th class="head"><p>Source</p></th>
+<th class="head"><p>Destination</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>forward / backward</p></td>
-<td><p>f32, bf16</p></td>
-<td><p>f32</p></td>
+<tr class="row-even"><td><p>forward</p></td>
+<td><p>f32, bf16, f16, u8, s8</p></td>
+<td><p>f32, bf16, f16, u8, s8</p></td>
 </tr>
-<tr class="row-odd"><td><p>forward</p></td>
-<td><p>f16</p></td>
-<td><p>f32</p></td>
+<tr class="row-odd"><td><p>backward</p></td>
+<td><p>f32, bf16</p></td>
+<td><p>f32, bf16</p></td>
 </tr>
 </tbody>
 </table>
+<p>Mean, Variance and ScaleShift data types are always f32 and independent of Source or Destination data types.</p>
 </section>
 <section id="data-representation">
 <h3>Data Representation<a class="headerlink" href="#data-representation" title="Permalink to this headline">¶</a></h3>
@@ -3156,12 +3213,25 @@
 </section>
 </section>
 </section>
+<section id="implementation-limitations">
+<h2>Implementation Limitations<a class="headerlink" href="#implementation-limitations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Refer to <a class="reference internal" href="dev_guide_data_types.html#doxid-dev-guide-data-types"><span class="std std-ref">Data Types</span></a> for limitations related to data types support.</p></li>
+<li><p>GPU</p>
+<ul class="simple">
+<li><p>Only tensors of 6 or fewer dimensions are supported.</p></li>
+<li><p>Different data types for source and destination is not supported.</p></li>
+<li><p>Integer data types for source and destination are not supported.</p></li>
+</ul>
+</li>
+</ol>
+</section>
 <section id="performance-tips">
 <h2>Performance Tips<a class="headerlink" href="#performance-tips" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li><p>For data tensors (<code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">dst</span></code>, <code class="docutils literal notranslate"><span class="pre">diff_src</span></code>, <code class="docutils literal notranslate"><span class="pre">diff_dst</span></code>), use memory formats for which the last logical axis is the last in the physical memory layout.</p></li>
-<li><p>For <code class="docutils literal notranslate"><span class="pre">mean</span></code> / <code class="docutils literal notranslate"><span class="pre">variance</span></code>, use the memory format that follows the data memory format; i.e., if the data format is <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da2a9735ec024c9362b717304edbfe2237"><span class="std std-ref">dnnl_tnc</span></a>, the best performance can be expected for statistics with <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091dac1ee747f881fc8cae805ae4051e671cf"><span class="std std-ref">dnnl_tn</span></a> and suboptimal for statistics with the <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da7ede27a46172c1ab2775593ba4b118dc"><span class="std std-ref">dnnl_nt</span></a> format.</p></li>
-<li><p>For backward propagation, use the same memory format for <code class="docutils literal notranslate"><span class="pre">src</span></code>, <code class="docutils literal notranslate"><span class="pre">diff_dst</span></code>, and <code class="docutils literal notranslate"><span class="pre">diff_src</span></code> (the format of <code class="docutils literal notranslate"><span class="pre">diff_dst</span></code> and <code class="docutils literal notranslate"><span class="pre">diff_src</span></code> are always the same because of the API). Different formats are functionally supported but lead to highly suboptimal performance.</p></li>
+<li><p>For data tensors <span class="math notranslate nohighlight">\(\src\)</span>, <span class="math notranslate nohighlight">\(\dst\)</span>, <span class="math notranslate nohighlight">\(\diffsrc\)</span>, and <span class="math notranslate nohighlight">\(\diffdst\)</span>, use memory formats for which the last logical axis is the last in the physical memory layout.</p></li>
+<li><p>For  and , use the memory format that follows the data memory format; i.e., if the data format is <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da2a9735ec024c9362b717304edbfe2237"><span class="std std-ref">dnnl_tnc</span></a>, the best performance can be expected for statistics with <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091dac1ee747f881fc8cae805ae4051e671cf"><span class="std std-ref">dnnl_tn</span></a> and suboptimal for statistics with the <a class="reference internal" href="enum_dnnl_format_tag_t.html#doxid-group-dnnl-api-memory-1gga395e42b594683adb25ed2d842bb3091da7ede27a46172c1ab2775593ba4b118dc"><span class="std std-ref">dnnl_nt</span></a> format.</p></li>
+<li><p>For backward propagation, use the same memory format for <span class="math notranslate nohighlight">\(\src\)</span>, <span class="math notranslate nohighlight">\(\diffdst\)</span>, and <span class="math notranslate nohighlight">\(\diffsrc\)</span>. Different formats are functionally supported but lead to highly suboptimal performance.</p></li>
 <li><p>Use in-place operations whenever possible (see caveats in General Notes).</p></li>
 </ol>
 </section>

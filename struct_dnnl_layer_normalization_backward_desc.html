@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>struct dnnl::layer_normalization_backward::desc &#8212; oneDNN v2.6.0 documentation</title>
+    <title>struct dnnl::layer_normalization_backward::desc &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1635,14 +1635,32 @@
       <i class="fas fa-chevron-down">
       </i>
      </li>
-     <li class="toctree-l3 current active collapsible-parent">
+     <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
+       Dnnl_api_layer_normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
+         struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 current active collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
        Layer Normalization
       </a>
       <ul class="current collapse-ul">
        <li class="toctree-l4 collapsible-parent">
-        <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
-         struct dnnl_layer_normalization_desc_t
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2881,7 +2899,7 @@
 <span class="p">{</span>
     <span class="c1">// fields</span>
 
-    <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html#doxid-structdnnl-layer-normalization-desc-t"><span class="std std-ref">dnnl_layer_normalization_desc_t</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-structdnnl-1-1layer-normalization-backward-1-1desc-1a0452293058fdffa8a6c48771c10cc1d8"><span></span><span class="n">data</span></span><span></span><span class="p">;</span>
+    <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html#doxid-structdnnl-layer-normalization-v2-desc-t"><span class="std std-ref">dnnl_layer_normalization_v2_desc_t</span></a><span></span> <span class="doxyrest-code-target target" id="doxid-structdnnl-1-1layer-normalization-backward-1-1desc-1af16dd2e9c6c0a4b1021fd50c9faa74c1"><span></span><span class="n">data</span></span><span></span><span class="p">;</span>
 
     <span class="c1">// methods</span>
 
@@ -2898,6 +2916,16 @@
         <a class="reference internal" href="enum_dnnl_prop_kind.html#doxid-group-dnnl-api-attributes-1gac7db48f6583aa9903e54c2a39d65438f"><span class="std std-ref">prop_kind</span></a><span></span> <span class="n">aprop_kind</span><span class="p">,</span>
         <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">diff_data_desc</span><span class="p">,</span>
         <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">data_desc</span><span class="p">,</span>
+        <span class="kt">float</span> <span class="n">epsilon</span><span class="p">,</span>
+        <a class="reference internal" href="enum_dnnl_normalization_flags.html#doxid-group-dnnl-api-primitives-common-1gad8ef0fcbb7b10cae3d67dd46892002be"><span class="std std-ref">normalization_flags</span></a><span></span> <span class="n">flags</span>
+        <span class="p">);</span>
+
+    <a class="reference internal" href="#doxid-structdnnl-1-1layer-normalization-backward-1-1desc-1ac059677ff16a631dc25240f54ff77e28"><span class="std std-ref">desc</span></a><span></span><span class="p">(</span>
+        <a class="reference internal" href="enum_dnnl_prop_kind.html#doxid-group-dnnl-api-attributes-1gac7db48f6583aa9903e54c2a39d65438f"><span class="std std-ref">prop_kind</span></a><span></span> <span class="n">aprop_kind</span><span class="p">,</span>
+        <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">diff_src_desc</span><span class="p">,</span>
+        <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">diff_dst_desc</span><span class="p">,</span>
+        <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">src_desc</span><span class="p">,</span>
+        <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">stat_desc</span><span class="p">,</span>
         <span class="kt">float</span> <span class="n">epsilon</span><span class="p">,</span>
         <a class="reference internal" href="enum_dnnl_normalization_flags.html#doxid-group-dnnl-api-primitives-common-1gad8ef0fcbb7b10cae3d67dd46892002be"><span class="std std-ref">normalization_flags</span></a><span></span> <span class="n">flags</span>
         <span class="p">);</span>
@@ -2967,6 +2995,46 @@
 </tr>
 <tr class="row-odd"><td><p>data_desc</p></td>
 <td><p>Source memory descriptor.</p></td>
+</tr>
+<tr class="row-even"><td><p>epsilon</p></td>
+<td><p>Layer normalization epsilon parameter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>flags</p></td>
+<td><p>Layer normalization flags (<a class="reference internal" href="enum_dnnl_normalization_flags.html#doxid-group-dnnl-api-primitives-common-1gad8ef0fcbb7b10cae3d67dd46892002be"><span class="std std-ref">dnnl::normalization_flags</span></a>).</p></td>
+</tr>
+</tbody>
+</table>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-structdnnl-1-1layer-normalization-backward-1-1desc-1ac059677ff16a631dc25240f54ff77e28"><span id="index-3"></span><span></span><span class="n">desc</span><span class="p">(</span>
+    <a class="reference internal" href="enum_dnnl_prop_kind.html#doxid-group-dnnl-api-attributes-1gac7db48f6583aa9903e54c2a39d65438f"><span class="std std-ref">prop_kind</span></a><span></span> <span class="n">aprop_kind</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">diff_src_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">diff_dst_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">src_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc.html#doxid-structdnnl-1-1memory-1-1desc"><span class="std std-ref">memory::desc</span></a><span></span><span class="o">&amp;</span> <span class="n">stat_desc</span><span class="p">,</span>
+    <span class="kt">float</span> <span class="n">epsilon</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_normalization_flags.html#doxid-group-dnnl-api-primitives-common-1gad8ef0fcbb7b10cae3d67dd46892002be"><span class="std std-ref">normalization_flags</span></a><span></span> <span class="n">flags</span>
+    <span class="p">)</span></pre>
+<p>Constructs a descriptor for layer normalization backward propagation primitive.</p>
+<p class="rubric">Parameters:</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>aprop_kind</p></td>
+<td><p>Propagation kind. Possible values are <a class="reference internal" href="enum_dnnl_prop_kind.html#doxid-group-dnnl-api-attributes-1ggac7db48f6583aa9903e54c2a39d65438faa12627cacf73ecb7ef088beedd650e96"><span class="std std-ref">dnnl::prop_kind::backward_data</span></a> and <a class="reference internal" href="enum_dnnl_prop_kind.html#doxid-group-dnnl-api-attributes-1ggac7db48f6583aa9903e54c2a39d65438fa195fe59b6f103787a914aead0f3db502"><span class="std std-ref">dnnl::prop_kind::backward</span></a> (diffs for all parameters are computed in this case).</p></td>
+</tr>
+<tr class="row-even"><td><p>diff_src_desc</p></td>
+<td><p>Diff source memory descriptor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>diff_dst_desc</p></td>
+<td><p>Diff destination memory descriptor.</p></td>
+</tr>
+<tr class="row-even"><td><p>src_desc</p></td>
+<td><p>Source memory descriptor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>stat_desc</p></td>
+<td><p>Statistics memory descriptors.</p></td>
 </tr>
 <tr class="row-even"><td><p>epsilon</p></td>
 <td><p>Layer normalization epsilon parameter.</p></td>

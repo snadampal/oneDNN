@@ -80,6 +80,7 @@ The reorder primitive support the following attributes and post-ops:
 Attributes / Post-ops                                                                           Meaning                                                       
 ==============================================================================================  ============================================================  
 :ref:`Output scales <doxid-group__dnnl__api__attributes_1gae3ff1fe9449f2d9b1cd02ad864b57057>`   Copy and scale the data according to the scaling factors      
+:ref:`Zero points <doxid-structdnnl_1_1primitive__attr_1aee82deb014cf9702ceb3e725156c25a1>`     Sets zero point(s) for the corresponding tensors              
 :ref:`Sum post-op <doxid-group__dnnl__api__attributes_1ga7175edf83658bd14dd5d7cd9e9193e92>`     Instead of copy the data accumulate it to the previous data   
 ==============================================================================================  ============================================================  
 
@@ -92,6 +93,7 @@ For instance, the following pseudo-code
 	        dst = {dims={N, C, H, W}, data_type=dt_dst, memory_format=fmt_dst},
 	        attr ={
 	            output_scale=alpha,
+	            zero_points= { src={mask=0, value=shift_src}, dst={mask=0, value=shift_dst} }
 	            post-ops = { sum={scale=beta} },
 	        })
 
@@ -99,7 +101,7 @@ would lead to the following operation:
 
 .. math::
 
-	\dst(\overline{x}) = \alpha \cdot \src(\overline{x}) + \beta \cdot \dst(\overline{x})
+	\dst(\overline{x}) = \alpha \cdot \src(\overline{x} - shift_{src}) + \beta \cdot \dst(\overline{x}) + shift_{dst}
 
 .. note:: 
 
@@ -124,8 +126,6 @@ Implementation Limitations
    * Runtime dimensions are not supported.
    
    * Runtime output scales are not supported.
-   
-   * Zero points are not supported.
 
 Performance Tips
 ~~~~~~~~~~~~~~~~

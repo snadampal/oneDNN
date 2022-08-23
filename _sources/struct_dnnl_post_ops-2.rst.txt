@@ -58,6 +58,29 @@ Post-ops. :ref:`More...<details-structdnnl_1_1post__ops>`
 			float& beta
 			) const;
 	
+		void :ref:`append_dw<doxid-structdnnl_1_1post__ops_1af23e9740652372dad32a34b64601de1c>`(
+			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` weights_data_type,
+			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` bias_data_type,
+			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` dst_data_type,
+			:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>` kernel_size,
+			:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>` stride_size,
+			:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>` padding_l_size,
+			int mask,
+			const std::vector<float>& scales
+			);
+	
+		void :ref:`get_params_dw<doxid-structdnnl_1_1post__ops_1a206ef7671be8727eba7d65a2e454e601>`(
+			int index,
+			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>`& weights_data_type,
+			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>`& bias_data_type,
+			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>`& dst_data_type,
+			:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>`& kernel_size,
+			:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>`& stride_size,
+			:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>`& padding_l_size,
+			int& mask,
+			std::vector<float>& scales
+			) const;
+	
 		void :ref:`append_dw_k3s1p1<doxid-structdnnl_1_1post__ops_1a4229db0e1e1eab273ed0e2b3e18402de>`(
 			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` weights_data_type,
 			:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` bias_data_type,
@@ -500,6 +523,154 @@ Returns parameters of an elementwise post-op.
 
 		- Output beta parameter for the elementwise algorithm.
 
+.. index:: pair: function; append_dw
+.. _doxid-structdnnl_1_1post__ops_1af23e9740652372dad32a34b64601de1c:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	void append_dw(
+		:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` weights_data_type,
+		:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` bias_data_type,
+		:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>` dst_data_type,
+		:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>` kernel_size,
+		:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>` stride_size,
+		:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>` padding_l_size,
+		int mask,
+		const std::vector<float>& scales
+		)
+
+Appends a depthwise post-op convolution.
+
+This post-op can only be fused with a 2D 1x1 convolution (convolution with weights spatial dimension equal to 1 i.e., kh=kw=1).
+
+The kind of this post-op is :ref:`dnnl_convolution <doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aa402cfeaa257524d301bb73e770bc87f6>`.
+
+The number of outputs for primitive remain same as before. The output spatial size can be derived as below:
+
+output_height = ceil(output_height_1x1_convolution, stride) output_width = ceil(output_width_1x1_convolution, stride)
+
+See :ref:`dev_guide_attributes_post_ops_depthwise <doxid-dev_guide_attributes_post_ops_1dev_guide_attributes_post_ops_depthwise>` and :ref:`dev_guide_attributes_post_ops_depthwise_fusion <doxid-dev_guide_attributes_post_ops_1dev_guide_attributes_post_ops_depthwise_fusion>` for more info.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- weights_data_type
+
+		- Weights data type of depthwise post-op
+
+	*
+		- bias_data_type
+
+		- Bias data type of depthwise post-op
+
+	*
+		- dst_data_type
+
+		- Output data type of depthwise post-op
+
+	*
+		- kernel_size
+
+		- Size of kernel of depthwise post-op
+
+	*
+		- stride_size
+
+		- Size of stride of depthwise post-op
+
+	*
+		- padding_l_size
+
+		- Size of left and top paddings of depthwise post-op
+
+	*
+		- mask
+
+		- Output scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the ``scales`` array. The set i-th bit indicates that a dedicated output scaling factor is used for each index along that dimension. The mask value of 0 implies a common scaling factor for the whole output tensor.
+
+	*
+		- scales
+
+		- Output pointer to a constant array of float scaling factors.
+
+.. index:: pair: function; get_params_dw
+.. _doxid-structdnnl_1_1post__ops_1a206ef7671be8727eba7d65a2e454e601:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	void get_params_dw(
+		int index,
+		:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>`& weights_data_type,
+		:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>`& bias_data_type,
+		:ref:`memory::data_type<doxid-structdnnl_1_1memory_1a8e83474ec3a50e08e37af76c8c075dce>`& dst_data_type,
+		:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>`& kernel_size,
+		:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>`& stride_size,
+		:ref:`memory::dim<doxid-structdnnl_1_1memory_1a6ad818e4699872cc913474fa5f122cd5>`& padding_l_size,
+		int& mask,
+		std::vector<float>& scales
+		) const
+
+Returns the parameters of an depthwise post-op.
+
+
+
+.. rubric:: Parameters:
+
+.. list-table::
+	:widths: 20 80
+
+	*
+		- index
+
+		- Index of the elementwise post-op.
+
+	*
+		- weights_data_type
+
+		- Weights data type of depthwise post-op
+
+	*
+		- bias_data_type
+
+		- Bias data type of depthwise post-op
+
+	*
+		- dst_data_type
+
+		- Output data type of depthwise post-op
+
+	*
+		- kernel_size
+
+		- Size of kernel of depthwise post-op
+
+	*
+		- stride_size
+
+		- Size of stride of depthwise post-op
+
+	*
+		- padding_l_size
+
+		- Size of left and top paddings of depthwise post-op
+
+	*
+		- mask
+
+		- Output scaling factors correspondence mask that defines the correspondence between the output tensor dimensions and the ``scales`` array. The set i-th bit indicates that a dedicated output scaling factor is used for each index along that dimension. The mask value of 0 implies a common scaling factor for the whole output tensor.
+
+	*
+		- scales
+
+		- Output pointer to a constant array of float scaling factors.
+
 .. index:: pair: function; append_dw_k3s1p1
 .. _doxid-structdnnl_1_1post__ops_1a4229db0e1e1eab273ed0e2b3e18402de:
 
@@ -838,26 +1009,25 @@ Example usage:
 
 .. ref-code-block:: cpp
 
-	*      int mb = 32, oc = 32,
-	*          oh = 14, ow = 14; // convolution output params
-	*      // unique weights per output channel
-	*      vector<float> weights = { ... };
-	*      int oc_dim = 1; // mb_dim = 0, channel_dim = 1, height_dim = 2, ...
-	* 
-	*      // construct a convolution descriptor
-	*      dnnl::convolution::desc conv_d;
-	* 
-	*      :ref:`dnnl::primitive_attr <doxid-structdnnl_1_1primitive__attr>` attr;
-	*      attr.append_prelu(1 << oc_dim);
-	* 
-	*      :ref:`dnnl::primitive_desc <doxid-structdnnl_1_1primitive__desc>` conv_pd(conv_d, attr, :ref:`engine <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7>`);
-	*      memory prelu_weights({{1}, dt::f32, {1}}, eng, weights.data());
-	* 
-	*      std::unordered_map<int, memory> conv_args;
-	* 
-	*      conv_args.insert(
-	*       {:ref:`DNNL_ARG_ATTR_MULTIPLE_POST_OP <doxid-group__dnnl__api__primitives__common_1ga30839136bbf81b03a173e0842ae015e1>`(0) | :ref:`DNNL_ARG_WEIGHTS <doxid-group__dnnl__api__primitives__common_1gaf279f28c59a807e71a70c719db56c5b3>`, prelu_weights})
-	*
+	int mb = 32, oc = 32,
+	    oh = 14, ow = 14; // convolution output params
+	// unique weights per output channel
+	vector<float> weights = { ... };
+	int oc_dim = 1; // mb_dim = 0, channel_dim = 1, height_dim = 2, ...
+	
+	// construct a convolution descriptor
+	dnnl::convolution::desc conv_d;
+	
+	:ref:`dnnl::primitive_attr <doxid-structdnnl_1_1primitive__attr>` attr;
+	attr.append_prelu(1 << oc_dim);
+	
+	:ref:`dnnl::primitive_desc <doxid-structdnnl_1_1primitive__desc>` conv_pd(conv_d, attr, :ref:`engine <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7>`);
+	memory prelu_weights({{1}, dt::f32, {1}}, eng, weights.data());
+	
+	std::unordered_map<int, memory> conv_args;
+	
+	conv_args.insert(
+	 {:ref:`DNNL_ARG_ATTR_MULTIPLE_POST_OP <doxid-group__dnnl__api__primitives__common_1ga30839136bbf81b03a173e0842ae015e1>`(0) | :ref:`DNNL_ARG_WEIGHTS <doxid-group__dnnl__api__primitives__common_1gaf279f28c59a807e71a70c719db56c5b3>`, prelu_weights})
 
 .. note:: 
 

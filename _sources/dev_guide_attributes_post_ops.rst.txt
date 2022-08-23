@@ -151,13 +151,19 @@ Appends a Depthwise convolution as a post-op. This post-op can only be fused wit
 
 The :ref:`dnnl::primitive::kind <doxid-structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169>` of this post-op is :ref:`dnnl::primitive::kind::convolution <doxid-structdnnl_1_1primitive_1ad1ec93215a0cf3aa0a32bae0c2cd9169aa9595c1c24c33b16056d2ad07e71682d>`.
 
-There are two variants of this post-op: ``dw_k3s1p1`` and ``dw_k3s2p1`` for stride-1 and stride-2 respectively.
+Three variants of depthwise post-op are supported:
+
+* ``dw_k3s1p1`` for the case of stride 1, kernel size 3, and left padding of 1.
+
+* ``dw_k3s2p1`` for the case of stride 2, kernel size 3, and left padding of 1.
+
+* ``dw`` for a general case.
 
 API:
 
-* C: :ref:`dnnl_post_ops_append_dw_k3s1p1 <doxid-group__dnnl__api__attributes_1ga60126f67fa1dd9df8cca16e2dd471184>`, :ref:`dnnl_post_ops_append_dw_k3s2p1 <doxid-group__dnnl__api__attributes_1gaa31670d933930b7c7940379bff0de326>`
+* C: :ref:`dnnl_post_ops_append_dw <doxid-group__dnnl__api__attributes_1gae29a3c0c6b3d624cdcaea0196246ac38>`, :ref:`dnnl_post_ops_append_dw_k3s1p1 <doxid-group__dnnl__api__attributes_1ga60126f67fa1dd9df8cca16e2dd471184>`, :ref:`dnnl_post_ops_append_dw_k3s2p1 <doxid-group__dnnl__api__attributes_1gaa31670d933930b7c7940379bff0de326>`
 
-* C++: :ref:`dnnl::post_ops::append_dw_k3s1p1 <doxid-structdnnl_1_1post__ops_1a4229db0e1e1eab273ed0e2b3e18402de>`, :ref:`dnnl::post_ops::append_dw_k3s2p1 <doxid-structdnnl_1_1post__ops_1a88ed886c27b4df4667431ed48d29f4c1>`
+* C++: :ref:`dnnl::post_ops::append_dw <doxid-structdnnl_1_1post__ops_1af23e9740652372dad32a34b64601de1c>`, :ref:`dnnl::post_ops::append_dw_k3s1p1 <doxid-structdnnl_1_1post__ops_1a4229db0e1e1eab273ed0e2b3e18402de>`, :ref:`dnnl::post_ops::append_dw_k3s2p1 <doxid-structdnnl_1_1post__ops_1a88ed886c27b4df4667431ed48d29f4c1>`
 
 For better readability, below we assume a 2D convolution and use the following notations:
 

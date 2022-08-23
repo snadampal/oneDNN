@@ -136,6 +136,7 @@ Global Namespace
 	struct :ref:`dnnl_exec_arg_t<doxid-structdnnl__exec__arg__t>`;
 	struct :ref:`dnnl_inner_product_desc_t<doxid-structdnnl__inner__product__desc__t>`;
 	struct :ref:`dnnl_layer_normalization_desc_t<doxid-structdnnl__layer__normalization__desc__t>`;
+	struct :ref:`dnnl_layer_normalization_v2_desc_t<doxid-structdnnl__layer__normalization__v2__desc__t>`;
 	struct :ref:`dnnl_lrn_desc_t<doxid-structdnnl__lrn__desc__t>`;
 	struct :ref:`dnnl_matmul_desc_t<doxid-structdnnl__matmul__desc__t>`;
 	struct :ref:`dnnl_memory<doxid-structdnnl__memory>`;
@@ -802,6 +803,33 @@ Global Namespace
 		float* beta
 		);
 
+	:ref:`dnnl_status_t<doxid-group__dnnl__api__utils_1gad24f9ded06e34d3ee71e7fc4b408d57a>` DNNL_API :ref:`dnnl_post_ops_append_dw<doxid-group__dnnl__api__attributes_1gae29a3c0c6b3d624cdcaea0196246ac38>`(
+		:ref:`dnnl_post_ops_t<doxid-group__dnnl__api__attributes_1ga7d715ce1a81606584df9dcf045976401>` post_ops,
+		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>` weights_data_type,
+		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>` bias_data_type,
+		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>` dst_data_type,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>` kernel_size,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>` stride_size,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>` padding_l_size,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>` count,
+		int mask,
+		const float* scales
+		);
+
+	:ref:`dnnl_status_t<doxid-group__dnnl__api__utils_1gad24f9ded06e34d3ee71e7fc4b408d57a>` DNNL_API :ref:`dnnl_post_ops_get_params_dw<doxid-group__dnnl__api__attributes_1ga63cec6b35b8dd473222bd4ddff38995e>`(
+		:ref:`const_dnnl_post_ops_t<doxid-group__dnnl__api__attributes_1ga5ca949c8e907bd9ed79bc06d869c9c0e>` post_ops,
+		int index,
+		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>`* weights_data_type,
+		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>`* bias_data_type,
+		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>`* dst_data_type,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>`* kernel_size,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>`* stride_size,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>`* padding_l_size,
+		:ref:`dnnl_dim_t<doxid-group__dnnl__api__memory_1ga872631b12a112bf43fba985cba24dd20>`* count,
+		int* mask,
+		const float** scales
+		);
+
 	:ref:`dnnl_status_t<doxid-group__dnnl__api__utils_1gad24f9ded06e34d3ee71e7fc4b408d57a>` DNNL_API :ref:`dnnl_post_ops_append_dw_k3s1p1<doxid-group__dnnl__api__attributes_1ga60126f67fa1dd9df8cca16e2dd471184>`(
 		:ref:`dnnl_post_ops_t<doxid-group__dnnl__api__attributes_1ga7d715ce1a81606584df9dcf045976401>` post_ops,
 		:ref:`dnnl_data_type_t<doxid-group__dnnl__api__memory_1ga012ba1c84ff24bdd068f9d2f9b26a130>` weights_data_type,
@@ -1339,6 +1367,27 @@ Global Namespace
 		:ref:`dnnl_prop_kind_t<doxid-group__dnnl__api__primitives__common_1gae3c1f22ae55645782923fbfd8b07d0c4>` prop_kind,
 		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* diff_data_desc,
 		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* data_desc,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* stat_desc,
+		float epsilon,
+		unsigned flags
+		);
+
+	:ref:`dnnl_status_t<doxid-group__dnnl__api__utils_1gad24f9ded06e34d3ee71e7fc4b408d57a>` DNNL_API :ref:`dnnl_layer_normalization_v2_forward_desc_init<doxid-group__dnnl__api__layer__normalization__v2_1gab1653ec4f879de299dfce6879021729e>`(
+		:ref:`dnnl_layer_normalization_v2_desc_t<doxid-structdnnl__layer__normalization__v2__desc__t>`* lnrm_desc,
+		:ref:`dnnl_prop_kind_t<doxid-group__dnnl__api__primitives__common_1gae3c1f22ae55645782923fbfd8b07d0c4>` prop_kind,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* src_desc,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* dst_desc,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* stat_desc,
+		float epsilon,
+		unsigned flags
+		);
+
+	:ref:`dnnl_status_t<doxid-group__dnnl__api__utils_1gad24f9ded06e34d3ee71e7fc4b408d57a>` DNNL_API :ref:`dnnl_layer_normalization_v2_backward_desc_init<doxid-group__dnnl__api__layer__normalization__v2_1ga00570fd99f7d0b8b4485c04b453296d9>`(
+		:ref:`dnnl_layer_normalization_v2_desc_t<doxid-structdnnl__layer__normalization__v2__desc__t>`* lnrm_desc,
+		:ref:`dnnl_prop_kind_t<doxid-group__dnnl__api__primitives__common_1gae3c1f22ae55645782923fbfd8b07d0c4>` prop_kind,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* diff_src_desc,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* diff_dst_desc,
+		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* src_desc,
 		const :ref:`dnnl_memory_desc_t<doxid-structdnnl__memory__desc__t>`* stat_desc,
 		float epsilon,
 		unsigned flags

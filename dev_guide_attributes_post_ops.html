@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Primitive Attributes: Post-ops &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Primitive Attributes: Post-ops &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3012,11 +3030,16 @@
 <h3>Depthwise Post-op<a class="headerlink" href="#depthwise-post-op" title="Permalink to this headline">¶</a></h3>
 <p>Appends a Depthwise convolution as a post-op. This post-op can only be fused with 1x1 convolution as generally seen in models (like MobileNet_v1) that use a stack of Separable convolutions: Depthwise convolution followed by 1x1 convolution. The stack of these Separable convolutions (like in MobileNet_v1) provide an opportunity to fuse 1x1-Convolution with bandwidth-limited Depthwise convolution.</p>
 <p>The <a class="reference internal" href="enum_dnnl_primitive_kind.html#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169"><span class="std std-ref">dnnl::primitive::kind</span></a> of this post-op is <a class="reference internal" href="enum_dnnl_primitive_kind.html#doxid-structdnnl-1-1primitive-1ad1ec93215a0cf3aa0a32bae0c2cd9169aa9595c1c24c33b16056d2ad07e71682d"><span class="std std-ref">dnnl::primitive::kind::convolution</span></a>.</p>
-<p>There are two variants of this post-op: <code class="docutils literal notranslate"><span class="pre">dw_k3s1p1</span></code> and <code class="docutils literal notranslate"><span class="pre">dw_k3s2p1</span></code> for stride-1 and stride-2 respectively.</p>
+<p>Three variants of depthwise post-op are supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dw_k3s1p1</span></code> for the case of stride 1, kernel size 3, and left padding of 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dw_k3s2p1</span></code> for the case of stride 2, kernel size 3, and left padding of 1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dw</span></code> for a general case.</p></li>
+</ul>
 <p>API:</p>
 <ul class="simple">
-<li><p>C: <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga60126f67fa1dd9df8cca16e2dd471184"><span class="std std-ref">dnnl_post_ops_append_dw_k3s1p1</span></a>, <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1gaa31670d933930b7c7940379bff0de326"><span class="std std-ref">dnnl_post_ops_append_dw_k3s2p1</span></a></p></li>
-<li><p>C++: <a class="reference internal" href="struct_dnnl_post_ops-2.html#doxid-structdnnl-1-1post-ops-1a4229db0e1e1eab273ed0e2b3e18402de"><span class="std std-ref">dnnl::post_ops::append_dw_k3s1p1</span></a>, <a class="reference internal" href="struct_dnnl_post_ops-2.html#doxid-structdnnl-1-1post-ops-1a88ed886c27b4df4667431ed48d29f4c1"><span class="std std-ref">dnnl::post_ops::append_dw_k3s2p1</span></a></p></li>
+<li><p>C: <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1gae29a3c0c6b3d624cdcaea0196246ac38"><span class="std std-ref">dnnl_post_ops_append_dw</span></a>, <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga60126f67fa1dd9df8cca16e2dd471184"><span class="std std-ref">dnnl_post_ops_append_dw_k3s1p1</span></a>, <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1gaa31670d933930b7c7940379bff0de326"><span class="std std-ref">dnnl_post_ops_append_dw_k3s2p1</span></a></p></li>
+<li><p>C++: <a class="reference internal" href="struct_dnnl_post_ops-2.html#doxid-structdnnl-1-1post-ops-1af23e9740652372dad32a34b64601de1c"><span class="std std-ref">dnnl::post_ops::append_dw</span></a>, <a class="reference internal" href="struct_dnnl_post_ops-2.html#doxid-structdnnl-1-1post-ops-1a4229db0e1e1eab273ed0e2b3e18402de"><span class="std std-ref">dnnl::post_ops::append_dw_k3s1p1</span></a>, <a class="reference internal" href="struct_dnnl_post_ops-2.html#doxid-structdnnl-1-1post-ops-1a88ed886c27b4df4667431ed48d29f4c1"><span class="std std-ref">dnnl::post_ops::append_dw_k3s2p1</span></a></p></li>
 </ul>
 <p>For better readability, below we assume a 2D convolution and use the following notations:</p>
 <p><code class="docutils literal notranslate"><span class="pre">conv_1x1</span></code> Convolution with weights spatial=1 i.e., <code class="docutils literal notranslate"><span class="pre">kh</span></code> = <code class="docutils literal notranslate"><span class="pre">kw</span></code> = 1.</p>

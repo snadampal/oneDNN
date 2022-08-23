@@ -4,7 +4,7 @@
 Layer Normalization
 ===================
 
-:ref:`API Reference <doxid-group__dnnl__api__layer__normalization>`
+:ref:`API Reference <doxid-group__dnnl__api__layer__normalization__v2>`
 
 General
 ~~~~~~~
@@ -54,7 +54,7 @@ Execution Arguments
 Depending on the :ref:`flags <doxid-group__dnnl__api__primitives__common_1ga301f673522a400c7c1e75f518431c9a3>` and :ref:`propagation kind <doxid-group__dnnl__api__primitives__common_1gae3c1f22ae55645782923fbfd8b07d0c4>`, the layer normalization primitive requires different inputs and outputs. For clarity, a summary is shown below.
 
 ================================================================================================================================================================================================================================================================================================  =================================================================================================================================================  ================================================================================================================================================  ===================================================================================================================================================================================  ====================================================================================================================================================  
-                                                                                                                                                                                                                                                                                                  :ref:`dnnl_forward_inference <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d>`   :ref:`dnnl_forward_training <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0>`   :ref:`dnnl_backward <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10>`                                              :ref:`dnnl_backward_data <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a524dd6cb2ed9680bbd170ba15261d218>`          
+Flags                                                                                                                                                                                                                                                                                             :ref:`dnnl_forward_inference <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a2f77a568a675dec649eb0450c997856d>`   :ref:`dnnl_forward_training <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a992e03bebfe623ac876b3636333bbce0>`   :ref:`dnnl_backward <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10>`                                              :ref:`dnnl_backward_data <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a524dd6cb2ed9680bbd170ba15261d218>`          
 ================================================================================================================================================================================================================================================================================================  =================================================================================================================================================  ================================================================================================================================================  ===================================================================================================================================================================================  ====================================================================================================================================================  
 :ref:`dnnl_normalization_flags_none <doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3ab71f2077a94fd4bbc107a09b115a24a4>`                                                                                                                                           *Inputs* : :math:`\src` *Outputs* : :math:`\dst`                                                                                                   *Inputs* : :math:`\src` *Outputs* : :math:`\dst` , :math:`\mu` , :math:`\sigma^2`                                                                 *Inputs* : :math:`\diffdst` , :math:`\src` , :math:`\mu` , :math:`\sigma^2` *Outputs* : :math:`\diffsrc`                                                                             Same as for :ref:`dnnl_backward <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10>`   
 :ref:`dnnl_use_global_stats <doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3aec04425c28af752c0f8b4dc5ae11fb19>`                                                                                                                                                   *Inputs* : :math:`\src` , :math:`\mu` , :math:`\sigma^2` *Outputs* : :math:`\dst`                                                                  *Inputs* : :math:`\src` , :math:`\mu` , :math:`\sigma^2` *Outputs* : :math:`\dst`                                                                 *Inputs* : :math:`\diffdst` , :math:`\src` , :math:`\mu` , :math:`\sigma^2` *Outputs* : :math:`\diffsrc`                                                                             Same as for :ref:`dnnl_backward <doxid-group__dnnl__api__primitives__common_1ggae3c1f22ae55645782923fbfd8b07d0c4a326a5e31769302972e7bded555e1cc10>`   
@@ -93,23 +93,34 @@ General Notes
 
 #. For forward propagation, the mean and variance might be either computed at runtime (in which case they are outputs of the primitive) or provided by a user (in which case they are inputs). In the latter case, a user must set the :ref:`dnnl_use_global_stats <doxid-group__dnnl__api__primitives__common_1gga301f673522a400c7c1e75f518431c9a3aec04425c28af752c0f8b4dc5ae11fb19>` flag. For the backward propagation, the mean and variance are always input parameters.
 
-#. The memory format and data type for ``src`` and ``dst`` are assumed to be the same, and in the API they are typically referred to as ``data`` (e.g., see ``data_desc`` in :ref:`dnnl::layer_normalization_forward::desc::desc() <doxid-structdnnl_1_1layer__normalization__forward_1_1desc_1a4a7cdc2f605d5be0ab33d5ec2d8a7339>`). The same is true for ``diff_src`` and ``diff_dst``. The corresponding memory descriptors are referred to as ``diff_data_desc``.
+#. Both forward and backward propagation support in-place operations, meaning that :math:`\src` can be used as input and output for forward propagation, and :math:`\diffdst` can be used as input and output for backward propagation. In case of an in-place operation, the original data will be overwritten. This support is limited to cases when data types of :math:`\src` and :math:`\dst` or :math:`\diffsrc` and :math:`\diffdst` are identical. Note, however, that backward propagation requires original :math:`\src`, hence the corresponding forward propagation should not be performed in-place.
 
-#. Both forward and backward propagation support in-place operations, meaning that :math:`\src` can be used as input and output for forward propagation, and :math:`\diffdst` can be used as input and output for backward propagation. In case of an in-place operation, the original data will be overwritten. Note, however, that backward propagation requires original :math:`\src`, hence the corresponding forward propagation should not be performed in-place.
+Post-ops and Attributes
+-----------------------
+
+Attributes enable you to modify the behavior of the layer normalization primitive. The following attributes are supported by the layer normalization primitive:
+
+============  ==========  =============================================================================================  ===============================================================  ==============================================  
+Propagation   Type        Operation                                                                                      Description                                                      Restrictions                                    
+============  ==========  =============================================================================================  ===============================================================  ==============================================  
+forward       attribute   :ref:`Output scale <doxid-structdnnl_1_1primitive__attr_1a4b81acc8e48886313154f75c1708ae02>`   Scales the result of layer normalization by given scale factor   int8 layer normalization only, zero mask only   
+============  ==========  =============================================================================================  ===============================================================  ==============================================  
+
+
 
 Data Type Support
 -----------------
 
 The operation supports the following combinations of data types:
 
-===================  =====================  =============================  
-Propagation          Source / Destination   Mean / Variance / ScaleShift   
-===================  =====================  =============================  
-forward / backward   f32, bf16              f32                            
-forward              f16                    f32                            
-===================  =====================  =============================  
+============  =======================  =======================  
+Propagation   Source                   Destination              
+============  =======================  =======================  
+forward       f32, bf16, f16, u8, s8   f32, bf16, f16, u8, s8   
+backward      f32, bf16                f32, bf16                
+============  =======================  =======================  
 
-
+Mean, Variance and ScaleShift data types are always f32 and independent of Source or Destination data types.
 
 Data Representation
 -------------------
@@ -147,14 +158,27 @@ LDNC             :ref:`dnnl_ldnc <doxid-group__dnnl__api__memory_1gga395e42b5946
 
 
 
+Implementation Limitations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Refer to :ref:`Data Types <doxid-dev_guide_data_types>` for limitations related to data types support.
+
+#. GPU
+   
+   * Only tensors of 6 or fewer dimensions are supported.
+   
+   * Different data types for source and destination is not supported.
+   
+   * Integer data types for source and destination are not supported.
+
 Performance Tips
 ~~~~~~~~~~~~~~~~
 
-#. For data tensors (``src``, ``dst``, ``diff_src``, ``diff_dst``), use memory formats for which the last logical axis is the last in the physical memory layout.
+#. For data tensors :math:`\src`, :math:`\dst`, :math:`\diffsrc`, and :math:`\diffdst`, use memory formats for which the last logical axis is the last in the physical memory layout.
 
-#. For ``mean`` / ``variance``, use the memory format that follows the data memory format; i.e., if the data format is :ref:`dnnl_tnc <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da2a9735ec024c9362b717304edbfe2237>`, the best performance can be expected for statistics with :ref:`dnnl_tn <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091dac1ee747f881fc8cae805ae4051e671cf>` and suboptimal for statistics with the :ref:`dnnl_nt <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da7ede27a46172c1ab2775593ba4b118dc>` format.
+#. For  and , use the memory format that follows the data memory format; i.e., if the data format is :ref:`dnnl_tnc <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da2a9735ec024c9362b717304edbfe2237>`, the best performance can be expected for statistics with :ref:`dnnl_tn <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091dac1ee747f881fc8cae805ae4051e671cf>` and suboptimal for statistics with the :ref:`dnnl_nt <doxid-group__dnnl__api__memory_1gga395e42b594683adb25ed2d842bb3091da7ede27a46172c1ab2775593ba4b118dc>` format.
 
-#. For backward propagation, use the same memory format for ``src``, ``diff_dst``, and ``diff_src`` (the format of ``diff_dst`` and ``diff_src`` are always the same because of the API). Different formats are functionally supported but lead to highly suboptimal performance.
+#. For backward propagation, use the same memory format for :math:`\src`, :math:`\diffdst`, and :math:`\diffsrc`. Different formats are functionally supported but lead to highly suboptimal performance.
 
 #. Use in-place operations whenever possible (see caveats in General Notes).
 

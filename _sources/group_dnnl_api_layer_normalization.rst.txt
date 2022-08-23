@@ -1,20 +1,18 @@
-.. index:: pair: group; Layer Normalization
+.. index:: pair: group; Dnnl_api_layer_normalization
 .. _doxid-group__dnnl__api__layer__normalization:
 
-Layer Normalization
-===================
+Dnnl_api_layer_normalization
+============================
 
 .. toctree::
 	:hidden:
 
 	struct_dnnl_layer_normalization_desc_t.rst
-	struct_dnnl_layer_normalization_backward.rst
-	struct_dnnl_layer_normalization_forward.rst
 
 Overview
 ~~~~~~~~
 
-A primitive to perform layer normalization. :ref:`More...<details-group__dnnl__api__layer__normalization>`
+
 
 
 .. ref-code-block:: cpp
@@ -24,8 +22,6 @@ A primitive to perform layer normalization. :ref:`More...<details-group__dnnl__a
 	// structs
 
 	struct :ref:`dnnl_layer_normalization_desc_t<doxid-structdnnl__layer__normalization__desc__t>`;
-	struct :ref:`dnnl::layer_normalization_backward<doxid-structdnnl_1_1layer__normalization__backward>`;
-	struct :ref:`dnnl::layer_normalization_forward<doxid-structdnnl_1_1layer__normalization__forward>`;
 
 	// global functions
 
@@ -53,19 +49,7 @@ A primitive to perform layer normalization. :ref:`More...<details-group__dnnl__a
 Detailed Documentation
 ~~~~~~~~~~~~~~~~~~~~~~
 
-A primitive to perform layer normalization.
 
-Normalization is performed within the last logical dimension of data tensor.
-
-Both forward and backward propagation primitives support in-place operation; that is, src and dst can refer to the same memory for forward propagation, and diff_dst and diff_src can refer to the same memory for backward propagation.
-
-The layer normalization primitives computations can be controlled by specifying different :ref:`dnnl::normalization_flags <doxid-group__dnnl__api__primitives__common_1gad8ef0fcbb7b10cae3d67dd46892002be>` values. For example, layer normalization forward propagation can be configured to either compute the mean and variance or take them as arguments. It can either perform scaling and shifting using gamma and beta parameters or not.
-
-
-
-.. rubric:: See also:
-
-:ref:`Layer Normalization <doxid-dev_guide_layer_normalization>` in developer guide
 
 Global Functions
 ----------------

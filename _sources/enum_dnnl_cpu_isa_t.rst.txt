@@ -25,6 +25,7 @@ CPU instruction set flags. :ref:`More...<details-group__dnnl__api__service_1ga30
 	    :ref:`dnnl_cpu_isa_avx512_core<doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a574f09a9b057ba134d48dadf6d8aa201>`      = 0x27,
 	    :ref:`dnnl_cpu_isa_avx512_core_vnni<doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a3aced59a3047f7e407b1fe3310430554>` = 0x67,
 	    :ref:`dnnl_cpu_isa_avx512_core_bf16<doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a9ced36845ccb9a8dd63cd49ec103412b>` = 0xe7,
+	    :ref:`dnnl_cpu_isa_avx512_core_fp16<doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2aba37df95641b63e78c7e4a52c2acdd84>` = 0x1e7,
 	    :ref:`dnnl_cpu_isa_avx512_core_amx<doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a3a4b0c594f109982fde90e221087ded9>`  = 0x3e7,
 	    :ref:`dnnl_cpu_isa_avx2_vnni<doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a8f2cbdae2834cebd2e5bf86b8c65e9d4>`        = 0x407,
 	};
@@ -129,6 +130,16 @@ Intel AVX-512 and Intel Deep Learning Boost (Intel DL Boost) support for Intel X
 
 Intel AVX-512, Intel DL Boost and bfloat16 support for Intel Xeon Scalable processor family and Intel Core processor family.
 
+.. index:: pair: enumvalue; dnnl_cpu_isa_avx512_core_fp16
+.. _doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2aba37df95641b63e78c7e4a52c2acdd84:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	dnnl_cpu_isa_avx512_core_fp16
+
+Intel AVX-512 with float16, Intel DL Boost and bfloat16 support for Intel Xeon Scalable processor family and Intel Core processor family.
+
 .. index:: pair: enumvalue; dnnl_cpu_isa_avx512_core_amx
 .. _doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a3a4b0c594f109982fde90e221087ded9:
 
@@ -137,7 +148,7 @@ Intel AVX-512, Intel DL Boost and bfloat16 support for Intel Xeon Scalable proce
 
 	dnnl_cpu_isa_avx512_core_amx
 
-Intel AVX-512, Intel DL Boost and bfloat16 support and Intel AMX with 8-bit integer and bfloat16 support.
+Intel AVX-512 with float16, Intel DL Boost and bfloat16 support and Intel AMX with 8-bit integer and bfloat16 support.
 
 .. index:: pair: enumvalue; dnnl_cpu_isa_avx2_vnni
 .. _doxid-group__dnnl__api__service_1gga303bab5d2e7b371bb44495864df21dd2a8f2cbdae2834cebd2e5bf86b8c65e9d4:

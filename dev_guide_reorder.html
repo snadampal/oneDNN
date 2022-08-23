@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Reorder &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Reorder &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2986,7 +3004,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1gae3ff1fe9449f2d9b1cd02ad864b57057"><span class="std std-ref">Output scales</span></a></p></td>
 <td><p>Copy and scale the data according to the scaling factors</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga7175edf83658bd14dd5d7cd9e9193e92"><span class="std std-ref">Sum post-op</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="struct_dnnl_primitive_attr-2.html#doxid-structdnnl-1-1primitive-attr-1aee82deb014cf9702ceb3e725156c25a1"><span class="std std-ref">Zero points</span></a></p></td>
+<td><p>Sets zero point(s) for the corresponding tensors</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga7175edf83658bd14dd5d7cd9e9193e92"><span class="std std-ref">Sum post-op</span></a></p></td>
 <td><p>Instead of copy the data accumulate it to the previous data</p></td>
 </tr>
 </tbody>
@@ -2997,11 +3018,12 @@
         <span class="n">dst</span> <span class="o">=</span> <span class="p">{</span><span class="n">dims</span><span class="o">=</span><span class="p">{</span><span class="n">N</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">},</span> <span class="n">data_type</span><span class="o">=</span><span class="n">dt_dst</span><span class="p">,</span> <span class="n">memory_format</span><span class="o">=</span><span class="n">fmt_dst</span><span class="p">},</span>
         <span class="n">attr</span> <span class="o">=</span><span class="p">{</span>
             <span class="n">output_scale</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+            <span class="n">zero_points</span><span class="o">=</span> <span class="p">{</span> <span class="n">src</span><span class="o">=</span><span class="p">{</span><span class="n">mask</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">shift_src</span><span class="p">},</span> <span class="n">dst</span><span class="o">=</span><span class="p">{</span><span class="n">mask</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">shift_dst</span><span class="p">}</span> <span class="p">}</span>
             <span class="n">post</span><span class="o">-</span><span class="n">ops</span> <span class="o">=</span> <span class="p">{</span> <span class="n">sum</span><span class="o">=</span><span class="p">{</span><span class="n">scale</span><span class="o">=</span><span class="n">beta</span><span class="p">}</span> <span class="p">},</span>
         <span class="p">})</span></pre>
 <p>would lead to the following operation:</p>
 <div class="math notranslate nohighlight">
-\[\dst(\overline{x}) = \alpha \cdot \src(\overline{x}) + \beta \cdot \dst(\overline{x})\]</div>
+\[\dst(\overline{x}) = \alpha \cdot \src(\overline{x} - shift_{src}) + \beta \cdot \dst(\overline{x}) + shift_{dst}\]</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The intermediate operations are being done using single precision floating point data type.</p>
@@ -3022,7 +3044,6 @@
 <li><p>Only tensors of 6 or fewer dimensions are supported.</p></li>
 <li><p>Runtime dimensions are not supported.</p></li>
 <li><p>Runtime output scales are not supported.</p></li>
-<li><p>Zero points are not supported.</p></li>
 </ul>
 </li>
 </ol>

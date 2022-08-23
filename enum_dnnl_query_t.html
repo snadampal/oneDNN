@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl_query_t &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl_query_t &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2877,7 +2895,7 @@
 
 <span class="k">enum</span> <span class="n">dnnl_query_t</span>
 <span class="p">{</span>
-    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059aaa3009651cd11cc84f7a73ef88671b61"><span class="std std-ref">dnnl_query_undef</span></a><span></span>                  <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059aaa3009651cd11cc84f7a73ef88671b61"><span class="std std-ref">dnnl_query_undef</span></a><span></span>                    <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ad089d541f9a2e7c98ab889dc4bfaaad2"><span class="std std-ref">dnnl_query_engine</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a43cbb3f840bd56f2fd1d5b8b20493b55"><span class="std std-ref">dnnl_query_primitive_kind</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a1fe7a52f5934c92b0bd0330463549c0e"><span class="std std-ref">dnnl_query_num_of_inputs_s32</span></a><span></span><span class="p">,</span>
@@ -2891,7 +2909,7 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ab73dd19af163f8059de03d51898b3a1b"><span class="std std-ref">dnnl_query_prop_kind</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a31e8bf3af71e992a6bc44720016dced7"><span class="std std-ref">dnnl_query_cache_blob_id_size_s64</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2b380a4f0c67079a4bba3a434cc83abb"><span class="std std-ref">dnnl_query_cache_blob_id</span></a><span></span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a51f7c4f1463995ba8e6addf95498960d"><span class="std std-ref">dnnl_query_some_d</span></a><span></span>                 <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a51f7c4f1463995ba8e6addf95498960d"><span class="std std-ref">dnnl_query_some_d</span></a><span></span>                   <span class="o">=</span> <span class="mi">64</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a218e433d8705845d71df3ebdc084da52"><span class="std std-ref">dnnl_query_op_d</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c630599ffd92d1d8e452542f75c9b1f"><span class="std std-ref">dnnl_query_convolution_d</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a3c07b67edb62a3bdc34a4f916485f252"><span class="std std-ref">dnnl_query_deconvolution_d</span></a><span></span><span class="p">,</span>
@@ -2913,7 +2931,8 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a86bed243debcaf81549d4b11a5c6280a"><span class="std std-ref">dnnl_query_reduction_d</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059af291654d3c28900b0c8cf1e5a5c87dc3"><span class="std std-ref">dnnl_query_prelu_d</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059af6d598dfbeecc87e2fe77199a29e061d"><span class="std std-ref">dnnl_query_softmax_v2_d</span></a><span></span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336"><span class="std std-ref">dnnl_query_some_md</span></a><span></span>                <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ab64c8cb57520479dd496750c028928e4"><span class="std std-ref">dnnl_query_layer_normalization_v2_d</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336"><span class="std std-ref">dnnl_query_some_md</span></a><span></span>                  <span class="o">=</span> <span class="mi">128</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a14a86faee7b85eeb60d0d7886756ffa5"><span class="std std-ref">dnnl_query_src_md</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2367b043da6df5d691d6038693f363d6"><span class="std std-ref">dnnl_query_diff_src_md</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a12ea0b4858b84889acab34e498323355"><span class="std std-ref">dnnl_query_weights_md</span></a><span></span><span class="p">,</span>
@@ -2922,8 +2941,8 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ae28e33688bf6c55edcf108bd24eb90de"><span class="std std-ref">dnnl_query_diff_dst_md</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a1c465006660aabe46e644e6df7d36e8a"><span class="std std-ref">dnnl_query_workspace_md</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2ef0eedf44417ce40237f6f459347663"><span class="std std-ref">dnnl_query_scratchpad_md</span></a><span></span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ac7ecf09260d89d54ddd7f35c51a244da"><span class="std std-ref">dnnl_query_exec_arg_md</span></a><span></span>            <span class="o">=</span> <span class="mi">255</span><span class="p">,</span>
-    <span class="doxyrest-code-target target" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c1f3b9e3113ee4ba2156c3e6cee4917"><span></span><span class="n">dnnl_query_max</span></span><span></span>                    <span class="o">=</span> <span class="mh">0x7fff</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ac7ecf09260d89d54ddd7f35c51a244da"><span class="std std-ref">dnnl_query_exec_arg_md</span></a><span></span>              <span class="o">=</span> <span class="mi">255</span><span class="p">,</span>
+    <span class="doxyrest-code-target target" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c1f3b9e3113ee4ba2156c3e6cee4917"><span></span><span class="n">dnnl_query_max</span></span><span></span>                      <span class="o">=</span> <span class="mh">0x7fff</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -3060,25 +3079,27 @@
 <p>prelu descriptor</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059af6d598dfbeecc87e2fe77199a29e061d"><span id="index-36"></span><span></span><span class="n">dnnl_query_softmax_v2_d</span></pre>
 <p>softmax version 2 descriptor</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336"><span id="index-37"></span><span></span><span class="n">dnnl_query_some_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ab64c8cb57520479dd496750c028928e4"><span id="index-37"></span><span></span><span class="n">dnnl_query_layer_normalization_v2_d</span></pre>
+<p>layer normalization version 2 descriptor</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a0c4a1096638c39c0771db9a4cb2a3336"><span id="index-38"></span><span></span><span class="n">dnnl_query_some_md</span></pre>
 <p>stub</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a14a86faee7b85eeb60d0d7886756ffa5"><span id="index-38"></span><span></span><span class="n">dnnl_query_src_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a14a86faee7b85eeb60d0d7886756ffa5"><span id="index-39"></span><span></span><span class="n">dnnl_query_src_md</span></pre>
 <p>source memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2367b043da6df5d691d6038693f363d6"><span id="index-39"></span><span></span><span class="n">dnnl_query_diff_src_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2367b043da6df5d691d6038693f363d6"><span id="index-40"></span><span></span><span class="n">dnnl_query_diff_src_md</span></pre>
 <p>source gradient memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a12ea0b4858b84889acab34e498323355"><span id="index-40"></span><span></span><span class="n">dnnl_query_weights_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a12ea0b4858b84889acab34e498323355"><span id="index-41"></span><span></span><span class="n">dnnl_query_weights_md</span></pre>
 <p>weights memory descriptor desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a8551246c3e70fa1e420411507dbdfe32"><span id="index-41"></span><span></span><span class="n">dnnl_query_diff_weights_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a8551246c3e70fa1e420411507dbdfe32"><span id="index-42"></span><span></span><span class="n">dnnl_query_diff_weights_md</span></pre>
 <p>weights grad. memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059add5c338ad7ae0c296509e54d22130598"><span id="index-42"></span><span></span><span class="n">dnnl_query_dst_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059add5c338ad7ae0c296509e54d22130598"><span id="index-43"></span><span></span><span class="n">dnnl_query_dst_md</span></pre>
 <p>destination memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ae28e33688bf6c55edcf108bd24eb90de"><span id="index-43"></span><span></span><span class="n">dnnl_query_diff_dst_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ae28e33688bf6c55edcf108bd24eb90de"><span id="index-44"></span><span></span><span class="n">dnnl_query_diff_dst_md</span></pre>
 <p>destination grad. memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a1c465006660aabe46e644e6df7d36e8a"><span id="index-44"></span><span></span><span class="n">dnnl_query_workspace_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a1c465006660aabe46e644e6df7d36e8a"><span id="index-45"></span><span></span><span class="n">dnnl_query_workspace_md</span></pre>
 <p>workspace memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2ef0eedf44417ce40237f6f459347663"><span id="index-45"></span><span></span><span class="n">dnnl_query_scratchpad_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059a2ef0eedf44417ce40237f6f459347663"><span id="index-46"></span><span></span><span class="n">dnnl_query_scratchpad_md</span></pre>
 <p>scratchpad memory desc</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ac7ecf09260d89d54ddd7f35c51a244da"><span id="index-46"></span><span></span><span class="n">dnnl_query_exec_arg_md</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9e5235563cf7cfc10fa89f415de98059ac7ecf09260d89d54ddd7f35c51a244da"><span id="index-47"></span><span></span><span class="n">dnnl_query_exec_arg_md</span></pre>
 <p>memory desc of an execute argument</p>
 </section>
 </section>

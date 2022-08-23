@@ -122,6 +122,10 @@ Implementation Limitations
 
 #. Refer to :ref:`Data Types <doxid-dev_guide_data_types>` for limitations related to data types support.
 
+#. GPU
+   
+   * Only tensors of 6 or fewer dimensions are supported.
+
 Performance Tips
 ~~~~~~~~~~~~~~~~
 

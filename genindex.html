@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Index &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,7 +58,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1634,12 +1634,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -3091,8 +3109,6 @@
         <li><a href="struct_dnnl_rnn_desc_t.html#index-28">variable</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     adbc
 
@@ -3100,6 +3116,8 @@
         <li><a href="enum_dnnl_memory_format_tag.html#index-15">enumvalue</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     alg_kind
 
@@ -3146,21 +3164,28 @@
     append_binary
 
       <ul>
-        <li><a href="struct_dnnl_post_ops-2.html#index-16">function</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-18">function</a>
 </li>
       </ul></li>
       <li>
-    append_dw_k3s1p1
+    append_dw
 
       <ul>
         <li><a href="struct_dnnl_post_ops-2.html#index-12">function</a>
 </li>
       </ul></li>
       <li>
-    append_dw_k3s2p1
+    append_dw_k3s1p1
 
       <ul>
         <li><a href="struct_dnnl_post_ops-2.html#index-14">function</a>
+</li>
+      </ul></li>
+      <li>
+    append_dw_k3s2p1
+
+      <ul>
+        <li><a href="struct_dnnl_post_ops-2.html#index-16">function</a>
 </li>
       </ul></li>
       <li>
@@ -3174,7 +3199,7 @@
     append_prelu
 
       <ul>
-        <li><a href="struct_dnnl_post_ops-2.html#index-18">function</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-20">function</a>
 </li>
       </ul></li>
       <li>
@@ -3294,6 +3319,13 @@
 
       <ul>
         <li><a href="enum_dnnl_cpu_isa.html#index-9">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
+    avx512_core_fp16
+
+      <ul>
+        <li><a href="enum_dnnl_cpu_isa.html#index-12">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -4141,7 +4173,7 @@
     data_scaleshift_desc
 
       <ul>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-5">variable</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-5">[1]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-5">variable</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-5">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-5">[2]</a>
 </li>
       </ul></li>
       <li>
@@ -4443,7 +4475,7 @@
     desc
 
       <ul>
-        <li><a href="struct_dnnl_augru_backward_desc.html#index-1">function</a>, <a href="struct_dnnl_augru_forward_desc.html#index-1">[1]</a>, <a href="struct_dnnl_batch_normalization_backward_desc.html#index-1">[2]</a>, <a href="struct_dnnl_batch_normalization_forward_desc.html#index-1">[3]</a>, <a href="struct_dnnl_binary_desc.html#index-2">[4]</a>, <a href="struct_dnnl_binary_desc.html#index-3">[5]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-1">[6]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-2">[7]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-1">[8]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-2">[9]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-3">[10]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-4">[11]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-1">[12]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-2">[13]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-3">[14]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-4">[15]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-1">[16]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-2">[17]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-1">[18]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-2">[19]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-3">[20]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-4">[21]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-1">[22]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-2">[23]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-3">[24]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-4">[25]</a>, <a href="struct_dnnl_eltwise_backward_desc.html#index-1">[26]</a>, <a href="struct_dnnl_eltwise_forward_desc.html#index-1">[27]</a>, <a href="struct_dnnl_gru_backward_desc.html#index-1">[28]</a>, <a href="struct_dnnl_gru_forward_desc.html#index-1">[29]</a>, <a href="struct_dnnl_inner_product_backward_data_desc.html#index-1">[30]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-1">[31]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-2">[32]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-1">[33]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-2">[34]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-1">[35]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-2">[36]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-1">[37]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-2">[38]</a>, <a href="struct_dnnl_lbr_augru_backward_desc.html#index-1">[39]</a>, <a href="struct_dnnl_lbr_augru_forward_desc.html#index-1">[40]</a>, <a href="struct_dnnl_lbr_gru_backward_desc.html#index-1">[41]</a>, <a href="struct_dnnl_lbr_gru_forward_desc.html#index-1">[42]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-1">[43]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-2">[44]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-1">[45]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-2">[46]</a>, <a href="struct_dnnl_lrn_backward_desc.html#index-1">[47]</a>, <a href="struct_dnnl_lrn_forward_desc.html#index-1">[48]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-1">[49]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-2">[50]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-3">[51]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-1">[52]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-2">[53]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-3">[54]</a>, <a href="struct_dnnl_matmul_desc.html#index-1">[55]</a>, <a href="struct_dnnl_matmul_desc.html#index-2">[56]</a>, <a href="struct_dnnl_memory_desc.html#index-2">[57]</a>, <a href="struct_dnnl_memory_desc.html#index-3">[58]</a>, <a href="struct_dnnl_memory_desc.html#index-4">[59]</a>, <a href="struct_dnnl_memory_desc.html#index-5">[60]</a>, <a href="struct_dnnl_pooling_backward_desc.html#index-1">[61]</a>, <a href="struct_dnnl_pooling_forward_desc.html#index-1">[62]</a>, <a href="struct_dnnl_pooling_v2_backward_desc.html#index-1">[63]</a>, <a href="struct_dnnl_pooling_v2_forward_desc.html#index-1">[64]</a>, <a href="struct_dnnl_prelu_backward_desc.html#index-1">[65]</a>, <a href="struct_dnnl_prelu_forward_desc.html#index-1">[66]</a>, <a href="struct_dnnl_reduction_desc.html#index-1">[67]</a>, <a href="struct_dnnl_reduction_desc.html#index-2">[68]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-1">[69]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-2">[70]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-1">[71]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-2">[72]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-3">[73]</a>, <a href="struct_dnnl_shuffle_backward_desc.html#index-1">[74]</a>, <a href="struct_dnnl_shuffle_forward_desc.html#index-1">[75]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-1">[76]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-2">[77]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-1">[78]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-2">[79]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-1">[80]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-2">[81]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-1">[82]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-2">[83]</a>, <a href="struct_dnnl_vanilla_rnn_backward_desc.html#index-1">[84]</a>, <a href="struct_dnnl_vanilla_rnn_forward_desc.html#index-1">[85]</a>
+        <li><a href="struct_dnnl_augru_backward_desc.html#index-1">function</a>, <a href="struct_dnnl_augru_forward_desc.html#index-1">[1]</a>, <a href="struct_dnnl_batch_normalization_backward_desc.html#index-1">[2]</a>, <a href="struct_dnnl_batch_normalization_forward_desc.html#index-1">[3]</a>, <a href="struct_dnnl_binary_desc.html#index-2">[4]</a>, <a href="struct_dnnl_binary_desc.html#index-3">[5]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-1">[6]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-2">[7]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-1">[8]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-2">[9]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-3">[10]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-4">[11]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-1">[12]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-2">[13]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-3">[14]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-4">[15]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-1">[16]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-2">[17]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-1">[18]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-2">[19]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-3">[20]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-4">[21]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-1">[22]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-2">[23]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-3">[24]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-4">[25]</a>, <a href="struct_dnnl_eltwise_backward_desc.html#index-1">[26]</a>, <a href="struct_dnnl_eltwise_forward_desc.html#index-1">[27]</a>, <a href="struct_dnnl_gru_backward_desc.html#index-1">[28]</a>, <a href="struct_dnnl_gru_forward_desc.html#index-1">[29]</a>, <a href="struct_dnnl_inner_product_backward_data_desc.html#index-1">[30]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-1">[31]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-2">[32]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-1">[33]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-2">[34]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-1">[35]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-2">[36]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-3">[37]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-1">[38]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-2">[39]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-3">[40]</a>, <a href="struct_dnnl_lbr_augru_backward_desc.html#index-1">[41]</a>, <a href="struct_dnnl_lbr_augru_forward_desc.html#index-1">[42]</a>, <a href="struct_dnnl_lbr_gru_backward_desc.html#index-1">[43]</a>, <a href="struct_dnnl_lbr_gru_forward_desc.html#index-1">[44]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-1">[45]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-2">[46]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-1">[47]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-2">[48]</a>, <a href="struct_dnnl_lrn_backward_desc.html#index-1">[49]</a>, <a href="struct_dnnl_lrn_forward_desc.html#index-1">[50]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-1">[51]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-2">[52]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-3">[53]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-1">[54]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-2">[55]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-3">[56]</a>, <a href="struct_dnnl_matmul_desc.html#index-1">[57]</a>, <a href="struct_dnnl_matmul_desc.html#index-2">[58]</a>, <a href="struct_dnnl_memory_desc.html#index-2">[59]</a>, <a href="struct_dnnl_memory_desc.html#index-3">[60]</a>, <a href="struct_dnnl_memory_desc.html#index-4">[61]</a>, <a href="struct_dnnl_memory_desc.html#index-5">[62]</a>, <a href="struct_dnnl_pooling_backward_desc.html#index-1">[63]</a>, <a href="struct_dnnl_pooling_forward_desc.html#index-1">[64]</a>, <a href="struct_dnnl_pooling_v2_backward_desc.html#index-1">[65]</a>, <a href="struct_dnnl_pooling_v2_forward_desc.html#index-1">[66]</a>, <a href="struct_dnnl_prelu_backward_desc.html#index-1">[67]</a>, <a href="struct_dnnl_prelu_forward_desc.html#index-1">[68]</a>, <a href="struct_dnnl_reduction_desc.html#index-1">[69]</a>, <a href="struct_dnnl_reduction_desc.html#index-2">[70]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-1">[71]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-2">[72]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-1">[73]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-2">[74]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-3">[75]</a>, <a href="struct_dnnl_shuffle_backward_desc.html#index-1">[76]</a>, <a href="struct_dnnl_shuffle_forward_desc.html#index-1">[77]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-1">[78]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-2">[79]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-1">[80]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-2">[81]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-1">[82]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-2">[83]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-1">[84]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-2">[85]</a>, <a href="struct_dnnl_vanilla_rnn_backward_desc.html#index-1">[86]</a>, <a href="struct_dnnl_vanilla_rnn_forward_desc.html#index-1">[87]</a>
 </li>
       </ul></li>
       <li>
@@ -4496,7 +4528,7 @@
       <ul>
         <li><a href="struct_dnnl_batch_normalization_backward_primitive_desc.html#index-9">function</a>, <a href="struct_dnnl_convolution_backward_data_primitive_desc.html#index-7">[1]</a>, <a href="struct_dnnl_convolution_backward_weights_primitive_desc.html#index-7">[2]</a>, <a href="struct_dnnl_deconvolution_backward_data_primitive_desc.html#index-7">[3]</a>, <a href="struct_dnnl_deconvolution_backward_weights_primitive_desc.html#index-7">[4]</a>, <a href="struct_dnnl_eltwise_backward_primitive_desc.html#index-7">[5]</a>, <a href="struct_dnnl_inner_product_backward_data_primitive_desc.html#index-7">[6]</a>, <a href="struct_dnnl_inner_product_backward_weights_primitive_desc.html#index-7">[7]</a>, <a href="struct_dnnl_layer_normalization_backward_primitive_desc.html#index-9">[8]</a>, <a href="struct_dnnl_logsoftmax_backward_primitive_desc.html#index-7">[9]</a>, <a href="struct_dnnl_lrn_backward_primitive_desc.html#index-6">[10]</a>, <a href="struct_dnnl_pooling_backward_primitive_desc.html#index-6">[11]</a>, <a href="struct_dnnl_pooling_v2_backward_primitive_desc.html#index-6">[12]</a>, <a href="struct_dnnl_prelu_backward_primitive_desc.html#index-7">[13]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-10">[14]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-16">[15]</a>, <a href="struct_dnnl_resampling_backward_primitive_desc.html#index-6">[16]</a>, <a href="struct_dnnl_shuffle_backward_primitive_desc.html#index-5">[17]</a>, <a href="struct_dnnl_softmax_backward_primitive_desc.html#index-7">[18]</a>, <a href="struct_dnnl_softmax_v2_backward_primitive_desc.html#index-7">[19]</a>
 </li>
-        <li><a href="struct_dnnl_convolution_desc_t.html#index-11">variable</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-7">[2]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-7">[3]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-7">[4]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-8">[5]</a>
+        <li><a href="struct_dnnl_convolution_desc_t.html#index-11">variable</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-9">[2]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-7">[3]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-7">[4]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-7">[5]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-8">[6]</a>
 </li>
       </ul></li>
       <li>
@@ -4539,7 +4571,7 @@
       <ul>
         <li><a href="struct_dnnl_batch_normalization_backward_primitive_desc.html#index-8">function</a>, <a href="struct_dnnl_convolution_backward_data_primitive_desc.html#index-5">[1]</a>, <a href="struct_dnnl_deconvolution_backward_data_primitive_desc.html#index-5">[2]</a>, <a href="struct_dnnl_eltwise_backward_primitive_desc.html#index-6">[3]</a>, <a href="struct_dnnl_inner_product_backward_data_primitive_desc.html#index-5">[4]</a>, <a href="struct_dnnl_layer_normalization_backward_primitive_desc.html#index-8">[5]</a>, <a href="struct_dnnl_logsoftmax_backward_primitive_desc.html#index-6">[6]</a>, <a href="struct_dnnl_lrn_backward_primitive_desc.html#index-5">[7]</a>, <a href="struct_dnnl_pooling_backward_primitive_desc.html#index-5">[8]</a>, <a href="struct_dnnl_pooling_v2_backward_primitive_desc.html#index-5">[9]</a>, <a href="struct_dnnl_prelu_backward_primitive_desc.html#index-6">[10]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-15">[11]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-9">[12]</a>, <a href="struct_dnnl_resampling_backward_primitive_desc.html#index-5">[13]</a>, <a href="struct_dnnl_shuffle_backward_primitive_desc.html#index-4">[14]</a>, <a href="struct_dnnl_softmax_backward_primitive_desc.html#index-6">[15]</a>, <a href="struct_dnnl_softmax_v2_backward_primitive_desc.html#index-6">[16]</a>
 </li>
-        <li><a href="struct_dnnl_convolution_desc_t.html#index-5">variable</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-5">[2]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-5">[3]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-5">[4]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-4">[5]</a>
+        <li><a href="struct_dnnl_convolution_desc_t.html#index-5">variable</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-4">[2]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-5">[3]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-5">[4]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-5">[5]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-4">[6]</a>
 </li>
       </ul></li>
       <li>
@@ -6215,6 +6247,13 @@
 </li>
       </ul></li>
       <li>
+    Dnnl_api_layer_normalization
+
+      <ul>
+        <li><a href="group_dnnl_api_layer_normalization.html#index-0">group</a>
+</li>
+      </ul></li>
+      <li>
     DNNL_ARG_ATTR_INPUT_SCALES
 
       <ul>
@@ -7114,7 +7153,7 @@
     dnnl_cpu_isa_avx2_vnni
 
       <ul>
-        <li><a href="enum_dnnl_cpu_isa_t.html#index-11">enumvalue</a>
+        <li><a href="enum_dnnl_cpu_isa_t.html#index-12">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -7128,7 +7167,7 @@
     dnnl_cpu_isa_avx512_core_amx
 
       <ul>
-        <li><a href="enum_dnnl_cpu_isa_t.html#index-10">enumvalue</a>
+        <li><a href="enum_dnnl_cpu_isa_t.html#index-11">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -7136,6 +7175,13 @@
 
       <ul>
         <li><a href="enum_dnnl_cpu_isa_t.html#index-9">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_cpu_isa_avx512_core_fp16
+
+      <ul>
+        <li><a href="enum_dnnl_cpu_isa_t.html#index-10">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -7362,8 +7408,6 @@
         <li><a href="group_dnnl_api_memory.html#index-2">typedef</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     dnnl_eltwise
 
@@ -7385,6 +7429,8 @@
         <li><a href="group_dnnl_api_eltwise.html#index-2">function</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     dnnl_eltwise_bounded_relu
 
@@ -7806,13 +7852,6 @@
 </li>
       </ul></li>
       <li>
-    dnnl_fpmath_mode_f19
-
-      <ul>
-        <li><a href="enum_dnnl_fpmath_mode_t.html#index-5">enumvalue</a>
-</li>
-      </ul></li>
-      <li>
     dnnl_fpmath_mode_strict
 
       <ul>
@@ -7824,6 +7863,20 @@
 
       <ul>
         <li><a href="enum_dnnl_fpmath_mode_t.html#index-0">enum</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_fpmath_mode_tf32
+
+      <ul>
+        <li><a href="enum_dnnl_fpmath_mode_t.html#index-5">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_fuse_norm_add_relu
+
+      <ul>
+        <li><a href="enum_dnnl_normalization_flags_t.html#index-7">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -8132,6 +8185,34 @@
 
       <ul>
         <li><a href="group_dnnl_api_layer_normalization.html#index-1">function</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_layer_normalization_v2
+
+      <ul>
+        <li><a href="enum_dnnl_primitive_kind_t.html#index-25">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_layer_normalization_v2_backward_desc_init
+
+      <ul>
+        <li><a href="group_dnnl_api_layer_normalization_v2.html#index-2">function</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_layer_normalization_v2_desc_t
+
+      <ul>
+        <li><a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-0">struct</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_layer_normalization_v2_forward_desc_init
+
+      <ul>
+        <li><a href="group_dnnl_api_layer_normalization_v2.html#index-1">function</a>
 </li>
       </ul></li>
       <li>
@@ -8950,21 +9031,28 @@
     dnnl_post_ops_append_binary
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-41">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-43">function</a>
 </li>
       </ul></li>
       <li>
-    dnnl_post_ops_append_dw_k3s1p1
+    dnnl_post_ops_append_dw
 
       <ul>
         <li><a href="group_dnnl_api_attributes.html#index-37">function</a>
 </li>
       </ul></li>
       <li>
-    dnnl_post_ops_append_dw_k3s2p1
+    dnnl_post_ops_append_dw_k3s1p1
 
       <ul>
         <li><a href="group_dnnl_api_attributes.html#index-39">function</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_post_ops_append_dw_k3s2p1
+
+      <ul>
+        <li><a href="group_dnnl_api_attributes.html#index-41">function</a>
 </li>
       </ul></li>
       <li>
@@ -8978,7 +9066,7 @@
     dnnl_post_ops_append_prelu
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-43">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-45">function</a>
 </li>
       </ul></li>
       <li>
@@ -9034,21 +9122,28 @@
     dnnl_post_ops_get_params_binary
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-42">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-44">function</a>
 </li>
       </ul></li>
       <li>
-    dnnl_post_ops_get_params_dw_k3s1p1
+    dnnl_post_ops_get_params_dw
 
       <ul>
         <li><a href="group_dnnl_api_attributes.html#index-38">function</a>
 </li>
       </ul></li>
       <li>
-    dnnl_post_ops_get_params_dw_k3s2p1
+    dnnl_post_ops_get_params_dw_k3s1p1
 
       <ul>
         <li><a href="group_dnnl_api_attributes.html#index-40">function</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_post_ops_get_params_dw_k3s2p1
+
+      <ul>
+        <li><a href="group_dnnl_api_attributes.html#index-42">function</a>
 </li>
       </ul></li>
       <li>
@@ -9062,7 +9157,7 @@
     dnnl_post_ops_get_params_prelu
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-44">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-46">function</a>
 </li>
       </ul></li>
       <li>
@@ -9188,21 +9283,21 @@
     dnnl_primitive_attr_get_rnn_data_qparams
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-46">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-48">function</a>
 </li>
       </ul></li>
       <li>
     dnnl_primitive_attr_get_rnn_weights_projection_qparams
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-50">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-52">function</a>
 </li>
       </ul></li>
       <li>
     dnnl_primitive_attr_get_rnn_weights_qparams
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-48">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-50">function</a>
 </li>
       </ul></li>
       <li>
@@ -9251,21 +9346,21 @@
     dnnl_primitive_attr_set_rnn_data_qparams
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-45">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-47">function</a>
 </li>
       </ul></li>
       <li>
     dnnl_primitive_attr_set_rnn_weights_projection_qparams
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-49">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-51">function</a>
 </li>
       </ul></li>
       <li>
     dnnl_primitive_attr_set_rnn_weights_qparams
 
       <ul>
-        <li><a href="group_dnnl_api_attributes.html#index-47">function</a>
+        <li><a href="group_dnnl_api_attributes.html#index-49">function</a>
 </li>
       </ul></li>
       <li>
@@ -9447,7 +9542,7 @@
     dnnl_primitive_kind_max
 
       <ul>
-        <li><a href="enum_dnnl_primitive_kind_t.html#index-25">enumvalue</a>
+        <li><a href="enum_dnnl_primitive_kind_t.html#index-26">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -9524,28 +9619,28 @@
     dnnl_query_diff_dst_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-43">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-44">enumvalue</a>
 </li>
       </ul></li>
       <li>
     dnnl_query_diff_src_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-39">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-40">enumvalue</a>
 </li>
       </ul></li>
       <li>
     dnnl_query_diff_weights_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-41">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-42">enumvalue</a>
 </li>
       </ul></li>
       <li>
     dnnl_query_dst_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-42">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-43">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -9566,7 +9661,7 @@
     dnnl_query_exec_arg_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-46">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-47">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -9595,6 +9690,13 @@
 
       <ul>
         <li><a href="enum_dnnl_query_t.html#index-25">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
+    dnnl_query_layer_normalization_v2_d
+
+      <ul>
+        <li><a href="enum_dnnl_query_t.html#index-37">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -9727,7 +9829,7 @@
     dnnl_query_scratchpad_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-45">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-46">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -9762,14 +9864,14 @@
     dnnl_query_some_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-37">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-38">enumvalue</a>
 </li>
       </ul></li>
       <li>
     dnnl_query_src_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-38">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-39">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -9797,14 +9899,14 @@
     dnnl_query_weights_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-40">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-41">enumvalue</a>
 </li>
       </ul></li>
       <li>
     dnnl_query_workspace_md
 
       <ul>
-        <li><a href="enum_dnnl_query_t.html#index-44">enumvalue</a>
+        <li><a href="enum_dnnl_query_t.html#index-45">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -10730,7 +10832,7 @@
       <ul>
         <li><a href="struct_dnnl_batch_normalization_backward_primitive_desc.html#index-7">function</a>, <a href="struct_dnnl_batch_normalization_forward_primitive_desc.html#index-6">[1]</a>, <a href="struct_dnnl_binary_primitive_desc.html#index-8">[2]</a>, <a href="struct_dnnl_concat_primitive_desc.html#index-6">[3]</a>, <a href="struct_dnnl_convolution_forward_primitive_desc.html#index-7">[4]</a>, <a href="struct_dnnl_deconvolution_forward_primitive_desc.html#index-7">[5]</a>, <a href="struct_dnnl_eltwise_forward_primitive_desc.html#index-6">[6]</a>, <a href="struct_dnnl_inner_product_forward_primitive_desc.html#index-7">[7]</a>, <a href="struct_dnnl_layer_normalization_backward_primitive_desc.html#index-7">[8]</a>, <a href="struct_dnnl_layer_normalization_forward_primitive_desc.html#index-6">[9]</a>, <a href="struct_dnnl_logsoftmax_backward_primitive_desc.html#index-5">[10]</a>, <a href="struct_dnnl_logsoftmax_forward_primitive_desc.html#index-6">[11]</a>, <a href="struct_dnnl_lrn_forward_primitive_desc.html#index-6">[12]</a>, <a href="struct_dnnl_matmul_primitive_desc.html#index-8">[13]</a>, <a href="struct_dnnl_pooling_forward_primitive_desc.html#index-6">[14]</a>, <a href="struct_dnnl_pooling_v2_forward_primitive_desc.html#index-6">[15]</a>, <a href="struct_dnnl_prelu_forward_primitive_desc.html#index-6">[16]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-13">[17]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-7">[18]</a>, <a href="struct_dnnl_reduction_primitive_desc.html#index-6">[19]</a>, <a href="struct_dnnl_reorder_primitive_desc.html#index-8">[20]</a>, <a href="struct_dnnl_resampling_forward_primitive_desc.html#index-6">[21]</a>, <a href="struct_dnnl_shuffle_forward_primitive_desc.html#index-5">[22]</a>, <a href="struct_dnnl_softmax_backward_primitive_desc.html#index-5">[23]</a>, <a href="struct_dnnl_softmax_forward_primitive_desc.html#index-6">[24]</a>, <a href="struct_dnnl_softmax_v2_backward_primitive_desc.html#index-5">[25]</a>, <a href="struct_dnnl_softmax_v2_forward_primitive_desc.html#index-6">[26]</a>, <a href="struct_dnnl_sum_primitive_desc.html#index-6">[27]</a>
 </li>
-        <li><a href="struct_dnnl_binary_desc_t.html#index-4">variable</a>, <a href="struct_dnnl_convolution_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-9">[2]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-5">[3]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-6">[4]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-6">[5]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-4">[6]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-6">[7]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-7">[8]</a>
+        <li><a href="struct_dnnl_binary_desc_t.html#index-4">variable</a>, <a href="struct_dnnl_convolution_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-9">[2]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-8">[3]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-5">[4]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-6">[5]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-6">[6]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-4">[7]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-6">[8]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-7">[9]</a>
 </li>
       </ul></li>
       <li>
@@ -11235,6 +11337,8 @@
 </li>
         <li><a href="enum_dnnl_cpu_isa.html#index-9">avx512_core_bf16</a>
 </li>
+        <li><a href="enum_dnnl_cpu_isa.html#index-12">avx512_core_fp16</a>
+</li>
         <li><a href="enum_dnnl_cpu_isa.html#index-8">avx512_core_vnni</a>
 </li>
         <li><a href="enum_dnnl_cpu_isa.html#index-5">avx512_mic</a>
@@ -11549,13 +11653,15 @@
 </li>
         <li><a href="enum_dnnl_cpu_isa_t.html#index-4">dnnl_cpu_isa_avx2</a>
 </li>
-        <li><a href="enum_dnnl_cpu_isa_t.html#index-11">dnnl_cpu_isa_avx2_vnni</a>
+        <li><a href="enum_dnnl_cpu_isa_t.html#index-12">dnnl_cpu_isa_avx2_vnni</a>
 </li>
         <li><a href="enum_dnnl_cpu_isa_t.html#index-7">dnnl_cpu_isa_avx512_core</a>
 </li>
-        <li><a href="enum_dnnl_cpu_isa_t.html#index-10">dnnl_cpu_isa_avx512_core_amx</a>
+        <li><a href="enum_dnnl_cpu_isa_t.html#index-11">dnnl_cpu_isa_avx512_core_amx</a>
 </li>
         <li><a href="enum_dnnl_cpu_isa_t.html#index-9">dnnl_cpu_isa_avx512_core_bf16</a>
+</li>
+        <li><a href="enum_dnnl_cpu_isa_t.html#index-10">dnnl_cpu_isa_avx512_core_fp16</a>
 </li>
         <li><a href="enum_dnnl_cpu_isa_t.html#index-8">dnnl_cpu_isa_avx512_core_vnni</a>
 </li>
@@ -11689,9 +11795,11 @@
 </li>
         <li><a href="enum_dnnl_fpmath_mode_t.html#index-3">dnnl_fpmath_mode_f16</a>
 </li>
-        <li><a href="enum_dnnl_fpmath_mode_t.html#index-5">dnnl_fpmath_mode_f19</a>
-</li>
         <li><a href="enum_dnnl_fpmath_mode_t.html#index-1">dnnl_fpmath_mode_strict</a>
+</li>
+        <li><a href="enum_dnnl_fpmath_mode_t.html#index-5">dnnl_fpmath_mode_tf32</a>
+</li>
+        <li><a href="enum_dnnl_normalization_flags_t.html#index-7">dnnl_fuse_norm_add_relu</a>
 </li>
         <li><a href="enum_dnnl_normalization_flags_t.html#index-4">dnnl_fuse_norm_relu</a>
 </li>
@@ -11738,6 +11846,8 @@
         <li><a href="enum_dnnl_format_tag_t.html#index-85">dnnl_iwo</a>
 </li>
         <li><a href="enum_dnnl_primitive_kind_t.html#index-13">dnnl_layer_normalization</a>
+</li>
+        <li><a href="enum_dnnl_primitive_kind_t.html#index-25">dnnl_layer_normalization_v2</a>
 </li>
         <li><a href="enum_dnnl_alg_kind_t.html#index-49">dnnl_lbr_augru</a>
 </li>
@@ -11851,7 +11961,7 @@
 </li>
         <li><a href="enum_dnnl_primitive_kind_t.html#index-23">dnnl_prelu</a>
 </li>
-        <li><a href="enum_dnnl_primitive_kind_t.html#index-25">dnnl_primitive_kind_max</a>
+        <li><a href="enum_dnnl_primitive_kind_t.html#index-26">dnnl_primitive_kind_max</a>
 </li>
         <li><a href="enum_dnnl_prop_kind_t.html#index-1">dnnl_prop_kind_undef</a>
 </li>
@@ -11867,19 +11977,19 @@
 </li>
         <li><a href="enum_dnnl_query_t.html#index-18">dnnl_query_deconvolution_d</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-43">dnnl_query_diff_dst_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-44">dnnl_query_diff_dst_md</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-39">dnnl_query_diff_src_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-40">dnnl_query_diff_src_md</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-41">dnnl_query_diff_weights_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-42">dnnl_query_diff_weights_md</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-42">dnnl_query_dst_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-43">dnnl_query_dst_md</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-20">dnnl_query_eltwise_d</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-2">dnnl_query_engine</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-46">dnnl_query_exec_arg_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-47">dnnl_query_exec_arg_md</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-28">dnnl_query_gemm_d</a>
 </li>
@@ -11888,6 +11998,8 @@
         <li><a href="enum_dnnl_query_t.html#index-26">dnnl_query_inner_product_d</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-25">dnnl_query_layer_normalization_d</a>
+</li>
+        <li><a href="enum_dnnl_query_t.html#index-37">dnnl_query_layer_normalization_v2_d</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-30">dnnl_query_logsoftmax_d</a>
 </li>
@@ -11925,7 +12037,7 @@
 </li>
         <li><a href="enum_dnnl_query_t.html#index-8">dnnl_query_scratchpad_engine</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-45">dnnl_query_scratchpad_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-46">dnnl_query_scratchpad_md</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-19">dnnl_query_shuffle_d</a>
 </li>
@@ -11935,17 +12047,17 @@
 </li>
         <li><a href="enum_dnnl_query_t.html#index-15">dnnl_query_some_d</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-37">dnnl_query_some_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-38">dnnl_query_some_md</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-38">dnnl_query_src_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-39">dnnl_query_src_md</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-6">dnnl_query_time_estimate_f64</a>
 </li>
         <li><a href="enum_dnnl_query_t.html#index-1">dnnl_query_undef</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-40">dnnl_query_weights_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-41">dnnl_query_weights_md</a>
 </li>
-        <li><a href="enum_dnnl_query_t.html#index-44">dnnl_query_workspace_md</a>
+        <li><a href="enum_dnnl_query_t.html#index-45">dnnl_query_workspace_md</a>
 </li>
         <li><a href="enum_dnnl_primitive_kind_t.html#index-22">dnnl_reduction</a>
 </li>
@@ -12135,8 +12247,6 @@
 </li>
         <li><a href="enum_dnnl_fpmath_mode.html#index-3">f16</a>, <a href="enum_dnnl_memory_data_type.html#index-2">[1]</a>
 </li>
-        <li><a href="enum_dnnl_fpmath_mode.html#index-4">f19</a>
-</li>
         <li><a href="enum_dnnl_memory_data_type.html#index-4">f32</a>
 </li>
         <li><a href="enum_dnnl_prop_kind.html#index-5">forward</a>
@@ -12146,6 +12256,8 @@
         <li><a href="enum_dnnl_prop_kind.html#index-4">forward_scoring</a>
 </li>
         <li><a href="enum_dnnl_prop_kind.html#index-2">forward_training</a>
+</li>
+        <li><a href="enum_dnnl_normalization_flags.html#index-5">fuse_norm_add_relu</a>
 </li>
         <li><a href="enum_dnnl_normalization_flags.html#index-4">fuse_norm_relu</a>
 </li>
@@ -12198,6 +12310,8 @@
         <li><a href="enum_dnnl_primitive_kind.html#index-13">layer_normalization</a>
 </li>
         <li><a href="enum_dnnl_query.html#index-24">layer_normalization_d</a>
+</li>
+        <li><a href="enum_dnnl_primitive_kind.html#index-24">layer_normalization_v2</a>
 </li>
         <li><a href="enum_dnnl_algorithm.html#index-50">lbr_augru</a>
 </li>
@@ -12381,6 +12495,8 @@
 </li>
         <li><a href="enum_dnnl_primitive_kind.html#index-5">sum</a>
 </li>
+        <li><a href="enum_dnnl_fpmath_mode.html#index-4">tf32</a>
+</li>
         <li><a href="enum_dnnl_query.html#index-6">time_estimate_f64</a>
 </li>
         <li><a href="enum_dnnl_memory_format_tag.html#index-50">tn</a>
@@ -12401,11 +12517,11 @@
 </li>
         <li><a href="enum_dnnl_normalization_flags.html#index-2">use_global_stats</a>
 </li>
-        <li><a href="enum_dnnl_normalization_flags.html#index-5">use_scale</a>
+        <li><a href="enum_dnnl_normalization_flags.html#index-6">use_scale</a>
 </li>
         <li><a href="enum_dnnl_normalization_flags.html#index-3">use_scale_shift</a>
 </li>
-        <li><a href="enum_dnnl_normalization_flags.html#index-6">use_shift</a>
+        <li><a href="enum_dnnl_normalization_flags.html#index-7">use_shift</a>
 </li>
         <li><a href="enum_dnnl_scratchpad_mode.html#index-2">user</a>
 </li>
@@ -12575,13 +12691,6 @@
 </li>
       </ul></li>
       <li>
-    f19
-
-      <ul>
-        <li><a href="enum_dnnl_fpmath_mode.html#index-4">enumvalue</a>
-</li>
-      </ul></li>
-      <li>
     f32
 
       <ul>
@@ -12666,15 +12775,17 @@
     function
 
       <ul>
-        <li><a href="struct_dnnl_post_ops-2.html#index-16">append_binary</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-18">append_binary</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-12">append_dw_k3s1p1</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-12">append_dw</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-14">append_dw_k3s2p1</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-14">append_dw_k3s1p1</a>
+</li>
+        <li><a href="struct_dnnl_post_ops-2.html#index-16">append_dw_k3s2p1</a>
 </li>
         <li><a href="struct_dnnl_post_ops-2.html#index-10">append_eltwise</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-18">append_prelu</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-20">append_prelu</a>
 </li>
         <li><a href="struct_dnnl_post_ops-2.html#index-5">append_sum</a>, <a href="struct_dnnl_post_ops-2.html#index-6">[1]</a>
 </li>
@@ -12712,7 +12823,7 @@
 </li>
         <li><a href="struct_dnnl_deconvolution_forward.html#index-1">deconvolution_forward</a>, <a href="struct_dnnl_deconvolution_forward.html#index-2">[1]</a>, <a href="struct_dnnl_deconvolution_forward.html#index-3">[2]</a>
 </li>
-        <li><a href="struct_dnnl_augru_backward_desc.html#index-1">desc</a>, <a href="struct_dnnl_augru_forward_desc.html#index-1">[1]</a>, <a href="struct_dnnl_batch_normalization_backward_desc.html#index-1">[2]</a>, <a href="struct_dnnl_batch_normalization_forward_desc.html#index-1">[3]</a>, <a href="struct_dnnl_binary_desc.html#index-2">[4]</a>, <a href="struct_dnnl_binary_desc.html#index-3">[5]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-1">[6]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-2">[7]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-1">[8]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-2">[9]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-3">[10]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-4">[11]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-1">[12]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-2">[13]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-3">[14]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-4">[15]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-1">[16]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-2">[17]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-1">[18]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-2">[19]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-3">[20]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-4">[21]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-1">[22]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-2">[23]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-3">[24]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-4">[25]</a>, <a href="struct_dnnl_eltwise_backward_desc.html#index-1">[26]</a>, <a href="struct_dnnl_eltwise_forward_desc.html#index-1">[27]</a>, <a href="struct_dnnl_gru_backward_desc.html#index-1">[28]</a>, <a href="struct_dnnl_gru_forward_desc.html#index-1">[29]</a>, <a href="struct_dnnl_inner_product_backward_data_desc.html#index-1">[30]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-1">[31]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-2">[32]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-1">[33]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-2">[34]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-1">[35]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-2">[36]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-1">[37]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-2">[38]</a>, <a href="struct_dnnl_lbr_augru_backward_desc.html#index-1">[39]</a>, <a href="struct_dnnl_lbr_augru_forward_desc.html#index-1">[40]</a>, <a href="struct_dnnl_lbr_gru_backward_desc.html#index-1">[41]</a>, <a href="struct_dnnl_lbr_gru_forward_desc.html#index-1">[42]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-1">[43]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-2">[44]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-1">[45]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-2">[46]</a>, <a href="struct_dnnl_lrn_backward_desc.html#index-1">[47]</a>, <a href="struct_dnnl_lrn_forward_desc.html#index-1">[48]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-1">[49]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-2">[50]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-3">[51]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-1">[52]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-2">[53]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-3">[54]</a>, <a href="struct_dnnl_matmul_desc.html#index-1">[55]</a>, <a href="struct_dnnl_matmul_desc.html#index-2">[56]</a>, <a href="struct_dnnl_memory_desc.html#index-2">[57]</a>, <a href="struct_dnnl_memory_desc.html#index-3">[58]</a>, <a href="struct_dnnl_memory_desc.html#index-4">[59]</a>, <a href="struct_dnnl_memory_desc.html#index-5">[60]</a>, <a href="struct_dnnl_pooling_backward_desc.html#index-1">[61]</a>, <a href="struct_dnnl_pooling_forward_desc.html#index-1">[62]</a>, <a href="struct_dnnl_pooling_v2_backward_desc.html#index-1">[63]</a>, <a href="struct_dnnl_pooling_v2_forward_desc.html#index-1">[64]</a>, <a href="struct_dnnl_prelu_backward_desc.html#index-1">[65]</a>, <a href="struct_dnnl_prelu_forward_desc.html#index-1">[66]</a>, <a href="struct_dnnl_reduction_desc.html#index-1">[67]</a>, <a href="struct_dnnl_reduction_desc.html#index-2">[68]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-1">[69]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-2">[70]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-1">[71]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-2">[72]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-3">[73]</a>, <a href="struct_dnnl_shuffle_backward_desc.html#index-1">[74]</a>, <a href="struct_dnnl_shuffle_forward_desc.html#index-1">[75]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-1">[76]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-2">[77]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-1">[78]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-2">[79]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-1">[80]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-2">[81]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-1">[82]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-2">[83]</a>, <a href="struct_dnnl_vanilla_rnn_backward_desc.html#index-1">[84]</a>, <a href="struct_dnnl_vanilla_rnn_forward_desc.html#index-1">[85]</a>
+        <li><a href="struct_dnnl_augru_backward_desc.html#index-1">desc</a>, <a href="struct_dnnl_augru_forward_desc.html#index-1">[1]</a>, <a href="struct_dnnl_batch_normalization_backward_desc.html#index-1">[2]</a>, <a href="struct_dnnl_batch_normalization_forward_desc.html#index-1">[3]</a>, <a href="struct_dnnl_binary_desc.html#index-2">[4]</a>, <a href="struct_dnnl_binary_desc.html#index-3">[5]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-1">[6]</a>, <a href="struct_dnnl_convolution_backward_data_desc.html#index-2">[7]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-1">[8]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-2">[9]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-3">[10]</a>, <a href="struct_dnnl_convolution_backward_weights_desc.html#index-4">[11]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-1">[12]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-2">[13]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-3">[14]</a>, <a href="struct_dnnl_convolution_forward_desc.html#index-4">[15]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-1">[16]</a>, <a href="struct_dnnl_deconvolution_backward_data_desc.html#index-2">[17]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-1">[18]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-2">[19]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-3">[20]</a>, <a href="struct_dnnl_deconvolution_backward_weights_desc.html#index-4">[21]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-1">[22]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-2">[23]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-3">[24]</a>, <a href="struct_dnnl_deconvolution_forward_desc.html#index-4">[25]</a>, <a href="struct_dnnl_eltwise_backward_desc.html#index-1">[26]</a>, <a href="struct_dnnl_eltwise_forward_desc.html#index-1">[27]</a>, <a href="struct_dnnl_gru_backward_desc.html#index-1">[28]</a>, <a href="struct_dnnl_gru_forward_desc.html#index-1">[29]</a>, <a href="struct_dnnl_inner_product_backward_data_desc.html#index-1">[30]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-1">[31]</a>, <a href="struct_dnnl_inner_product_backward_weights_desc.html#index-2">[32]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-1">[33]</a>, <a href="struct_dnnl_inner_product_forward_desc.html#index-2">[34]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-1">[35]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-2">[36]</a>, <a href="struct_dnnl_layer_normalization_backward_desc.html#index-3">[37]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-1">[38]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-2">[39]</a>, <a href="struct_dnnl_layer_normalization_forward_desc.html#index-3">[40]</a>, <a href="struct_dnnl_lbr_augru_backward_desc.html#index-1">[41]</a>, <a href="struct_dnnl_lbr_augru_forward_desc.html#index-1">[42]</a>, <a href="struct_dnnl_lbr_gru_backward_desc.html#index-1">[43]</a>, <a href="struct_dnnl_lbr_gru_forward_desc.html#index-1">[44]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-1">[45]</a>, <a href="struct_dnnl_logsoftmax_backward_desc.html#index-2">[46]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-1">[47]</a>, <a href="struct_dnnl_logsoftmax_forward_desc.html#index-2">[48]</a>, <a href="struct_dnnl_lrn_backward_desc.html#index-1">[49]</a>, <a href="struct_dnnl_lrn_forward_desc.html#index-1">[50]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-1">[51]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-2">[52]</a>, <a href="struct_dnnl_lstm_backward_desc.html#index-3">[53]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-1">[54]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-2">[55]</a>, <a href="struct_dnnl_lstm_forward_desc.html#index-3">[56]</a>, <a href="struct_dnnl_matmul_desc.html#index-1">[57]</a>, <a href="struct_dnnl_matmul_desc.html#index-2">[58]</a>, <a href="struct_dnnl_memory_desc.html#index-2">[59]</a>, <a href="struct_dnnl_memory_desc.html#index-3">[60]</a>, <a href="struct_dnnl_memory_desc.html#index-4">[61]</a>, <a href="struct_dnnl_memory_desc.html#index-5">[62]</a>, <a href="struct_dnnl_pooling_backward_desc.html#index-1">[63]</a>, <a href="struct_dnnl_pooling_forward_desc.html#index-1">[64]</a>, <a href="struct_dnnl_pooling_v2_backward_desc.html#index-1">[65]</a>, <a href="struct_dnnl_pooling_v2_forward_desc.html#index-1">[66]</a>, <a href="struct_dnnl_prelu_backward_desc.html#index-1">[67]</a>, <a href="struct_dnnl_prelu_forward_desc.html#index-1">[68]</a>, <a href="struct_dnnl_reduction_desc.html#index-1">[69]</a>, <a href="struct_dnnl_reduction_desc.html#index-2">[70]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-1">[71]</a>, <a href="struct_dnnl_resampling_backward_desc.html#index-2">[72]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-1">[73]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-2">[74]</a>, <a href="struct_dnnl_resampling_forward_desc.html#index-3">[75]</a>, <a href="struct_dnnl_shuffle_backward_desc.html#index-1">[76]</a>, <a href="struct_dnnl_shuffle_forward_desc.html#index-1">[77]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-1">[78]</a>, <a href="struct_dnnl_softmax_backward_desc.html#index-2">[79]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-1">[80]</a>, <a href="struct_dnnl_softmax_forward_desc.html#index-2">[81]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-1">[82]</a>, <a href="struct_dnnl_softmax_v2_backward_desc.html#index-2">[83]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-1">[84]</a>, <a href="struct_dnnl_softmax_v2_forward_desc.html#index-2">[85]</a>, <a href="struct_dnnl_vanilla_rnn_backward_desc.html#index-1">[86]</a>, <a href="struct_dnnl_vanilla_rnn_forward_desc.html#index-1">[87]</a>
 </li>
         <li><a href="struct_dnnl_rnn_primitive_desc_base.html#index-16">diff_augru_attention_desc</a>
 </li>
@@ -12822,6 +12933,10 @@
 </li>
         <li><a href="group_dnnl_api_layer_normalization.html#index-1">dnnl_layer_normalization_forward_desc_init</a>
 </li>
+        <li><a href="group_dnnl_api_layer_normalization_v2.html#index-2">dnnl_layer_normalization_v2_backward_desc_init</a>
+</li>
+        <li><a href="group_dnnl_api_layer_normalization_v2.html#index-1">dnnl_layer_normalization_v2_forward_desc_init</a>
+</li>
         <li><a href="group_dnnl_api_rnn.html#index-18">dnnl_lbr_augru_backward_desc_init</a>
 </li>
         <li><a href="group_dnnl_api_rnn.html#index-17">dnnl_lbr_augru_forward_desc_init</a>
@@ -12910,15 +13025,17 @@
 </li>
         <li><a href="group_dnnl_api_pooling_v2.html#index-1">dnnl_pooling_v2_forward_desc_init</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-41">dnnl_post_ops_append_binary</a>
+        <li><a href="group_dnnl_api_attributes.html#index-43">dnnl_post_ops_append_binary</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-37">dnnl_post_ops_append_dw_k3s1p1</a>
+        <li><a href="group_dnnl_api_attributes.html#index-37">dnnl_post_ops_append_dw</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-39">dnnl_post_ops_append_dw_k3s2p1</a>
+        <li><a href="group_dnnl_api_attributes.html#index-39">dnnl_post_ops_append_dw_k3s1p1</a>
+</li>
+        <li><a href="group_dnnl_api_attributes.html#index-41">dnnl_post_ops_append_dw_k3s2p1</a>
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-35">dnnl_post_ops_append_eltwise</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-43">dnnl_post_ops_append_prelu</a>
+        <li><a href="group_dnnl_api_attributes.html#index-45">dnnl_post_ops_append_prelu</a>
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-29">dnnl_post_ops_append_sum</a>
 </li>
@@ -12934,15 +13051,17 @@
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-28">dnnl_post_ops_get_kind</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-42">dnnl_post_ops_get_params_binary</a>
+        <li><a href="group_dnnl_api_attributes.html#index-44">dnnl_post_ops_get_params_binary</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-38">dnnl_post_ops_get_params_dw_k3s1p1</a>
+        <li><a href="group_dnnl_api_attributes.html#index-38">dnnl_post_ops_get_params_dw</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-40">dnnl_post_ops_get_params_dw_k3s2p1</a>
+        <li><a href="group_dnnl_api_attributes.html#index-40">dnnl_post_ops_get_params_dw_k3s1p1</a>
+</li>
+        <li><a href="group_dnnl_api_attributes.html#index-42">dnnl_post_ops_get_params_dw_k3s2p1</a>
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-36">dnnl_post_ops_get_params_eltwise</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-44">dnnl_post_ops_get_params_prelu</a>
+        <li><a href="group_dnnl_api_attributes.html#index-46">dnnl_post_ops_get_params_prelu</a>
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-32">dnnl_post_ops_get_params_sum</a>
 </li>
@@ -12968,11 +13087,11 @@
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-22">dnnl_primitive_attr_get_post_ops</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-46">dnnl_primitive_attr_get_rnn_data_qparams</a>
+        <li><a href="group_dnnl_api_attributes.html#index-48">dnnl_primitive_attr_get_rnn_data_qparams</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-50">dnnl_primitive_attr_get_rnn_weights_projection_qparams</a>
+        <li><a href="group_dnnl_api_attributes.html#index-52">dnnl_primitive_attr_get_rnn_weights_projection_qparams</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-48">dnnl_primitive_attr_get_rnn_weights_qparams</a>
+        <li><a href="group_dnnl_api_attributes.html#index-50">dnnl_primitive_attr_get_rnn_weights_qparams</a>
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-18">dnnl_primitive_attr_get_scales</a>
 </li>
@@ -12986,11 +13105,11 @@
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-23">dnnl_primitive_attr_set_post_ops</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-45">dnnl_primitive_attr_set_rnn_data_qparams</a>
+        <li><a href="group_dnnl_api_attributes.html#index-47">dnnl_primitive_attr_set_rnn_data_qparams</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-49">dnnl_primitive_attr_set_rnn_weights_projection_qparams</a>
+        <li><a href="group_dnnl_api_attributes.html#index-51">dnnl_primitive_attr_set_rnn_weights_projection_qparams</a>
 </li>
-        <li><a href="group_dnnl_api_attributes.html#index-47">dnnl_primitive_attr_set_rnn_weights_qparams</a>
+        <li><a href="group_dnnl_api_attributes.html#index-49">dnnl_primitive_attr_set_rnn_weights_qparams</a>
 </li>
         <li><a href="group_dnnl_api_attributes.html#index-19">dnnl_primitive_attr_set_scales</a>
 </li>
@@ -13182,15 +13301,17 @@
 </li>
         <li><a href="struct_dnnl_primitive_attr-2.html#index-7">get_output_scales</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-17">get_params_binary</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-19">get_params_binary</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-13">get_params_dw_k3s1p1</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-13">get_params_dw</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-15">get_params_dw_k3s2p1</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-15">get_params_dw_k3s1p1</a>
+</li>
+        <li><a href="struct_dnnl_post_ops-2.html#index-17">get_params_dw_k3s2p1</a>
 </li>
         <li><a href="struct_dnnl_post_ops-2.html#index-11">get_params_eltwise</a>
 </li>
-        <li><a href="struct_dnnl_post_ops-2.html#index-19">get_params_prelu</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-21">get_params_prelu</a>
 </li>
         <li><a href="struct_dnnl_post_ops-2.html#index-7">get_params_sum</a>, <a href="struct_dnnl_post_ops-2.html#index-8">[1]</a>, <a href="struct_dnnl_post_ops-2.html#index-9">[2]</a>
 </li>
@@ -13448,6 +13569,13 @@
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    fuse_norm_add_relu
+
+      <ul>
+        <li><a href="enum_dnnl_normalization_flags.html#index-5">enumvalue</a>
+</li>
+      </ul></li>
+      <li>
     fuse_norm_relu
 
       <ul>
@@ -13639,21 +13767,28 @@
     get_params_binary
 
       <ul>
-        <li><a href="struct_dnnl_post_ops-2.html#index-17">function</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-19">function</a>
 </li>
       </ul></li>
       <li>
-    get_params_dw_k3s1p1
+    get_params_dw
 
       <ul>
         <li><a href="struct_dnnl_post_ops-2.html#index-13">function</a>
 </li>
       </ul></li>
       <li>
-    get_params_dw_k3s2p1
+    get_params_dw_k3s1p1
 
       <ul>
         <li><a href="struct_dnnl_post_ops-2.html#index-15">function</a>
+</li>
+      </ul></li>
+      <li>
+    get_params_dw_k3s2p1
+
+      <ul>
+        <li><a href="struct_dnnl_post_ops-2.html#index-17">function</a>
 </li>
       </ul></li>
       <li>
@@ -13667,7 +13802,7 @@
     get_params_prelu
 
       <ul>
-        <li><a href="struct_dnnl_post_ops-2.html#index-19">function</a>
+        <li><a href="struct_dnnl_post_ops-2.html#index-21">function</a>
 </li>
       </ul></li>
       <li>
@@ -13909,6 +14044,8 @@
 </li>
         <li><a href="group_dnnl_api_deconvolution.html#index-0">Deconvolution</a>
 </li>
+        <li><a href="group_dnnl_api_layer_normalization.html#index-0">Dnnl_api_layer_normalization</a>
+</li>
         <li><a href="group_dnnl_api_eltwise.html#index-0">Eltwise</a>
 </li>
         <li><a href="group_dnnl_api_engine.html#index-0">Engine</a>
@@ -13917,7 +14054,7 @@
 </li>
         <li><a href="group_dnnl_api_inner_product.html#index-0">Inner Product</a>
 </li>
-        <li><a href="group_dnnl_api_layer_normalization.html#index-0">Layer Normalization</a>
+        <li><a href="group_dnnl_api_layer_normalization_v2.html#index-0">Layer Normalization</a>
 </li>
         <li><a href="group_dnnl_api_logsoftmax.html#index-0">LogSoftmax</a>
 </li>
@@ -14262,7 +14399,7 @@
     Layer Normalization
 
       <ul>
-        <li><a href="group_dnnl_api_layer_normalization.html#index-0">group</a>
+        <li><a href="group_dnnl_api_layer_normalization_v2.html#index-0">group</a>
 </li>
         <li><a href="dev_guide_layer_normalization.html#index-0">page</a>
 </li>
@@ -14278,7 +14415,7 @@
     layer_norm_epsilon
 
       <ul>
-        <li><a href="struct_dnnl_layer_normalization_desc_t.html#index-7">variable</a>
+        <li><a href="struct_dnnl_layer_normalization_desc_t.html#index-7">variable</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-7">[1]</a>
 </li>
       </ul></li>
       <li>
@@ -14314,6 +14451,13 @@
 
       <ul>
         <li><a href="struct_dnnl_layer_normalization_forward.html#index-1">function</a>, <a href="struct_dnnl_layer_normalization_forward.html#index-2">[1]</a>, <a href="struct_dnnl_layer_normalization_forward.html#index-3">[2]</a>
+</li>
+      </ul></li>
+      <li>
+    layer_normalization_v2
+
+      <ul>
+        <li><a href="enum_dnnl_primitive_kind.html#index-24">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -14428,6 +14572,8 @@
         <li><a href="dev_guide_link.html#index-0">page</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Local Response Normalization (LRN)
 
@@ -14435,8 +14581,6 @@
         <li><a href="dev_guide_lrn.html#index-0">page</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     Local Response Normalization Primitive Example
 
@@ -15599,7 +15743,7 @@
       <ul>
         <li><a href="enum_dnnl_query.html#index-3">enumvalue</a>
 </li>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-1">variable</a>, <a href="struct_dnnl_binary_desc_t.html#index-1">[1]</a>, <a href="struct_dnnl_convolution_desc_t.html#index-1">[2]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-1">[3]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-1">[4]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-1">[5]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-1">[6]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-1">[7]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-1">[8]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-1">[9]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-1">[10]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-1">[11]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-1">[12]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-1">[13]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-1">[14]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-1">[15]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-1">[16]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-1">variable</a>, <a href="struct_dnnl_binary_desc_t.html#index-1">[1]</a>, <a href="struct_dnnl_convolution_desc_t.html#index-1">[2]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-1">[3]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-1">[4]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-1">[5]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-1">[6]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-1">[7]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-1">[8]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-1">[9]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-1">[10]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-1">[11]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-1">[12]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-1">[13]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-1">[14]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-1">[15]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-1">[16]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-1">[17]</a>
 </li>
       </ul></li>
       <li>
@@ -15631,7 +15775,7 @@
 </li>
         <li><a href="enum_dnnl_query.html#index-12">enumvalue</a>
 </li>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-2">variable</a>, <a href="struct_dnnl_convolution_desc_t.html#index-2">[1]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-2">[2]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-2">[3]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-2">[4]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-2">[5]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-2">[6]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-2">[7]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-2">[8]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-2">[9]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-2">[10]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-2">[11]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-2">[12]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-2">[13]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-2">variable</a>, <a href="struct_dnnl_convolution_desc_t.html#index-2">[1]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-2">[2]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-2">[3]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-2">[4]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-2">[5]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-2">[6]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-2">[7]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-2">[8]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-2">[9]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-2">[10]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-2">[11]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-2">[12]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-2">[13]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-2">[14]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -16396,7 +16540,7 @@
       <ul>
         <li><a href="struct_dnnl_batch_normalization_backward_primitive_desc.html#index-5">function</a>, <a href="struct_dnnl_batch_normalization_forward_primitive_desc.html#index-5">[1]</a>, <a href="struct_dnnl_binary_primitive_desc.html#index-5">[2]</a>, <a href="struct_dnnl_concat_primitive_desc.html#index-5">[3]</a>, <a href="struct_dnnl_convolution_backward_weights_primitive_desc.html#index-5">[4]</a>, <a href="struct_dnnl_convolution_forward_primitive_desc.html#index-5">[5]</a>, <a href="struct_dnnl_deconvolution_backward_weights_primitive_desc.html#index-5">[6]</a>, <a href="struct_dnnl_deconvolution_forward_primitive_desc.html#index-5">[7]</a>, <a href="struct_dnnl_eltwise_backward_primitive_desc.html#index-5">[8]</a>, <a href="struct_dnnl_eltwise_forward_primitive_desc.html#index-5">[9]</a>, <a href="struct_dnnl_inner_product_backward_weights_primitive_desc.html#index-5">[10]</a>, <a href="struct_dnnl_inner_product_forward_primitive_desc.html#index-5">[11]</a>, <a href="struct_dnnl_layer_normalization_backward_primitive_desc.html#index-5">[12]</a>, <a href="struct_dnnl_layer_normalization_forward_primitive_desc.html#index-5">[13]</a>, <a href="struct_dnnl_logsoftmax_forward_primitive_desc.html#index-5">[14]</a>, <a href="struct_dnnl_lrn_forward_primitive_desc.html#index-5">[15]</a>, <a href="struct_dnnl_matmul_primitive_desc.html#index-5">[16]</a>, <a href="struct_dnnl_pooling_forward_primitive_desc.html#index-5">[17]</a>, <a href="struct_dnnl_pooling_v2_forward_primitive_desc.html#index-5">[18]</a>, <a href="struct_dnnl_prelu_backward_primitive_desc.html#index-5">[19]</a>, <a href="struct_dnnl_prelu_forward_primitive_desc.html#index-5">[20]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-12">[21]</a>, <a href="struct_dnnl_primitive_desc_base.html#index-6">[22]</a>, <a href="struct_dnnl_reduction_primitive_desc.html#index-5">[23]</a>, <a href="struct_dnnl_reorder_primitive_desc.html#index-7">[24]</a>, <a href="struct_dnnl_resampling_forward_primitive_desc.html#index-5">[25]</a>, <a href="struct_dnnl_shuffle_forward_primitive_desc.html#index-4">[26]</a>, <a href="struct_dnnl_softmax_forward_primitive_desc.html#index-5">[27]</a>, <a href="struct_dnnl_softmax_v2_forward_primitive_desc.html#index-5">[28]</a>, <a href="struct_dnnl_sum_primitive_desc.html#index-5">[29]</a>
 </li>
-        <li><a href="struct_dnnl_binary_desc_t.html#index-3">variable</a>, <a href="struct_dnnl_convolution_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-3">[2]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-2">[3]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-4">[4]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-4">[5]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-3">[6]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-4">[7]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-3">[8]</a>
+        <li><a href="struct_dnnl_binary_desc_t.html#index-3">variable</a>, <a href="struct_dnnl_convolution_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-3">[2]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-3">[3]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-2">[4]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-4">[5]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-4">[6]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-3">[7]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-4">[8]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-3">[9]</a>
 </li>
       </ul></li>
       <li>
@@ -16444,7 +16588,7 @@
     stat_desc
 
       <ul>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-6">variable</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-6">[1]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-6">variable</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-6">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-6">[2]</a>
 </li>
       </ul></li>
       <li>
@@ -16841,6 +16985,8 @@
 </li>
         <li><a href="struct_dnnl_layer_normalization_desc_t.html#index-0">dnnl_layer_normalization_desc_t</a>
 </li>
+        <li><a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-0">dnnl_layer_normalization_v2_desc_t</a>
+</li>
         <li><a href="struct_dnnl_lrn_desc_t.html#index-0">dnnl_lrn_desc_t</a>
 </li>
         <li><a href="struct_dnnl_matmul_desc_t.html#index-0">dnnl_matmul_desc_t</a>
@@ -16965,6 +17111,13 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    tf32
+
+      <ul>
+        <li><a href="enum_dnnl_fpmath_mode.html#index-4">enumvalue</a>
+</li>
+      </ul></li>
       <li>
     Threadpool interoperability API
 
@@ -17142,7 +17295,7 @@
     use_scale
 
       <ul>
-        <li><a href="enum_dnnl_normalization_flags.html#index-5">enumvalue</a>
+        <li><a href="enum_dnnl_normalization_flags.html#index-6">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -17156,7 +17309,7 @@
     use_shift
 
       <ul>
-        <li><a href="enum_dnnl_normalization_flags.html#index-6">enumvalue</a>
+        <li><a href="enum_dnnl_normalization_flags.html#index-7">enumvalue</a>
 </li>
       </ul></li>
       <li>
@@ -17278,7 +17431,7 @@
 </li>
         <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-3">data_desc</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-3">[2]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-4">[3]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-3">[4]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-3">[5]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-3">[6]</a>
 </li>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-5">data_scaleshift_desc</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-5">[1]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-5">data_scaleshift_desc</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-5">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-5">[2]</a>
 </li>
         <li><a href="struct_dnnl_memory_desc_t.html#index-3">data_type</a>
 </li>
@@ -17288,7 +17441,7 @@
 </li>
         <li><a href="struct_dnnl_softmax_desc_t.html#index-4">diff_desc</a>
 </li>
-        <li><a href="struct_dnnl_convolution_desc_t.html#index-11">diff_dst_desc</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-7">[2]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-7">[3]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-7">[4]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-8">[5]</a>
+        <li><a href="struct_dnnl_convolution_desc_t.html#index-11">diff_dst_desc</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-9">[2]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-7">[3]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-7">[4]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-7">[5]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-8">[6]</a>
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-24">diff_dst_iter_c_desc</a>
 </li>
@@ -17296,7 +17449,7 @@
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-22">diff_dst_layer_desc</a>
 </li>
-        <li><a href="struct_dnnl_convolution_desc_t.html#index-5">diff_src_desc</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-5">[2]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-5">[3]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-5">[4]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-4">[5]</a>
+        <li><a href="struct_dnnl_convolution_desc_t.html#index-5">diff_src_desc</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-4">[2]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-5">[3]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-5">[4]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-5">[5]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-4">[6]</a>
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-18">diff_src_iter_c_desc</a>
 </li>
@@ -17322,7 +17475,7 @@
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-4">direction</a>
 </li>
-        <li><a href="struct_dnnl_binary_desc_t.html#index-4">dst_desc</a>, <a href="struct_dnnl_convolution_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-9">[2]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-5">[3]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-6">[4]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-6">[5]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-4">[6]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-6">[7]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-7">[8]</a>
+        <li><a href="struct_dnnl_binary_desc_t.html#index-4">dst_desc</a>, <a href="struct_dnnl_convolution_desc_t.html#index-10">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-9">[2]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-8">[3]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-5">[4]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-6">[5]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-6">[6]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-4">[7]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-6">[8]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-7">[9]</a>
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-13">dst_iter_c_desc</a>
 </li>
@@ -17350,7 +17503,7 @@
 </li>
         <li><a href="struct_dnnl_pooling_desc_t.html#index-9">kernel</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-9">[1]</a>
 </li>
-        <li><a href="struct_dnnl_layer_normalization_desc_t.html#index-7">layer_norm_epsilon</a>
+        <li><a href="struct_dnnl_layer_normalization_desc_t.html#index-7">layer_norm_epsilon</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-7">[1]</a>
 </li>
         <li><a href="struct_dnnl_lrn_desc_t.html#index-6">local_size</a>
 </li>
@@ -17380,9 +17533,9 @@
 </li>
         <li><a href="struct_dnnl_version_t.html#index-3">patch</a>
 </li>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-1">primitive_kind</a>, <a href="struct_dnnl_binary_desc_t.html#index-1">[1]</a>, <a href="struct_dnnl_convolution_desc_t.html#index-1">[2]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-1">[3]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-1">[4]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-1">[5]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-1">[6]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-1">[7]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-1">[8]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-1">[9]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-1">[10]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-1">[11]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-1">[12]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-1">[13]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-1">[14]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-1">[15]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-1">[16]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-1">primitive_kind</a>, <a href="struct_dnnl_binary_desc_t.html#index-1">[1]</a>, <a href="struct_dnnl_convolution_desc_t.html#index-1">[2]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-1">[3]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-1">[4]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-1">[5]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-1">[6]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-1">[7]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-1">[8]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-1">[9]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-1">[10]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-1">[11]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-1">[12]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-1">[13]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-1">[14]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-1">[15]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-1">[16]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-1">[17]</a>
 </li>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-2">prop_kind</a>, <a href="struct_dnnl_convolution_desc_t.html#index-2">[1]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-2">[2]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-2">[3]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-2">[4]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-2">[5]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-2">[6]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-2">[7]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-2">[8]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-2">[9]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-2">[10]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-2">[11]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-2">[12]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-2">[13]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-2">prop_kind</a>, <a href="struct_dnnl_convolution_desc_t.html#index-2">[1]</a>, <a href="struct_dnnl_eltwise_desc_t.html#index-2">[2]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-2">[3]</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-2">[4]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-2">[5]</a>, <a href="struct_dnnl_lrn_desc_t.html#index-2">[6]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-2">[7]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-2">[8]</a>, <a href="struct_dnnl_prelu_desc_t.html#index-2">[9]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-2">[10]</a>, <a href="struct_dnnl_rnn_desc_t.html#index-2">[11]</a>, <a href="struct_dnnl_shuffle_desc_t.html#index-2">[12]</a>, <a href="struct_dnnl_softmax_desc_t.html#index-2">[13]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-2">[14]</a>
 </li>
         <li><a href="struct_dnnl_memory_extra_desc_t.html#index-5">reserved</a>
 </li>
@@ -17392,7 +17545,7 @@
 </li>
         <li><a href="struct_dnnl_softmax_desc_t.html#index-5">softmax_axis</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-5">[1]</a>
 </li>
-        <li><a href="struct_dnnl_binary_desc_t.html#index-3">src_desc</a>, <a href="struct_dnnl_convolution_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-3">[2]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-2">[3]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-4">[4]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-4">[5]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-3">[6]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-4">[7]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-3">[8]</a>
+        <li><a href="struct_dnnl_binary_desc_t.html#index-3">src_desc</a>, <a href="struct_dnnl_convolution_desc_t.html#index-4">[1]</a>, <a href="struct_dnnl_inner_product_desc_t.html#index-3">[2]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-3">[3]</a>, <a href="struct_dnnl_matmul_desc_t.html#index-2">[4]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-4">[5]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-4">[6]</a>, <a href="struct_dnnl_reduction_desc_t.html#index-3">[7]</a>, <a href="struct_dnnl_resampling_desc_t.html#index-4">[8]</a>, <a href="struct_dnnl_softmax_v2_desc_t.html#index-3">[9]</a>
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-7">src_iter_c_desc</a>
 </li>
@@ -17400,7 +17553,7 @@
 </li>
         <li><a href="struct_dnnl_rnn_desc_t.html#index-5">src_layer_desc</a>
 </li>
-        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-6">stat_desc</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-6">[1]</a>
+        <li><a href="struct_dnnl_batch_normalization_desc_t.html#index-6">stat_desc</a>, <a href="struct_dnnl_layer_normalization_desc_t.html#index-6">[1]</a>, <a href="struct_dnnl_layer_normalization_v2_desc_t.html#index-6">[2]</a>
 </li>
         <li><a href="struct_dnnl_blocking_desc_t.html#index-1">strides</a>, <a href="struct_dnnl_convolution_desc_t.html#index-12">[1]</a>, <a href="struct_dnnl_pooling_desc_t.html#index-8">[2]</a>, <a href="struct_dnnl_pooling_v2_desc_t.html#index-8">[3]</a>
 </li>

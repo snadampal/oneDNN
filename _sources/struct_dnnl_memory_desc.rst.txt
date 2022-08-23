@@ -324,23 +324,21 @@ The logical axes will be permuted in the following manner:
 
 .. ref-code-block:: cpp
 
-	*  for (i = 0; i < ndims(); i++)
-	*      new_desc.dims()[permutation[i]] = :ref:`dims <doxid-structdnnl_1_1memory_1_1desc_1a491d7a286f274fc21a0202e678fb06e9>`()[i];
-	*
+	for (i = 0; i < ndims(); i++)
+	    new_desc.dims()[permutation[i]] = :ref:`dims <doxid-structdnnl_1_1memory_1_1desc_1a491d7a286f274fc21a0202e678fb06e9>`()[i];
 
 Example:
 
 .. ref-code-block:: cpp
 
-	*      std::vector<int> permutation = {1, 0}; // swap the first and
-	*                                             // the second axes
-	*      :ref:`dnnl::memory::desc <doxid-structdnnl_1_1memory_1_1desc>` in_md(
-	*              {2, 3}, :ref:`data_type <doxid-structdnnl_1_1memory_1_1desc_1a13a55bc177f0397a337222c3de6fd102>`, :ref:`memory::format_tag::ab <doxid-structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa187ef4436122d1cc2f40dc2b92f0eba0>`);
-	*      :ref:`dnnl::memory::desc <doxid-structdnnl_1_1memory_1_1desc>` expect_out_md(
-	*              {3, 2}, :ref:`data_type <doxid-structdnnl_1_1memory_1_1desc_1a13a55bc177f0397a337222c3de6fd102>`, :ref:`memory::format_tag::ba <doxid-structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa07159c47ee1b19ae4fb9c40d480856c4>`);
-	* 
-	*      assert(in_md.permute_axes(permutation) == expect_out_md);
-	*
+	std::vector<int> permutation = {1, 0}; // swap the first and
+	                                       // the second axes
+	:ref:`dnnl::memory::desc <doxid-structdnnl_1_1memory_1_1desc>` in_md(
+	        {2, 3}, :ref:`data_type <doxid-structdnnl_1_1memory_1_1desc_1a13a55bc177f0397a337222c3de6fd102>`, :ref:`memory::format_tag::ab <doxid-structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa187ef4436122d1cc2f40dc2b92f0eba0>`);
+	:ref:`dnnl::memory::desc <doxid-structdnnl_1_1memory_1_1desc>` expect_out_md(
+	        {3, 2}, :ref:`data_type <doxid-structdnnl_1_1memory_1_1desc_1a13a55bc177f0397a337222c3de6fd102>`, :ref:`memory::format_tag::ba <doxid-structdnnl_1_1memory_1a8e71077ed6a5f7fb7b3e6e1a5a2ecf3fa07159c47ee1b19ae4fb9c40d480856c4>`);
+	
+	assert(in_md.permute_axes(permutation) == expect_out_md);
 
 
 

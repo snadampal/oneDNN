@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Global Namespace &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Global Namespace &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -59,7 +59,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1635,12 +1635,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2959,6 +2977,7 @@
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_exec_arg_t.html#doxid-structdnnl-exec-arg-t"><span class="std std-ref">dnnl_exec_arg_t</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_inner_product_desc_t.html#doxid-structdnnl-inner-product-desc-t"><span class="std std-ref">dnnl_inner_product_desc_t</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html#doxid-structdnnl-layer-normalization-desc-t"><span class="std std-ref">dnnl_layer_normalization_desc_t</span></a><span></span><span class="p">;</span>
+<span class="k">struct</span> <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html#doxid-structdnnl-layer-normalization-v2-desc-t"><span class="std std-ref">dnnl_layer_normalization_v2_desc_t</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_lrn_desc_t.html#doxid-structdnnl-lrn-desc-t"><span class="std std-ref">dnnl_lrn_desc_t</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_matmul_desc_t.html#doxid-structdnnl-matmul-desc-t"><span class="std std-ref">dnnl_matmul_desc_t</span></a><span></span><span class="p">;</span>
 <span class="k">struct</span> <a class="reference internal" href="struct_dnnl_memory.html#doxid-structdnnl-memory"><span class="std std-ref">dnnl_memory</span></a><span></span><span class="p">;</span>
@@ -3625,6 +3644,33 @@
     <span class="kt">float</span><span class="o">*</span> <span class="n">beta</span>
     <span class="p">);</span>
 
+<a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1gae29a3c0c6b3d624cdcaea0196246ac38"><span class="std std-ref">dnnl_post_ops_append_dw</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span> <span class="n">count</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">float</span><span class="o">*</span> <span class="n">scales</span>
+    <span class="p">);</span>
+
+<a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga63cec6b35b8dd473222bd4ddff38995e"><span class="std std-ref">dnnl_post_ops_get_params_dw</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga5ca949c8e907bd9ed79bc06d869c9c0e"><span class="std std-ref">const_dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">index</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">weights_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">bias_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span><span class="o">*</span> <span class="n">dst_data_type</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">kernel_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">stride_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">padding_l_size</span><span class="p">,</span>
+    <a class="reference internal" href="group_dnnl_api_memory.html#doxid-group-dnnl-api-memory-1ga872631b12a112bf43fba985cba24dd20"><span class="std std-ref">dnnl_dim_t</span></a><span></span><span class="o">*</span> <span class="n">count</span><span class="p">,</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">mask</span><span class="p">,</span>
+    <span class="k">const</span> <span class="kt">float</span><span class="o">**</span> <span class="n">scales</span>
+    <span class="p">);</span>
+
 <a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga60126f67fa1dd9df8cca16e2dd471184"><span class="std std-ref">dnnl_post_ops_append_dw_k3s1p1</span></a><span></span><span class="p">(</span>
     <a class="reference internal" href="group_dnnl_api_attributes.html#doxid-group-dnnl-api-attributes-1ga7d715ce1a81606584df9dcf045976401"><span class="std std-ref">dnnl_post_ops_t</span></a><span></span> <span class="n">post_ops</span><span class="p">,</span>
     <a class="reference internal" href="enum_dnnl_data_type_t.html#doxid-group-dnnl-api-memory-1ga012ba1c84ff24bdd068f9d2f9b26a130"><span class="std std-ref">dnnl_data_type_t</span></a><span></span> <span class="n">weights_data_type</span><span class="p">,</span>
@@ -4162,6 +4208,27 @@
     <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1gae3c1f22ae55645782923fbfd8b07d0c4"><span class="std std-ref">dnnl_prop_kind_t</span></a><span></span> <span class="n">prop_kind</span><span class="p">,</span>
     <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">diff_data_desc</span><span class="p">,</span>
     <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">data_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">stat_desc</span><span class="p">,</span>
+    <span class="kt">float</span> <span class="n">epsilon</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="n">flags</span>
+    <span class="p">);</span>
+
+<a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html#doxid-group-dnnl-api-layer-normalization-v2-1gab1653ec4f879de299dfce6879021729e"><span class="std std-ref">dnnl_layer_normalization_v2_forward_desc_init</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html#doxid-structdnnl-layer-normalization-v2-desc-t"><span class="std std-ref">dnnl_layer_normalization_v2_desc_t</span></a><span></span><span class="o">*</span> <span class="n">lnrm_desc</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1gae3c1f22ae55645782923fbfd8b07d0c4"><span class="std std-ref">dnnl_prop_kind_t</span></a><span></span> <span class="n">prop_kind</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">src_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">dst_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">stat_desc</span><span class="p">,</span>
+    <span class="kt">float</span> <span class="n">epsilon</span><span class="p">,</span>
+    <span class="kt">unsigned</span> <span class="n">flags</span>
+    <span class="p">);</span>
+
+<a class="reference internal" href="enum_dnnl_status_t.html#doxid-group-dnnl-api-utils-1gad24f9ded06e34d3ee71e7fc4b408d57a"><span class="std std-ref">dnnl_status_t</span></a><span></span> <span class="n">DNNL_API</span> <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html#doxid-group-dnnl-api-layer-normalization-v2-1ga00570fd99f7d0b8b4485c04b453296d9"><span class="std std-ref">dnnl_layer_normalization_v2_backward_desc_init</span></a><span></span><span class="p">(</span>
+    <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html#doxid-structdnnl-layer-normalization-v2-desc-t"><span class="std std-ref">dnnl_layer_normalization_v2_desc_t</span></a><span></span><span class="o">*</span> <span class="n">lnrm_desc</span><span class="p">,</span>
+    <a class="reference internal" href="enum_dnnl_prop_kind_t.html#doxid-group-dnnl-api-primitives-common-1gae3c1f22ae55645782923fbfd8b07d0c4"><span class="std std-ref">dnnl_prop_kind_t</span></a><span></span> <span class="n">prop_kind</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">diff_src_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">diff_dst_desc</span><span class="p">,</span>
+    <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">src_desc</span><span class="p">,</span>
     <span class="k">const</span> <a class="reference internal" href="struct_dnnl_memory_desc_t.html#doxid-structdnnl-memory-desc-t"><span class="std std-ref">dnnl_memory_desc_t</span></a><span></span><span class="o">*</span> <span class="n">stat_desc</span><span class="p">,</span>
     <span class="kt">float</span> <span class="n">epsilon</span><span class="p">,</span>
     <span class="kt">unsigned</span> <span class="n">flags</span>

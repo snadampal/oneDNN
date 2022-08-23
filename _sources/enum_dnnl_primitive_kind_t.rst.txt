@@ -40,7 +40,8 @@ Kinds of primitives. :ref:`More...<details-group__dnnl__api__primitives__common_
 	    :ref:`dnnl_reduction<doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aaf3bb69107badd983d16909afe507ed04>`,
 	    :ref:`dnnl_prelu<doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aa96f5fd519486bbb41cdf6e297b96b28f>`,
 	    :ref:`dnnl_softmax_v2<doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aa271a1846806adf86457292f38250d619>`,
-	    :ref:`dnnl_primitive_kind_max<doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9>`  = 0x7fff,
+	    :ref:`dnnl_layer_normalization_v2<doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aafc55236cc2678e54d7f3f9b0987630db>`,
+	    :ref:`dnnl_primitive_kind_max<doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9>`     = 0x7fff,
 	};
 
 .. _details-group__dnnl__api__primitives__common_1ga9878f4795e53ad8443e5c0a29e53286a:
@@ -294,6 +295,16 @@ A PReLU primitive.
 	dnnl_softmax_v2
 
 A softmax version 2 primitive (softmax with destination memory descriptor and algorithm kind).
+
+.. index:: pair: enumvalue; dnnl_layer_normalization_v2
+.. _doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aafc55236cc2678e54d7f3f9b0987630db:
+
+.. ref-code-block:: cpp
+	:class: doxyrest-title-code-block
+
+	dnnl_layer_normalization_v2
+
+A layer normalization version 2 primitive (layer normalization with destination memory descriptor).
 
 .. index:: pair: enumvalue; dnnl_primitive_kind_max
 .. _doxid-group__dnnl__api__primitives__common_1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9:

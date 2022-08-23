@@ -17,6 +17,7 @@ ONEDNN_BUILD_TESTS                **ON** , OFF                                  
 ONEDNN_ARCH_OPT_FLAGS             *compiler flags*                              Specifies compiler optimization flags (see warning note below)                                                                                                                                                     
 ONEDNN_ENABLE_CONCURRENT_EXEC     ON, **OFF**                                   Disables sharing a common scratchpad between primitives in :ref:`dnnl::scratchpad_mode::library <doxid-group__dnnl__api__attributes_1ggac24d40ceea0256c7d6cc3a383a0fa07fad521f765a49c72507257a2620612ee96>` mode   
 ONEDNN_ENABLE_JIT_PROFILING       **ON** , OFF                                  Enables :ref:`integration with performance profilers <doxid-dev_guide_profilers>`                                                                                                                                  
+ONEDNN_ENABLE_ITT_TASKS           **ON** , OFF                                  Enables :ref:`integration with performance profilers <doxid-dev_guide_profilers>`                                                                                                                                  
 ONEDNN_ENABLE_PRIMITIVE_CACHE     **ON** , OFF                                  Enables :ref:`primitive cache <doxid-dev_guide_primitive_cache>`                                                                                                                                                   
 ONEDNN_ENABLE_MAX_CPU_ISA         **ON** , OFF                                  Enables :ref:`CPU dispatcher controls <doxid-dev_guide_cpu_dispatcher_control>`                                                                                                                                    
 ONEDNN_ENABLE_CPU_ISA_HINTS       **ON** , OFF                                  Enables :ref:`CPU ISA hints <doxid-dev_guide_cpu_isa_hints>`                                                                                                                                                       
@@ -200,7 +201,7 @@ This assumes that the environment variable ``ACL_ROOT_DIR`` is set to the locati
 
    For a debug build of oneDNN it is advisable to specify a Compute Library build which has also been built with debug enabled.
    
-   oneDNN is only compatible with Compute Library builds v22.02 or later.
+   oneDNN only supports builds with Compute Library v22.05 or later.
    
    
 

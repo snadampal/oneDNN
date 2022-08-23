@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl::fpmath_mode &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl::fpmath_mode &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2880,7 +2898,7 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725a2133fd717402a7966ee88d06f9e0b792"><span class="std std-ref">strict</span></a><span></span> <span class="o">=</span> <span class="n">dnnl_fpmath_mode_strict</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725afe2904d9fb3b0f4a81c92b03dec11424"><span class="std std-ref">bf16</span></a><span></span>   <span class="o">=</span> <span class="n">dnnl_fpmath_mode_bf16</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725aa2449b6477c1fef79be4202906486876"><span class="std std-ref">f16</span></a><span></span>    <span class="o">=</span> <span class="n">dnnl_fpmath_mode_f16</span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725a599f127bd63e32d6fd5457f9f1fa1e14"><span class="std std-ref">f19</span></a><span></span>    <span class="o">=</span> <span class="n">dnnl_fpmath_mode_f19</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725ae00ad49f2e4f0fda1539ae29b2aaef57"><span class="std std-ref">tf32</span></a><span></span>   <span class="o">=</span> <span class="n">dnnl_fpmath_mode_tf32</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725a100b8cad7cf2a56f6df78f171f97a1ec"><span class="std std-ref">any</span></a><span></span>    <span class="o">=</span> <span class="n">dnnl_fpmath_mode_any</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
@@ -2895,8 +2913,8 @@
 <p>Implicit f32-&gt;bf16 conversions allowed.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725aa2449b6477c1fef79be4202906486876"><span id="index-3"></span><span></span><span class="n">f16</span></pre>
 <p>Implicit f32-&gt;f16 conversions allowed.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725a599f127bd63e32d6fd5457f9f1fa1e14"><span id="index-4"></span><span></span><span class="n">f19</span></pre>
-<p>Implicit f32-&gt;f19 conversions allowed.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725ae00ad49f2e4f0fda1539ae29b2aaef57"><span id="index-4"></span><span></span><span class="n">tf32</span></pre>
+<p>Implicit f32-&gt;tf32 conversions allowed.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-attributes-1gga0ad94cbef13dce222933422bfdcfa725a100b8cad7cf2a56f6df78f171f97a1ec"><span id="index-5"></span><span></span><span class="n">any</span></pre>
 <p>Implicit f32-&gt;f16 or f32-&gt;bf16 conversions allowed.</p>
 </section>

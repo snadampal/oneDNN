@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Concat &#8212; oneDNN v2.6.0 documentation</title>
+    <title>Concat &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -63,7 +63,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1639,12 +1639,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2958,7 +2976,28 @@
 </section>
 <section id="post-ops-and-attributes">
 <h3>Post-Ops and Attributes<a class="headerlink" href="#post-ops-and-attributes" title="Permalink to this headline">¶</a></h3>
-<p>The concat primitive does not support any post-ops or attributes.</p>
+<table class="table">
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 39%" />
+<col style="width: 30%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Operation</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Restrictions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Attribute</p></td>
+<td><p><a class="reference internal" href="struct_dnnl_primitive_attr-2.html#doxid-structdnnl-1-1primitive-attr-1a9bf717bd25b6fddd89055da8178eab75"><span class="std std-ref">Scales</span></a></p></td>
+<td><p>Scales the corresponding input tensor by the given scale factor(s).</p></td>
+<td><p>Only one scale per tensor is supported. Input tensors only.</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="implementation-limitations">
@@ -2972,6 +3011,11 @@
 </ul>
 </li>
 <li><p>Refer to <a class="reference internal" href="dev_guide_data_types.html#doxid-dev-guide-data-types"><span class="std std-ref">Data Types</span></a> for limitations related to data types support.</p></li>
+<li><p>GPU</p>
+<ul class="simple">
+<li><p>Only tensors of 6 or fewer dimensions are supported.</p></li>
+</ul>
+</li>
 </ol>
 </section>
 <section id="performance-tips">

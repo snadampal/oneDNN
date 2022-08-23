@@ -226,20 +226,19 @@ Example usage:
 
 .. ref-code-block:: cpp
 
-	*      int mb = 32, oc = 32,
-	*          oh = 14, ow = 14; // convolution output params
-	*      // unique output scales per output channel
-	*      vector<float> scales = { ... };
-	*      int oc_dim = 1; // mb_dim = 0, channel_dim = 1, height_dim = 2, ...
-	* 
-	*      // construct a convolution descriptor
-	*      dnnl::convolution::desc conv_d;
-	* 
-	*      :ref:`dnnl::primitive_attr <doxid-structdnnl_1_1primitive__attr>` attr;
-	*      attr.:ref:`set_output_scales <doxid-structdnnl_1_1primitive__attr_1a4b81acc8e48886313154f75c1708ae02>`(attr, oc, 1 << oc_dim, scales);
-	* 
-	*      :ref:`dnnl::primitive_desc <doxid-structdnnl_1_1primitive__desc>` conv_pd(conv_d, attr, :ref:`engine <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7>`);
-	*
+	int mb = 32, oc = 32,
+	    oh = 14, ow = 14; // convolution output params
+	// unique output scales per output channel
+	vector<float> scales = { ... };
+	int oc_dim = 1; // mb_dim = 0, channel_dim = 1, height_dim = 2, ...
+	
+	// construct a convolution descriptor
+	dnnl::convolution::desc conv_d;
+	
+	:ref:`dnnl::primitive_attr <doxid-structdnnl_1_1primitive__attr>` attr;
+	attr.:ref:`set_output_scales <doxid-structdnnl_1_1primitive__attr_1a4b81acc8e48886313154f75c1708ae02>`(attr, oc, 1 << oc_dim, scales);
+	
+	:ref:`dnnl::primitive_desc <doxid-structdnnl_1_1primitive__desc>` conv_pd(conv_d, attr, :ref:`engine <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7>`);
 
 .. note:: 
 
@@ -472,20 +471,19 @@ Example usage:
 
 .. ref-code-block:: cpp
 
-	*      // RNN parameters
-	*      int l = 2, t = 2, mb = 32, sic = 32, slc = 32, dic = 32, dlc = 32;
-	*      // Activations quantization parameters
-	*      float scale = 63.f, shift = 64.f;
-	* 
-	*      :ref:`primitive_attr <doxid-structdnnl_1_1primitive__attr_1acfbfd85b7ca82bf97e2b07c2427427de>` attr;
-	* 
-	*      // Set scale and shift for int8 quantization of activation
-	*      attr.:ref:`set_rnn_data_qparams <doxid-structdnnl_1_1primitive__attr_1a39ce5aa8b06ed331d8e2158108cc8324>`(scale, shift);
-	* 
-	*      // Create and configure rnn op_desc
-	*      vanilla_rnn_forward::desc :ref:`rnn_d <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52>`(/* arguments */);
-	*      vanilla_rnn_forward::primitive_desc :ref:`rnn_d <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52>`(:ref:`rnn_d <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52>`, attr, :ref:`engine <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7>`);
-	*
+	// RNN parameters
+	int l = 2, t = 2, mb = 32, sic = 32, slc = 32, dic = 32, dlc = 32;
+	// Activations quantization parameters
+	float scale = 63.f, shift = 64.f;
+	
+	:ref:`primitive_attr <doxid-structdnnl_1_1primitive__attr_1acfbfd85b7ca82bf97e2b07c2427427de>` attr;
+	
+	// Set scale and shift for int8 quantization of activation
+	attr.:ref:`set_rnn_data_qparams <doxid-structdnnl_1_1primitive__attr_1a39ce5aa8b06ed331d8e2158108cc8324>`(scale, shift);
+	
+	// Create and configure rnn op_desc
+	vanilla_rnn_forward::desc :ref:`rnn_d <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52>`(/* arguments */);
+	vanilla_rnn_forward::primitive_desc :ref:`rnn_d <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52>`(:ref:`rnn_d <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1a5bada9b07803d3e657d5bdc592f7fc52>`, attr, :ref:`engine <doxid-group__dnnl__api__primitives__common_1gga94efdd650364f4d9776cfb9b711cbdc1aad1943a9fd6d3d7ee1e6af41a5b0d3e7>`);
 
 .. note:: 
 

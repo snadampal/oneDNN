@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl_primitive_kind_t &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl_primitive_kind_t &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2901,7 +2919,8 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aaf3bb69107badd983d16909afe507ed04"><span class="std std-ref">dnnl_reduction</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa96f5fd519486bbb41cdf6e297b96b28f"><span class="std std-ref">dnnl_prelu</span></a><span></span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa271a1846806adf86457292f38250d619"><span class="std std-ref">dnnl_softmax_v2</span></a><span></span><span class="p">,</span>
-    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9"><span class="std std-ref">dnnl_primitive_kind_max</span></a><span></span>  <span class="o">=</span> <span class="mh">0x7fff</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aafc55236cc2678e54d7f3f9b0987630db"><span class="std std-ref">dnnl_layer_normalization_v2</span></a><span></span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9"><span class="std std-ref">dnnl_primitive_kind_max</span></a><span></span>     <span class="o">=</span> <span class="mh">0x7fff</span><span class="p">,</span>
 <span class="p">};</span></pre>
 </section>
 <section id="detailed-documentation">
@@ -2958,7 +2977,9 @@
 <p>A PReLU primitive.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa271a1846806adf86457292f38250d619"><span id="index-24"></span><span></span><span class="n">dnnl_softmax_v2</span></pre>
 <p>A softmax version 2 primitive (softmax with destination memory descriptor and algorithm kind).</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9"><span id="index-25"></span><span></span><span class="n">dnnl_primitive_kind_max</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aafc55236cc2678e54d7f3f9b0987630db"><span id="index-25"></span><span></span><span class="n">dnnl_layer_normalization_v2</span></pre>
+<p>A layer normalization version 2 primitive (layer normalization with destination memory descriptor).</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-primitives-common-1gga9878f4795e53ad8443e5c0a29e53286aa3246cd9a7193bd0b94facea9e0a2cca9"><span id="index-26"></span><span></span><span class="n">dnnl_primitive_kind_max</span></pre>
 <p>Parameter to allow internal only primitives without undefined behavior.</p>
 <p>This parameter is chosen to be valid for so long as sizeof(int) &gt;= 2.</p>
 </section>

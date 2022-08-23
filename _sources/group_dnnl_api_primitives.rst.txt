@@ -26,6 +26,7 @@ Primitives
 	group_dnnl_api_lrn.rst
 	group_dnnl_api_batch_normalization.rst
 	group_dnnl_api_layer_normalization.rst
+	group_dnnl_api_layer_normalization_v2.rst
 	group_dnnl_api_inner_product.rst
 	group_dnnl_api_rnn.rst
 	group_dnnl_api_matmul.rst
@@ -55,7 +56,8 @@ Compute primitives. :ref:`More...<details-group__dnnl__api__primitives>`
 |	:ref:`PReLU<doxid-group__dnnl__api__prelu>`
 |	:ref:`LRN<doxid-group__dnnl__api__lrn>`
 |	:ref:`Batch Normalization<doxid-group__dnnl__api__batch__normalization>`
-|	:ref:`Layer Normalization<doxid-group__dnnl__api__layer__normalization>`
+|	:ref:`Dnnl_api_layer_normalization<doxid-group__dnnl__api__layer__normalization>`
+|	:ref:`Layer Normalization<doxid-group__dnnl__api__layer__normalization__v2>`
 |	:ref:`Inner Product<doxid-group__dnnl__api__inner__product>`
 |	:ref:`RNN<doxid-group__dnnl__api__rnn>`
 |	:ref:`Matrix Multiplication<doxid-group__dnnl__api__matmul>`

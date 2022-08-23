@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>enum dnnl_cpu_isa_t &#8212; oneDNN v2.6.0 documentation</title>
+    <title>enum dnnl_cpu_isa_t &#8212; oneDNN v2.7.0 documentation</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -61,7 +61,7 @@
 <a class="navbar-brand text-wrap" href="index.html">
   
   
-  <h1 class="site-logo" id="site-title">oneDNN v2.6.0 documentation</h1>
+  <h1 class="site-logo" id="site-title">oneDNN v2.7.0 documentation</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -1637,12 +1637,30 @@
      </li>
      <li class="toctree-l3 collapsible-parent">
       <a class="reference internal" href="group_dnnl_api_layer_normalization.html">
-       Layer Normalization
+       Dnnl_api_layer_normalization
       </a>
       <ul class="collapse-ul">
        <li class="toctree-l4 collapsible-parent">
         <a class="reference internal" href="struct_dnnl_layer_normalization_desc_t.html">
          struct dnnl_layer_normalization_desc_t
+        </a>
+        <ul class="simple collapse-ul">
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="group_dnnl_api_layer_normalization_v2.html">
+       Layer Normalization
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="struct_dnnl_layer_normalization_v2_desc_t.html">
+         struct dnnl_layer_normalization_v2_desc_t
         </a>
         <ul class="simple collapse-ul">
         </ul>
@@ -2886,6 +2904,7 @@
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a574f09a9b057ba134d48dadf6d8aa201"><span class="std std-ref">dnnl_cpu_isa_avx512_core</span></a><span></span>      <span class="o">=</span> <span class="mh">0x27</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a3aced59a3047f7e407b1fe3310430554"><span class="std std-ref">dnnl_cpu_isa_avx512_core_vnni</span></a><span></span> <span class="o">=</span> <span class="mh">0x67</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a9ced36845ccb9a8dd63cd49ec103412b"><span class="std std-ref">dnnl_cpu_isa_avx512_core_bf16</span></a><span></span> <span class="o">=</span> <span class="mh">0xe7</span><span class="p">,</span>
+    <a class="reference internal" href="#doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2aba37df95641b63e78c7e4a52c2acdd84"><span class="std std-ref">dnnl_cpu_isa_avx512_core_fp16</span></a><span></span> <span class="o">=</span> <span class="mh">0x1e7</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a3a4b0c594f109982fde90e221087ded9"><span class="std std-ref">dnnl_cpu_isa_avx512_core_amx</span></a><span></span>  <span class="o">=</span> <span class="mh">0x3e7</span><span class="p">,</span>
     <a class="reference internal" href="#doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a8f2cbdae2834cebd2e5bf86b8c65e9d4"><span class="std std-ref">dnnl_cpu_isa_avx2_vnni</span></a><span></span>        <span class="o">=</span> <span class="mh">0x407</span><span class="p">,</span>
 <span class="p">};</span></pre>
@@ -2913,9 +2932,11 @@
 <p>Intel AVX-512 and Intel Deep Learning Boost (Intel DL Boost) support for Intel Xeon Scalable processor family and Intel Core processor family.</p>
 <pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a9ced36845ccb9a8dd63cd49ec103412b"><span id="index-9"></span><span></span><span class="n">dnnl_cpu_isa_avx512_core_bf16</span></pre>
 <p>Intel AVX-512, Intel DL Boost and bfloat16 support for Intel Xeon Scalable processor family and Intel Core processor family.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a3a4b0c594f109982fde90e221087ded9"><span id="index-10"></span><span></span><span class="n">dnnl_cpu_isa_avx512_core_amx</span></pre>
-<p>Intel AVX-512, Intel DL Boost and bfloat16 support and Intel AMX with 8-bit integer and bfloat16 support.</p>
-<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a8f2cbdae2834cebd2e5bf86b8c65e9d4"><span id="index-11"></span><span></span><span class="n">dnnl_cpu_isa_avx2_vnni</span></pre>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2aba37df95641b63e78c7e4a52c2acdd84"><span id="index-10"></span><span></span><span class="n">dnnl_cpu_isa_avx512_core_fp16</span></pre>
+<p>Intel AVX-512 with float16, Intel DL Boost and bfloat16 support for Intel Xeon Scalable processor family and Intel Core processor family.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a3a4b0c594f109982fde90e221087ded9"><span id="index-11"></span><span></span><span class="n">dnnl_cpu_isa_avx512_core_amx</span></pre>
+<p>Intel AVX-512 with float16, Intel DL Boost and bfloat16 support and Intel AMX with 8-bit integer and bfloat16 support.</p>
+<pre class="highlight doxyrest-title-code-block literal-block" id="doxid-group-dnnl-api-service-1gga303bab5d2e7b371bb44495864df21dd2a8f2cbdae2834cebd2e5bf86b8c65e9d4"><span id="index-12"></span><span></span><span class="n">dnnl_cpu_isa_avx2_vnni</span></pre>
 <p>Intel AVX2 and Intel Deep Learning Boost (Intel DL Boost) support.</p>
 </section>
 </section>
