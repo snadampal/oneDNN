@@ -19,6 +19,10 @@
 
 #include "cpu/cpu_convolution_pd.hpp"
 
+#include "arm_compute/runtime/Allocator.h"
+#include "arm_compute/runtime/BlobLifetimeManager.h"
+#include "arm_compute/runtime/MemoryManagerCached.h"
+#include "arm_compute/runtime/PoolManager.h"
 #include "cpu/aarch64/acl_post_ops.hpp"
 #include "cpu/aarch64/acl_utils.hpp"
 
@@ -29,7 +33,11 @@ namespace aarch64 {
 
 template <typename NEConv>
 struct acl_obj_t {
-    NEConv conv;
+    acl_obj_t(const std::shared_ptr<arm_compute::MemoryManagerCached>
+                    &memory_manager)
+        : conv(utils::make_unique<NEConv>(memory_manager)) {}
+
+    std::unique_ptr<NEConv> conv;
     arm_compute::Tensor src_tensor;
     arm_compute::Tensor wei_tensor;
     arm_compute::Tensor bia_tensor;
@@ -105,8 +113,7 @@ status_t execute_forward_conv_acl(
         acl_conv_obj.bia_tensor.allocator()->import_memory(
                 const_cast<bia_data_t *>(bia_base));
     }
-
-    acl_conv_obj.conv.run();
+    acl_conv_obj.conv->run();
 
     acl_conv_obj.src_tensor.allocator()->free();
     acl_conv_obj.wei_tensor.allocator()->free();

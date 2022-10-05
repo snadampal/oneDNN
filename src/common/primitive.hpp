@@ -78,6 +78,11 @@ struct primitive_t : public c_compatible {
         return status::success;
     }
 
+    virtual status_t destroy_resource(
+            engine_t *engine, resource_mapper_t &mapper) const {
+        return status::success;
+    }
+
     // Although this function is marked as `const` it changes primitive_t state.
     // The only place where this function should be used is in:
     // `init(engine_t *engine, bool use_global_scratchpad)` during primitive_t

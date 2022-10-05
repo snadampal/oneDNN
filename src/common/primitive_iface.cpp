@@ -249,6 +249,9 @@ dnnl_primitive::dnnl_primitive(const std::shared_ptr<primitive_t> &primitive,
               primitive_->pd(), engine, src_engine, dst_engine)) {}
 
 dnnl_primitive::~dnnl_primitive() {
+    if (primitive_ != nullptr)
+        primitive_->destroy_resource(pd()->engine(), resource_mapper_);
+
     if (scratchpad_debug::is_protect_scratchpad() && scratchpad_ != nullptr
             && scratchpad_->get_memory_storage() != nullptr) {
         const memory_tracking::registry_t &registry

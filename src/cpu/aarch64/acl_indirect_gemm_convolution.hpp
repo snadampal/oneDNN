@@ -21,15 +21,18 @@
 
 #include "cpu/aarch64/acl_convolution_utils.hpp"
 
+#define NUM_MEMORY_POOLS 1
 namespace dnnl {
 namespace impl {
 namespace cpu {
 namespace aarch64 {
 
 struct acl_indirect_gemm_resource_t : public resource_t {
-    acl_indirect_gemm_resource_t()
-        : acl_obj_(utils::make_unique<acl_obj_t<arm_compute::NEGEMMConv2d>>()) {
-    }
+    acl_indirect_gemm_resource_t(
+            const std::shared_ptr<arm_compute::MemoryManagerCached> mem_mgr_)
+        : acl_obj_(utils::make_unique<acl_obj_t<arm_compute::NEGEMMConv2d>>(
+                mem_mgr_))
+        , acl_mem_mgr_obj_(mem_mgr_) {}
 
     status_t configure(const acl_conv_conf_t &acp) {
         if (!acl_obj_) return status::out_of_memory;
@@ -41,7 +44,7 @@ struct acl_indirect_gemm_resource_t : public resource_t {
         acl_obj_->bia_tensor.allocator()->init(acp.bia_info);
 
         // clang-format off
-        acl_obj_->conv.configure(
+        acl_obj_->conv->configure(
             &acl_obj_->src_tensor,
             &acl_obj_->wei_tensor,
             acp.with_bias ? &acl_obj_->bia_tensor : nullptr,
@@ -51,6 +54,7 @@ struct acl_indirect_gemm_resource_t : public resource_t {
                                     acp.act_info,
                                     acp.fast_math,
                                     1));
+	acl_mem_mgr_obj_->reserve_pools(acl_allocator, NUM_MEMORY_POOLS);
         // clang-format on
 
         return status::success;
@@ -64,7 +68,8 @@ struct acl_indirect_gemm_resource_t : public resource_t {
 
 private:
     std::unique_ptr<acl_obj_t<arm_compute::NEGEMMConv2d>> acl_obj_;
-
+    std::shared_ptr<arm_compute::MemoryManagerCached> acl_mem_mgr_obj_;
+    arm_compute::Allocator acl_allocator {};
 }; // acl_indirect_gemm_resource_t
 
 struct acl_indirect_gemm_convolution_fwd_t : public primitive_t {
@@ -105,13 +110,18 @@ struct acl_indirect_gemm_convolution_fwd_t : public primitive_t {
         acl_post_ops_t post_ops;
     };
 
-    acl_indirect_gemm_convolution_fwd_t(const pd_t *apd) : primitive_t(apd) {}
+    acl_indirect_gemm_convolution_fwd_t(const pd_t *apd)
+        : primitive_t(apd)
+        , acl_mem_mgr_obj_(std::make_shared<arm_compute::MemoryManagerCached>(
+                  std::make_shared<arm_compute::BlobLifetimeManager>(),
+                  std::make_shared<arm_compute::PoolManager>())) {}
 
     status_t create_resource(
             engine_t *engine, resource_mapper_t &mapper) const override {
         if (mapper.has_resource(this)) return status::success;
 
-        auto r = utils::make_unique<acl_indirect_gemm_resource_t>();
+        auto r = utils::make_unique<acl_indirect_gemm_resource_t>(
+                acl_mem_mgr_obj_);
         if (!r) return status::out_of_memory;
 
         // Configure the resource based on information from primitive descriptor
@@ -120,6 +130,12 @@ struct acl_indirect_gemm_convolution_fwd_t : public primitive_t {
 
         CHECK(pd()->post_ops.create_resource(engine, mapper));
 
+        return status::success;
+    }
+
+    status_t destroy_resource(
+            engine_t *engine, resource_mapper_t &mapper) const override {
+        acl_mem_mgr_obj_->unreserve_pools(1);
         return status::success;
     }
 
@@ -134,6 +150,7 @@ private:
     mutable std::mutex mtx;
     status_t execute_forward(const exec_ctx_t &ctx) const;
     const pd_t *pd() const { return (const pd_t *)primitive_t::pd().get(); }
+    std::shared_ptr<arm_compute::MemoryManagerCached> acl_mem_mgr_obj_;
 };
 
 } // namespace aarch64
