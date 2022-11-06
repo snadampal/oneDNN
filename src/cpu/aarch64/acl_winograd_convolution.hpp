@@ -21,15 +21,19 @@
 
 #include "cpu/aarch64/acl_convolution_utils.hpp"
 
+#define NUM_MEMORY_POOLS 1
+
 namespace dnnl {
 namespace impl {
 namespace cpu {
 namespace aarch64 {
 
 struct acl_wino_resource_t : public resource_t {
-    acl_wino_resource_t()
+    acl_wino_resource_t(
+            const std::shared_ptr<arm_compute::MemoryManagerCached> mem_mgr_)
         : acl_wino_obj_(utils::make_unique<
-                acl_obj_t<arm_compute::NEWinogradConvolutionLayer>>()) {}
+                acl_obj_t<arm_compute::NEWinogradConvolutionLayer>>(mem_mgr_))
+        , acl_mem_mgr_obj_(mem_mgr_) {}
 
     status_t configure(const acl_conv_conf_t &acp) {
         if (!acl_wino_obj_) return status::out_of_memory;
@@ -44,7 +48,7 @@ struct acl_wino_resource_t : public resource_t {
             acl_wino_obj_->dst_acc_tensor.allocator()->init(acp.dst_info);
         }
         // clang-format off
-        acl_wino_obj_->conv.configure(
+        acl_wino_obj_->conv->configure(
             &acl_wino_obj_->src_tensor,
             &acl_wino_obj_->wei_tensor,
             acp.with_bias ? &acl_wino_obj_->bia_tensor : nullptr,
@@ -55,6 +59,8 @@ struct acl_wino_resource_t : public resource_t {
                                  : acp.act_info,
             true); // to support 5x5, 7x7 filter shapes in addition to 3x3
         // clang-format on
+        acl_mem_mgr_obj_->reserve_pools(acl_allocator, NUM_MEMORY_POOLS);
+
         if (acp.sum_with_eltwise) {
             acl_wino_obj_->add.configure(&acl_wino_obj_->dst_tensor,
                     &acl_wino_obj_->dst_acc_tensor,
@@ -77,6 +83,8 @@ struct acl_wino_resource_t : public resource_t {
 private:
     std::unique_ptr<acl_obj_t<arm_compute::NEWinogradConvolutionLayer>>
             acl_wino_obj_;
+    std::shared_ptr<arm_compute::MemoryManagerCached> acl_mem_mgr_obj_;
+    arm_compute::Allocator acl_allocator {};
 }; // acl_wino_resource_t
 
 struct acl_wino_convolution_fwd_t : public primitive_t {
@@ -137,13 +145,17 @@ struct acl_wino_convolution_fwd_t : public primitive_t {
         }
     };
 
-    acl_wino_convolution_fwd_t(const pd_t *apd) : primitive_t(apd) {}
+    acl_wino_convolution_fwd_t(const pd_t *apd)
+        : primitive_t(apd)
+        , acl_mem_mgr_obj_(std::make_shared<arm_compute::MemoryManagerCached>(
+                  std::make_shared<arm_compute::BlobLifetimeManager>(),
+                  std::make_shared<arm_compute::PoolManager>())) {}
 
     status_t create_resource(
             engine_t *engine, resource_mapper_t &mapper) const override {
         if (mapper.has_resource(this)) return status::success;
 
-        auto r = utils::make_unique<acl_wino_resource_t>();
+        auto r = utils::make_unique<acl_wino_resource_t>(acl_mem_mgr_obj_);
         if (!r) return status::out_of_memory;
 
         // Configure the resource based on information from primitive descriptor
@@ -151,6 +163,12 @@ struct acl_wino_convolution_fwd_t : public primitive_t {
         if (st == status::success) { mapper.add(this, std::move(r)); }
 
         return st;
+    }
+
+    status_t destroy_resource(
+            engine_t *engine, resource_mapper_t &mapper) const override {
+        acl_mem_mgr_obj_->unreserve_pools(NUM_MEMORY_POOLS);
+        return status::success;
     }
 
     ~acl_wino_convolution_fwd_t() {}
@@ -166,7 +184,7 @@ private:
     mutable std::mutex mtx;
     status_t execute_forward(const exec_ctx_t &ctx) const;
     const pd_t *pd() const { return (const pd_t *)primitive_t::pd().get(); }
-
+    std::shared_ptr<arm_compute::MemoryManagerCached> acl_mem_mgr_obj_;
 }; // acl_wino_convolution_fwd_t
 
 } // namespace aarch64

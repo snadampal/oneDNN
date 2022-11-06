@@ -19,6 +19,10 @@
 
 #include "cpu/matmul/cpu_matmul_pd.hpp"
 
+#include "arm_compute/runtime/Allocator.h"
+#include "arm_compute/runtime/BlobLifetimeManager.h"
+#include "arm_compute/runtime/MemoryManagerCached.h"
+#include "arm_compute/runtime/PoolManager.h"
 #include "cpu/aarch64/acl_utils.hpp"
 
 namespace dnnl {
@@ -28,7 +32,11 @@ namespace aarch64 {
 namespace matmul {
 
 struct acl_matmul_obj_t {
-    arm_compute::NEGEMM gemm;
+    acl_matmul_obj_t(const std::shared_ptr<arm_compute::MemoryManagerCached>
+                    &memory_manager)
+        : gemm(utils::make_unique<arm_compute::NEGEMM>(memory_manager)) {}
+
+    std::unique_ptr<arm_compute::NEGEMM> gemm;
     arm_compute::NETranspose transA;
     arm_compute::NETranspose transB;
     arm_compute::Tensor src_tensor;

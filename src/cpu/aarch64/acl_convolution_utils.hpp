@@ -17,9 +17,12 @@
 #ifndef CPU_AARCH64_ACL_CONVOLUTION_UTILS_HPP
 #define CPU_AARCH64_ACL_CONVOLUTION_UTILS_HPP
 
-#include "cpu/cpu_convolution_pd.hpp"
-
+#include "arm_compute/runtime/Allocator.h"
+#include "arm_compute/runtime/BlobLifetimeManager.h"
+#include "arm_compute/runtime/MemoryManagerCached.h"
+#include "arm_compute/runtime/PoolManager.h"
 #include "cpu/aarch64/acl_utils.hpp"
+#include "cpu/cpu_convolution_pd.hpp"
 
 namespace dnnl {
 namespace impl {
@@ -28,7 +31,11 @@ namespace aarch64 {
 
 template <typename NEConv>
 struct acl_obj_t {
-    NEConv conv;
+    acl_obj_t(const std::shared_ptr<arm_compute::MemoryManagerCached>
+                    &memory_manager)
+        : conv(utils::make_unique<NEConv>(memory_manager)) {}
+
+    std::unique_ptr<NEConv> conv;
     arm_compute::NEArithmeticAddition add;
     arm_compute::NEActivationLayer act;
     arm_compute::Tensor src_tensor;
@@ -98,7 +105,7 @@ status_t execute_forward_conv_acl(
                 const_cast<bia_data_t *>(bia_base));
     }
 
-    acl_conv_obj.conv.run();
+    acl_conv_obj.conv->run();
 
     if (sum_with_eltwise) {
         acl_conv_obj.add.run();

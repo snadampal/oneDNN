@@ -70,7 +70,7 @@ status_t acl_matmul_t::execute_forward(const exec_ctx_t &ctx) const {
 
     acl_obj.dst_tensor.allocator()->import_memory(dst_base);
 
-    acl_obj.gemm.run();
+    acl_obj.gemm->run();
 
     acl_obj.src_tensor.allocator()->free();
     acl_obj.wei_tensor.allocator()->free();
