@@ -211,3 +211,11 @@
 
 # fp4
 --batch=test_matmul_fp4
+
+# Tests for external blocked weights layout.
+--reset
+--dir=FWD_I
+--skip-impl='ref,jit'
+--allow-enum-tags-only=0
+--wtag=Ab8a
+--batch=shapes_bert

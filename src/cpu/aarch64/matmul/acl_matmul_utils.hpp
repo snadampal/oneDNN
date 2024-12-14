@@ -71,7 +71,7 @@ namespace acl_matmul_utils {
 template <bool IsFixedFormat>
 status_t init_conf_matmul(acl_matmul_conf_t &amp, memory_desc_t &src_md,
         memory_desc_t &wei_md, memory_desc_t &dst_md, const matmul_desc_t &md,
-        const primitive_attr_t &attr);
+        const primitive_attr_t &attr, format_kind_t weights_format_kind_received);
 
 status_t init_scratchpad(memory_tracking::registrar_t &scratchpad,
         const acl_matmul_conf_t &amp, const memory_desc_t &src_md,

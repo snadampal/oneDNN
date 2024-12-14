@@ -28,7 +28,7 @@ namespace acl_matmul_utils {
 template <bool IsFixedFormat>
 status_t init_conf_matmul(acl_matmul_conf_t &amp, memory_desc_t &src_md,
         memory_desc_t &wei_md, memory_desc_t &dst_md, const matmul_desc_t &md,
-        const primitive_attr_t &attr) {
+        const primitive_attr_t &attr, format_kind_t weights_format_kind_received) {
 
     const memory_desc_wrapper src_d(&src_md);
     const memory_desc_wrapper wei_d(&wei_md);
@@ -185,8 +185,16 @@ status_t init_conf_matmul(acl_matmul_conf_t &amp, memory_desc_t &src_md,
         for (dim_t i = K_dim - 1; i >= 0; --i)
             batch_dims.push_back(i);
 
+        const memory_desc_t weights_md_received = wei_md;
+
         acl_utils::reorder_to_weight_format(amp.wei_tensor_info, wei_md,
                 expected_weight_format, K_dim, N_dim, {}, batch_dims);
+
+        ACL_CHECK_SUPPORT((weights_format_kind_received == format_kind::blocked)
+                && !(dnnl_memory_desc_equal(&weights_md_received, &wei_md)),
+            "specified blocked format not supported by ACL, use "
+            "format_kind_t::any to find a supported blocked format for "
+            "your platform");
     }
 
     return status::success;
@@ -230,10 +238,10 @@ status_t init_scratchpad(memory_tracking::registrar_t &scratchpad,
 
 template status_t init_conf_matmul<true>(acl_matmul_conf_t &amp,
         memory_desc_t &src_md, memory_desc_t &wei_md, memory_desc_t &dst_md,
-        const matmul_desc_t &md, const primitive_attr_t &attr);
+        const matmul_desc_t &md, const primitive_attr_t &attr, format_kind_t weights_format_kind_received);
 template status_t init_conf_matmul<false>(acl_matmul_conf_t &amp,
         memory_desc_t &src_md, memory_desc_t &wei_md, memory_desc_t &dst_md,
-        const matmul_desc_t &md, const primitive_attr_t &attr);
+        const matmul_desc_t &md, const primitive_attr_t &attr, format_kind_t weights_format_kind_received);
 
 } // namespace acl_matmul_utils
 

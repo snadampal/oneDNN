@@ -100,10 +100,10 @@ status_t acl_matmul_t::pd_t::init(engine_t *engine) {
 
     if (weights_format_kind_ == format_kind::any) {
         CHECK(acl_matmul_utils::init_conf_matmul<true>(
-                amp_, src_md_, weights_md_, dst_md_, *desc(), *attr()));
+                amp_, src_md_, weights_md_, dst_md_, *desc(), *attr(), weights_format_kind_));
     } else {
         CHECK(acl_matmul_utils::init_conf_matmul<false>(
-                amp_, src_md_, weights_md_, dst_md_, *desc(), *attr()));
+                amp_, src_md_, weights_md_, dst_md_, *desc(), *attr(), weights_format_kind_));
     }
 
     // We can only fuse sum if it is the first post op and we aren't
